@@ -1,7 +1,17 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1, h2, h3 {
+  margin: 0;
 }
 
 @font-face {
@@ -39,10 +49,3 @@ body {
   height: 100vh;
 }
 
-main {
-  min-height: calc(100vh - 65px - 58.1px);
-
-  @media screen and (min-width: 600px) {
-    min-height: calc(100vh - 98px - 58.1px);
-  }
-}
