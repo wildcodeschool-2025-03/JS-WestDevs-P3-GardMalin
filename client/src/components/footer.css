@@ -1,0 +1,35 @@
+footer {
+  background-color: #e3def6;
+  margin: 0;
+  padding: 0;
+}
+
+.link-footer {
+  padding: 0;
+}
+
+.link-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+}
+
+.link-pages {
+  padding: 16px;
+}
+
+@media screen and (min-width: 850px) {
+  .link-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 24px;
+  }
+
+  .link-pages {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
