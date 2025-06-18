@@ -21,7 +21,7 @@ function Footer() {
         </li>
         <li className="link-pages">
           <p>
-            <Link to="">CG</Link>
+            <Link to="">CGU</Link>
           </p>
           <p>
             <Link to="">Nous rejoindre</Link>
