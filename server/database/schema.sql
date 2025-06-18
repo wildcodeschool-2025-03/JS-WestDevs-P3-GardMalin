@@ -60,6 +60,18 @@ VALUES
 
 INSERT INTO parent (id, firstname, lastname, adress, phone_number)
 VALUES
-  (1, "john", "rambo", "2 rue des favelas, 98500 Juven", "06 55 99 99 99"),
-  (2, "nina", "williams", "98 rue du fightclub, 53999 Aren", "06 54 99 99 99"),
-  
+  (1, "John", "Wick", "2 rue des favelas, 98500 Juven", "06 55 99 99 99"),
+  (2, "Nina", "Williams", "98 rue du fightclub, 53999 Aren", "06 54 99 99 99"),
+  (3, "Axel", "Okalm", "55 rue de la zenitude, 25599", "06 53 99 99 99" );
+
+INSERT INTO kid (id, firstname, lastname, age, walker, allergy, handicap)
+VALUES
+  (1, "Flora", "Wick", "8", true, "aucune", false),
+  (2, "Shana", "Williams", "1" false, "asthme", false),
+  (3, "Louis", "Okalm", "5", true, "aucune", true);
+
+INSERT INTO nursery (id, name, adress, phone_number, capacity)
+VALUES
+  (1, "Les Petits Explorateurs", "12 rue des érables, 75000 Paris" , "01 23 45 67 89", "50 places"),
+  (2, "Les Coccinelles Joyeuses", "5 allée des Acacias, 69000 Lyon", "04 78 12 34 56", "25 places"),
+  (3, "Puzzle & Petits Pas", "22 rue des Tisserands 31000 Toulouse", "05 61 23 45 67", "128 places");
