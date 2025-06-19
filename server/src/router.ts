@@ -9,9 +9,19 @@ const router = express.Router();
 // Define item-related routes
 import itemActions from "./modules/item/itemActions";
 
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+router.get("/items", itemActions.browse);
+router.get("/items/:id", itemActions.read);
+router.post("/items", itemActions.add);
+
+import usersActions from "./modules/users/usersActions";
+import parentsActions from "./modules/parents/parentsActions";
+import kidsActions from "./modules/kids/kidsActions";
+import nurserysActions from "./modules/nurserys/nurserysActions";
+
+router.get("/users", usersActions.browse);
+router.get("/parents", parentsActions.browse);
+router.get("/kids", kidsActions.browse);
+router.get("/nurserys", nurserysActions.browse);
 
 /* ************************************************************************* */
 
