@@ -1,6 +1,6 @@
 CREATE TABLE user (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  identifiant VARCHAR(150),
+  email VARCHAR(150),
   password VARCHAR(255) NOT NULL
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE reservation (
   REFERENCES kid(id)
 );
 
-INSERT INTO user (identifiant, password)
+INSERT INTO user (email, password)
 VALUES
   ("john@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$NkVScVltZmFJaXBFTlhaYQ$XvoBBLr+0DEPuB7W/4BfWQ"),
   ("nina@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$V0pPYXdXeFFzWGdUbjZ1SA$SuoHm8nIke7Q3Adt4qfefA"),
