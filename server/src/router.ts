@@ -18,10 +18,10 @@ import parentsActions from "./modules/parents/parentsActions";
 import kidsActions from "./modules/kids/kidsActions";
 import nurserysActions from "./modules/nurserys/nurserysActions";
 
-router.get("/users", usersActions.browse);
-router.get("/parents", parentsActions.browse);
 router.get("/kids", kidsActions.browse);
 router.get("/nurserys", nurserysActions.browse);
+router.get("/parents", parentsActions.browse);
+router.get("/users", usersActions.browse);
 
 /* ************************************************************************* */
 
