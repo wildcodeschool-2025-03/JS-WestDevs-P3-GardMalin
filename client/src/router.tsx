@@ -6,6 +6,7 @@ import "./global.css";
 import App from "./App";
 import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
+import LoginPro from "./pages/LoginPro/LoginPro";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/loginadmin",
         element: <LoginAdmin />,
+      },
+      {
+        path: "/loginpro",
+        element: <LoginPro />,
       },
     ],
   },
