@@ -4,6 +4,7 @@ import "./global.css";
 
 // Import the main app component
 import App from "./App";
+import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/loginparent",
         element: <LoginParent />,
+      },
+      {
+        path: "/loginadmin",
+        element: <LoginAdmin />,
       },
     ],
   },
