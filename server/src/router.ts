@@ -13,10 +13,10 @@ router.get("/items", itemActions.browse);
 router.get("/items/:id", itemActions.read);
 router.post("/items", itemActions.add);
 
-import usersActions from "./modules/users/usersActions";
-import parentsActions from "./modules/parents/parentsActions";
 import kidsActions from "./modules/kids/kidsActions";
 import nurserysActions from "./modules/nurserys/nurserysActions";
+import parentsActions from "./modules/parents/parentsActions";
+import usersActions from "./modules/users/usersActions";
 
 router.get("/kids", kidsActions.browse);
 router.get("/nurserys", nurserysActions.browse);
