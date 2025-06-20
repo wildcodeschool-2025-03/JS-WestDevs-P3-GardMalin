@@ -24,6 +24,12 @@
   border: 0;
 }
 
+.page-en-construction article {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .page-en-construction article h1 {
   font-style: var(--font-family-title);
   font-size: 35px;
@@ -36,13 +42,17 @@
   text-align: center;
 }
 
-#chrono-oups {
-  background-color: rgb(232, 244, 194);
+.page-en-construction article button {
+  background-color: var(--light-bg-bloc-color-button);
+  font-style: var(--font-family-body);
   -webkit-border-radius: 100px / 160px;
   -moz-border-radius: 100px / 160px;
   border-radius: 100px / 160px;
   text-align: center;
-  padding: 0.5rem;
+  padding: 16px;
+  margin: 32px;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -92,8 +102,8 @@
     padding: 48px;
   }
 
-  #chrono-oups {
-    text-align: center;
+  .page-en-construction article button {
+    justify-content: center;
     gap: 25px;
     margin: 16px 96px 16px 96px;
   }
