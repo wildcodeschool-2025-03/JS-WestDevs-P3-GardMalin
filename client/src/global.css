@@ -34,7 +34,7 @@ h3 {
 
 :root {
   --light-bg-bloc-color: rgba(217, 238, 244);
-  --light-bg-bloc-color: rgba(227, 222, 246);
+  --light-bg-bloc-color-button: rgba(227, 222, 246);
   --light-text-color: rgba(30, 30, 30);
   --font-family-body: "lemonada", sans-serif;
   --font-family-title: "lemon", sans-serif;
