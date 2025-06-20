@@ -17,11 +17,14 @@ import kidsActions from "./modules/kids/kidsActions";
 import nurseriesActions from "./modules/nurseries/nurseriesActions";
 import parentsActions from "./modules/parents/parentsActions";
 import usersActions from "./modules/users/usersActions";
+import auth from "./utils/auth";
 
 router.get("/kids", kidsActions.browse);
 router.get("/nurseries", nurseriesActions.browse);
 router.get("/parents", parentsActions.browse);
 router.get("/users", usersActions.browse);
+
+router.post("/login", auth.login);
 
 /* ************************************************************************* */
 
