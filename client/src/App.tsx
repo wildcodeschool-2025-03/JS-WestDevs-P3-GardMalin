@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import "./App.css";
 
 import Footer from "./components/Footer";
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <h1>Bienvenue dans l'application</h1>
+      <Outlet />
       <Footer />
     </>
   );
