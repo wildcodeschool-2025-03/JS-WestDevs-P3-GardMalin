@@ -7,6 +7,7 @@ import App from "./App";
 import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
 import LoginPro from "./pages/LoginPro/LoginPro";
+import Page404 from "./pages/Page404/Page404";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         element: <LoginPro />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Page404 />,
   },
 ]);
 

@@ -69,9 +69,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .login-pro-container section:nth-child(2) h1,
-  section:nth-child(2) img {
-    display: none;
+  .login-pro-container section:nth-child(2) {
+    h1,
+    img {
+      display: none;
+    }
   }
 
   .login-pro-container {
