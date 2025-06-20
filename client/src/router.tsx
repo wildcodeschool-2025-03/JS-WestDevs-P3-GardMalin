@@ -5,7 +5,7 @@ import "./global.css";
 // Import the main app component
 import App from "./App";
 import LoginParent from "./pages/LoginParent/LoginParent";
-import Page404 from "./pages/page404/page404";
+import Page404 from "./pages/Page404/Page404";
 
 const router = createBrowserRouter([
   {
