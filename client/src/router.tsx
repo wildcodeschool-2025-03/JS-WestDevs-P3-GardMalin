@@ -7,6 +7,7 @@ import App from "./App";
 import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
 import Page404 from "./pages/Page404/Page404";
+import PageEnConstruction from "./pages/PageEnConstruction/PageEnConstruction";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/loginadmin",
         element: <LoginAdmin />,
+      },
+      {
+        path: "/maintenance",
+        element: <PageEnConstruction />,
       },
     ],
   },
