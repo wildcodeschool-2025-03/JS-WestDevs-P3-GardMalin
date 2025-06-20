@@ -1,5 +1,7 @@
-import "./App.css";
 import { Outlet } from "react-router";
+import "./App.css";
+
+import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -7,7 +9,7 @@ function App() {
     <>
       <Header />
       <Outlet />
-      <h1>Bienvenue dans l'application</h1>
+      <Footer />
     </>
   );
 }
