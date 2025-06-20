@@ -23,7 +23,7 @@ function Page404() {
   const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
 
   return (
-    <section>
+    <section className="page404">
       <figure>
         <img
           src="/public/images/404.png"
@@ -38,8 +38,8 @@ function Page404() {
         <h1>Erreur 404</h1>
         <p>La page que vous recherchez ne semble pas disponible.</p>
         <p id="chrono">
-          Vous allez être rediriger dans {displaySeconds} secondes vers la page
-          d'accueil.
+          Vous allez être rediriger dans {displaySeconds} secondes <br />
+          vers la page d'accueil.
         </p>
       </article>
     </section>
