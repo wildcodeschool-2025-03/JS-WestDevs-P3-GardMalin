@@ -9,10 +9,6 @@ import Page404 from "./pages/Page404/Page404";
 
 const router = createBrowserRouter([
   {
-    path: "*",
-    element: <Page404 />,
-  },
-  {
     path: "/",
     element: <App />,
     children: [
@@ -21,6 +17,10 @@ const router = createBrowserRouter([
         element: <LoginParent />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <Page404 />,
   },
 ]);
 
