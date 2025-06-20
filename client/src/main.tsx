@@ -8,6 +8,7 @@ import "./global.css";
 
 // Import the main app component
 import App from "./App";
+import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
 
 // Import additional components for new routes
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/loginparent",
     element: <LoginParent />,
+  },
+  {
+    path: "/loginadmin",
+    element: <LoginAdmin />,
   },
   // Try adding a new route! For example, "/about" with an About component
 ]);
