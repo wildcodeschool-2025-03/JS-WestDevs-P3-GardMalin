@@ -8,8 +8,6 @@ const browse: RequestHandler = async (req, res) => {
 
 const add: RequestHandler = async (req, res) => {
   try {
-    console.warn(req.body);
-
     const user = await usersRepository.create(req.body);
 
     if (user) {
