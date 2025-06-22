@@ -24,6 +24,7 @@ router.get("/nurseries", nurseriesActions.browse);
 router.get("/parents", parentsActions.browse);
 router.get("/users", usersActions.browse);
 
+router.post("/user", auth.hashPassword, usersActions.add);
 router.post("/login", auth.login);
 
 /* ************************************************************************* */

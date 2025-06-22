@@ -54,7 +54,7 @@ CREATE TABLE reservation (
 
 INSERT INTO user (email, password)
 VALUES
-  ("john@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$NkVScVltZmFJaXBFTlhaYQ$XvoBBLr+0DEPuB7W/4BfWQ"),
+  ("john@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$R1FUTjk2c0owYjZBamJLTQ$v48LC0PDqRhr7jpy1ifjtQ"),
   ("nina@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$V0pPYXdXeFFzWGdUbjZ1SA$SuoHm8nIke7Q3Adt4qfefA"),
   ("axel@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$a3NyTTVCMlFkR2Z3OXZWdQ$QXb8VjSH8aXAcBBmODOv5Q");
 
