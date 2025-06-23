@@ -68,6 +68,24 @@
   align-self: center;
 }
 
+.section-page button[type="button"] {
+  font-family: var(--font-family-body);
+  margin-top: 20px;
+  background-color: #93c0da;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+
+  width: fit-content;
+  align-self: center;
+}
+
 .section-registration-page button[type="submit"]:hover {
   background-color: #c2aef0;
 }

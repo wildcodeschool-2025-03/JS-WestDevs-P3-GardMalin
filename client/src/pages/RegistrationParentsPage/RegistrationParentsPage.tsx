@@ -38,6 +38,7 @@ function RegistrationParentsPage() {
 
             <button type="submit">Confirmer votre incription</button>
           </form>
+          <button type="button">Espace parents</button>
         </section>
       </section>
     </main>
