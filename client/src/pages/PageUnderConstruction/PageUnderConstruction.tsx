@@ -1,14 +1,14 @@
 import "./PageEnConstruction.css";
 import { useNavigate } from "react-router";
 
-function PageEnConstruction() {
+function PageUnderConstruction() {
   const navigate = useNavigate();
   const pagePrecedente = () => {
     navigate(-1);
   };
 
   return (
-    <section className="page-en-construction">
+    <section className="page-under-constructionn">
       <figure>
         <img
           src="./images/oops.png"
@@ -32,4 +32,4 @@ function PageEnConstruction() {
   );
 }
 
-export default PageEnConstruction;
+export default PageUnderConstruction;

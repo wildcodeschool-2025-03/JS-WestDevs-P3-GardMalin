@@ -1,4 +1,4 @@
-.page-en-construction {
+.page-under-construction {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,10 +6,10 @@
   padding: 1rem;
 }
 
-.page-en-construction figure img {
+.page-under-construction figure img {
   justify-content: center;
   width: 250px;
-  margin: 16px 32px 16px 32px;
+  margin: 16px 32px;
 }
 
 #sr-only {
@@ -24,25 +24,25 @@
   border: 0;
 }
 
-.page-en-construction article {
+.page-under-construction article {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.page-en-construction article h1 {
+.page-under-construction article h1 {
   font-style: var(--font-family-title);
   font-size: 35px;
   text-align: center;
   gap: 5%;
 }
 
-.page-en-construction article:first-of-type p {
+.page-under-construction article:first-of-type p {
   font-style: var(--font-family-body);
   text-align: center;
 }
 
-.page-en-construction article button {
+.page-under-construction article button {
   background-color: var(--light-bg-bloc-color-button);
   font-style: var(--font-family-body);
   -webkit-border-radius: 100px / 160px;
@@ -56,7 +56,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .page-en-construction {
+  .page-under-construction {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -65,7 +65,7 @@
     padding: 0;
   }
 
-  .page-en-construction figure {
+  .page-under-construction figure {
     grid-area: 1 / 1 / 6 / 2;
     background-color: var(--light-bg-bloc-color);
     height: 100vh;
@@ -76,12 +76,12 @@
     padding: 0;
   }
 
-  .page-en-construction figure img {
+  .page-under-construction figure img {
     width: 400px;
     margin: 0;
   }
 
-  .page-en-construction article {
+  .page-under-construction article {
     grid-area: 1 / 2 / 6 / 3;
     height: 100%;
     margin: 0;
@@ -91,18 +91,18 @@
     flex-direction: column;
   }
 
-  .PageEnConstruction article h1 {
+  .page-under-construction article h1 {
     font-style: var(--font-family-title);
     text-align: center;
   }
 
-  .PageEnConstruction article:first-of-type p {
+  .page-under-construction article:first-of-type p {
     text-align: center;
     gap: 25px;
     padding: 48px;
   }
 
-  .page-en-construction article button {
+  .page-under-construction article button {
     justify-content: center;
     gap: 25px;
     margin: 16px 96px 16px 96px;
