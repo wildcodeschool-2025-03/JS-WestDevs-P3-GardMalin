@@ -37,7 +37,7 @@ footer {
   .link-footer {
     display: flex;
     flex-direction: row-reverse;
-    margin: 24px;
+    margin: auto;
   }
 
   .link-pages {
