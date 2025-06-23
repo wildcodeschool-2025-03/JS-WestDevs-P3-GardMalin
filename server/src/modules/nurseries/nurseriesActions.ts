@@ -1,8 +1,8 @@
 import type { RequestHandler } from "express";
-import nurserysRepository from "./nurserysRepository";
+import nurseriesRepository from "./nurseriesRepository";
 
 const browse: RequestHandler = async (req, res) => {
-  const result = await nurserysRepository.readAll();
+  const result = await nurseriesRepository.readAll();
   res.json(result);
 };
 

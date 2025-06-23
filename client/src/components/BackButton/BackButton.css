@@ -1,0 +1,23 @@
+.back-button {
+  display: flex;
+  justify-content: center;
+}
+
+.back-button button {
+  background-color: var(--light-bg-bloc-color-button);
+  font-style: var(--font-family-body);
+  -webkit-border-radius: 100px / 160px;
+  -moz-border-radius: 100px / 160px;
+  border-radius: 100px / 160px;
+  padding: 16px;
+  margin: 32px;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .back-button button {
+    gap: 25px;
+    margin: 16px 96px;
+  }
+}

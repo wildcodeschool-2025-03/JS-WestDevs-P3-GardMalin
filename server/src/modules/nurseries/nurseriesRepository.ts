@@ -1,6 +1,6 @@
 import databaseClient from "../../../database/client";
 
-class nurserysRepository {
+class nurseriesRepository {
   async readAll() {
     const [rows] = await databaseClient.query("SELECT * FROM nursery");
 
@@ -8,4 +8,4 @@ class nurserysRepository {
   }
 }
 
-export default new nurserysRepository();
+export default new nurseriesRepository();
