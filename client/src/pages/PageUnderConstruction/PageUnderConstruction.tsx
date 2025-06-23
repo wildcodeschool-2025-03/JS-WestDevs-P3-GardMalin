@@ -1,14 +1,9 @@
-import "./PageEnConstruction.css";
-import { useNavigate } from "react-router";
+import BackButton from "../../components/BackButton/BackButton";
+import "./PageUnderConstruction.css";
 
 function PageUnderConstruction() {
-  const navigate = useNavigate();
-  const pagePrecedente = () => {
-    navigate(-1);
-  };
-
   return (
-    <section className="page-under-constructionn">
+    <section className="page-under-construction">
       <figure>
         <img
           src="./images/oops.png"
@@ -24,9 +19,7 @@ function PageUnderConstruction() {
         <p>
           Cette page est en cours de maintenance, merci de votre compréhension !
         </p>
-        <button type="button" onClick={pagePrecedente}>
-          Page précédente
-        </button>
+        <BackButton />
       </article>
     </section>
   );
