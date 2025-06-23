@@ -71,7 +71,7 @@
 .section-page button[type="button"] {
   font-family: var(--font-family-body);
   margin-top: 20px;
-  background-color: #93c0da;
+  background-color: #d9eef4;
   color: #000;
   font-weight: bold;
   border: none;
@@ -86,8 +86,12 @@
   align-self: center;
 }
 
-.section-registration-page button[type="submit"]:hover {
-  background-color: #c2aef0;
+.section-page button[type="submit"]:hover {
+  background-color: #a285be;
+}
+
+.section-page button[type="button"]:hover {
+  background-color: #addbf3;
 }
 
 @media screen and (min-width: 850px) {
@@ -95,6 +99,10 @@
     background-image: url("/images/background.png");
     background-size: cover;
     background-position: center;
+  }
+
+  .title-registration h1 {
+    margin-bottom: 48px;
   }
 
   .section-page img {
