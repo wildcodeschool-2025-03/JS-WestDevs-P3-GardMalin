@@ -4,11 +4,18 @@ function SpaceParent() {
   return (
     <>
       <header className="header-page-parent">
-        <h1>Espace parents</h1>
+        <h1>
+          Espace
+          <br />
+          parents
+        </h1>
       </header>
 
       <main className="page-parent">
-        <section>
+        <button className="my-news" type="button">
+          Mes informations
+        </button>
+        <section className="space-reservation">
           <h3>Mes réservations</h3>
           <article className="bloc-one">
             <p>bloc 1</p>
@@ -21,11 +28,7 @@ function SpaceParent() {
           </button>
         </section>
 
-        <button className="my-news" type="button">
-          Mes informations
-        </button>
-
-        <section>
+        <section className="space-children">
           <h3>Espace enfant</h3>
           <article className="bloc-three">
             <img src="/images/little_girl.png" alt="little girl" />
@@ -36,17 +39,32 @@ function SpaceParent() {
             <p>Prénom</p>
           </article>
 
-          <h3>Mes anciennes réservations</h3>
+          <h3>
+            Mes anciennes
+            <br /> réservations
+          </h3>
           <article className="old-reservation">
             <ul className="old-block">
               <li className="box-one">
-                <p>Etablissement d'acceuil 1</p>
+                <p>
+                  Etablissement
+                  <br />
+                  d'acceuil 1
+                </p>
               </li>
               <li className="box-two">
-                <p>Etabliseement d'acceuil 2</p>
+                <p>
+                  Etablisement
+                  <br />
+                  d'acceuil 2
+                </p>
               </li>
-              <li className="box-two">
-                <p>Etabliseement d'acceuil 3</p>
+              <li className="box-three">
+                <p>
+                  Etablisement
+                  <br />
+                  d'acceuil 3
+                </p>
               </li>
             </ul>
           </article>

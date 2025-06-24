@@ -1,6 +1,21 @@
 .header-page-parent {
   display: flex;
   justify-content: center;
+
+  h1 {
+    justify-content: center;
+  }
+}
+
+.my-news {
+  background-color: var(--light-bg-bloc-color-button);
+  font-family: var(--font-family-body);
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border: none;
+  border-radius: 10px;
+  height: 3rem;
+  margin: auto;
+  width: 340px;
 }
 
 .page-parent {
@@ -17,7 +32,8 @@
   h3 {
     display: flex;
     justify-content: center;
-    margin: 16px;
+    align-items: center;
+    margin-top: 24px;
   }
 }
 
@@ -31,9 +47,11 @@
 
 .bloc-one,
 .bloc-two {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   padding: 8px;
-  margin: 16px;
+  margin: 16px 28px;
 
   p {
     display: flex;
@@ -53,17 +71,6 @@
   margin-bottom: 16px;
 }
 
-.my-news {
-  background-color: var(--light-bg-bloc-color-button);
-  font-family: var(--font-family-body);
-  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
-  border: none;
-  border-radius: 48px;
-  height: 6rem;
-  width: 12rem;
-  margin: auto;
-}
-
 .bloc-three,
 .bloc-four,
 .old-resevation {
@@ -80,20 +87,56 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 8px;
-  margin: 16px;
+  padding: 4px;
+  margin: 16px 24px;
 }
 
 .old-resevation,
 .box-one,
-.box-two {
+.box-two,
+.box-three {
   background-color: var(--light-bg-bloc-color-button);
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border-radius: 10px;
   padding: 8px;
-  margin: 8px 24px;
-  height: 120px;
+  margin: 8px 28px;
+  height: 100px;
 
   p {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.box-one {
+  margin-top: 56px;
+}
+
+.box-three {
+  margin-bottom: 110px;
+}
+
+@media screen and (min-width: 770px) {
+  .page-parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 16px;
+    margin: 16px;
+
+    .my-news {
+      grid-column: 2/3;
+    }
+
+    .space-reservation {
+      grid-column: 1/2;
+      grid-row: 2/-3;
+    }
+
+    .space-children {
+      grid-column: 3/4;
+    }
   }
 }
