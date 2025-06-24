@@ -1,0 +1,71 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page img {
+  width: 250px;
+}
+
+.home-page-presentation {
+  background-color: var(--light-bg-bloc-color);
+  margin: 1rem;
+}
+
+.home-page-presentation article:nth-child(1) {
+  background-color: white;
+  margin: 1rem;
+  height: auto;
+}
+
+.home-page-presentation article section button:nth-child(1) {
+  background-color: rgb(244, 204, 194);
+  width: 100%;
+  height: 72px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-style: var(--font-family-body);
+}
+
+.home-page-presentation article section button:nth-child(2) {
+  background-color: rgb(244, 228, 194);
+  width: 100%;
+  height: 72px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-style: var(--font-family-body);
+}
+
+.home-page-presentation article section button:nth-child(3) {
+  background-color: rgb(232, 244, 194);
+  width: 100%;
+  height: 72px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-style: var(--font-family-body);
+}
+
+.home-page-presentation article section:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-page-presentation article:nth-child(2) {
+  text-align: center;
+  margin: 16px;
+}
+
+.home-page-presentation article:nth-child(2) p {
+  text-align: left;
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-bg-bloc-color-button) white;
+}

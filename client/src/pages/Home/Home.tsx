@@ -1,16 +1,36 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./Home.css";
 
 function Home() {
+  const navigate = useNavigate();
+
+  function handleClick1() {
+    navigate("/loginparent");
+  }
+
+  function handleClick2() {
+    navigate("/loginpro");
+  }
+
+  function handleClick3() {
+    navigate("/about");
+  }
   return (
     <section className="home-page">
       <img src="/images/gardmalin-logo.png" alt="logo-GardMalin" />
       <section className="home-page-presentation">
         <article>
           <section>
-            <Link to="/loginparent"> Je cherche une garde d'enfant </Link>
-            <Link to="/loginpro"> Je veux garder des enfants </Link>
-            <Link to="/about"> Nouc contacter </Link>
+            <button type="button" onClick={handleClick1}>
+              Je cherche une garde d'enfant
+            </button>
+            <button type="button" onClick={handleClick2}>
+              Je veux garder des enfants
+            </button>
+            <button type="button" onClick={handleClick3}>
+              Nous contacter
+            </button>
           </section>
           <section>
             <p>
@@ -21,14 +41,14 @@ function Home() {
           </section>
         </article>
         <article>
+          <h2>
+            Bienvenue chez <br />
+            Gard Malin !
+          </h2>
+          <h3>
+            La garde d'enfants sur mesure, pensée pour les familles et les pros.
+          </h3>
           <p>
-            <h2>
-              Bienvenue chez “Gard Malin”, <br />
-            </h2>
-            <h3>
-              La garde d'enfants sur mesure, pensée pour les familles et les
-              pros.
-            </h3>
             Parce que chaque famille mérite une garde d'enfants de confiance,
             bienveillante et flexible, nous accompagnons parents et
             professionnels au quotidien. Pour les parents : des gardes d'enfants
