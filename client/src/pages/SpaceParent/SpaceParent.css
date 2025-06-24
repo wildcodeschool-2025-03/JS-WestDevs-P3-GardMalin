@@ -1,0 +1,99 @@
+.header-page-parent {
+  display: flex;
+  justify-content: center;
+}
+
+.page-parent {
+  display: grid;
+  grid-template-rows: 3fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  margin: 16px;
+
+  section {
+    box-shadow: 8px;
+  }
+
+  h3 {
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+  }
+}
+
+.page-parent section {
+  background-color: var(--light-bg-bloc-color);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border-radius: 10px;
+}
+
+.bloc-one,
+.bloc-two {
+  background-color: white;
+  padding: 8px;
+  margin: 16px;
+
+  p {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.new-reservation {
+  background-color: var(--light-bg-bloc-color-button);
+  font-family: var(--font-family-body);
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border: none;
+  border-radius: 48px;
+  height: 3rem;
+  width: 12rem;
+  margin: auto;
+  margin-bottom: 16px;
+}
+
+.my-news {
+  background-color: var(--light-bg-bloc-color-button);
+  font-family: var(--font-family-body);
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border: none;
+  border-radius: 48px;
+  height: 6rem;
+  width: 12rem;
+  margin: auto;
+}
+
+.bloc-three,
+.bloc-four,
+.old-resevation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 8px;
+  margin: 16px 78px;
+}
+
+.old-block {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 8px;
+  margin: 16px;
+}
+
+.old-resevation,
+.box-one,
+.box-two {
+  background-color: var(--light-bg-bloc-color-button);
+  padding: 8px;
+  margin: 8px 24px;
+  height: 120px;
+
+  p {
+    display: flex;
+    justify-content: center;
+  }
+}
