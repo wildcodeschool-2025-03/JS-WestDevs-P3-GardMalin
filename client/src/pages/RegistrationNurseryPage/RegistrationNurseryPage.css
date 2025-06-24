@@ -1,0 +1,118 @@
+.registration-professional-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.section-professional-page {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.section-professional-page img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.title-registration-professional h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.registration-professional {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registration-professional article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registration-professional input[type="text"],
+.registration-professional input[type="email"],
+.registration-professional input[type="number"],
+.registration-professional input[type="password"],
+.registration-professional input[type="tel"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #d9eef4;
+  color: #333;
+  width: 100%;
+}
+
+.registration-professional input::placeholder {
+  color: #888;
+}
+
+.registration-professional button[type="submit"] {
+  margin-top: 20px;
+  background-color: #e3def6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.registration-professional button[type="submit"]:hover {
+  background-color: #a285be;
+}
+
+@media screen and (min-width: 850px) {
+  .registration-professional-page {
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .section-professional-page {
+    max-width: 1900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-professional-page img {
+    display: none;
+  }
+
+  .form-professional {
+    width: 100%;
+  }
+
+  .registration-professional {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+  .submit-professional {
+    grid-column: -3 / -1;
+    justify-self: center;
+  }
+  .grid-box1 {
+    grid-column: 1 / 2;
+  }
+
+  .grid-box2 {
+    grid-column: 2 / 2;
+  }
+
+  .registration-professional input {
+    width: auto;
+  }
+}
