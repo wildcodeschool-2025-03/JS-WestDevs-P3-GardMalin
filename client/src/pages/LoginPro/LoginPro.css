@@ -1,8 +1,8 @@
-.picture-admin-container {
+.picture-pro-container {
   background-color: rgba(217, 238, 244);
 }
 
-.login-admin-container {
+.login-pro-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,7 @@
 
   h1 {
     font-size: 1rem;
-    width: 210px;
+    width: 190px;
     margin: 8px auto;
   }
 
@@ -23,7 +23,7 @@
   }
 }
 
-.form-admin-container {
+.form-pro-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,26 +63,26 @@
 }
 
 @media screen and (max-width: 768px) {
-  .picture-admin-container {
+  .picture-pro-container {
     display: none;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .login-parent-container section:nth-child(2) {
+  .login-pro-container section:nth-child(2) {
     h1,
     img {
       display: none;
     }
   }
 
-  .login-admin-container {
+  .login-pro-container {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  .picture-admin-container {
+  .picture-pro-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,15 +91,15 @@
 
     h1 {
       font-size: 2rem;
-      width: 20ch;
+      width: 21ch;
     }
 
     img {
-      height: 634px;
+      height: 490px;
     }
   }
 
-  .form-admin-container {
+  .form-pro-container {
     gap: 48px;
 
     #email,
