@@ -9,6 +9,7 @@ import LoginParent from "./pages/LoginParent/LoginParent";
 import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
+import ParentInformation from "./pages/ParentInformation/ParentInformation";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/maintenance",
         element: <PageUnderConstruction />,
+      },
+      {
+        path: "/parentinformation",
+        element: <ParentInformation />,
       },
     ],
   },
