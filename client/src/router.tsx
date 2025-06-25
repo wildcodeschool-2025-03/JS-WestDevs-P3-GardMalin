@@ -10,6 +10,7 @@ import LoginParent from "./pages/LoginParent/LoginParent";
 import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
+import SpaceParent from "./pages/SpaceParent/SpaceParent";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      }
+      {
+        path: "/spaceparent",
+        element: <SpaceParent />,
       },
     ],
   },
