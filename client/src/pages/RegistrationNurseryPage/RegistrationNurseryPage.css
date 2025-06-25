@@ -12,25 +12,25 @@
   text-align: center;
 }
 
-.section-professional-page img {
+.registration-professional-page .section-professional-page img {
   width: 120px;
   margin-bottom: 10px;
 }
 
-.title-registration-professional h1 {
+.registration-professional-page .title-registration-professional h1 {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
   color: #333;
 }
 
-.registration-professional {
+.registration-professional-page .registration-professional {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.registration-professional article {
+.registration-professional-page .registration-professional article {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -50,11 +50,11 @@
   width: 100%;
 }
 
-.registration-professional input::placeholder {
+.registration-professional-page .registration-professional input::placeholder {
   color: #888;
 }
 
-.registration-professional button[type="submit"] {
+.registration-professional-page .submit-professional {
   margin-top: 20px;
   background-color: #e3def6;
   color: #000;
@@ -68,7 +68,7 @@
   transition: background-color 0.3s ease;
 }
 
-.registration-professional button[type="submit"]:hover {
+.registration-professional-page .submit-professional:hover {
   background-color: #a285be;
 }
 
@@ -79,40 +79,40 @@
     background-position: center;
   }
 
-  .section-professional-page {
-    max-width: 1900px;
+  .registration-professional-page .section-professional-page {
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
   }
 
-  .section-professional-page img {
+  .registration-professional-page .section-professional-page img {
     display: none;
   }
 
-  .form-professional {
+  .registration-professional-page .form-professional {
     width: 100%;
   }
 
-  .registration-professional {
+  .registration-professional-page .registration-professional {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(1, 1fr);
     gap: 16px;
   }
 
-  .submit-professional {
+  .registration-professional-page .submit-professional {
     grid-column: -3 / -1;
     justify-self: center;
   }
-  .grid-box1 {
+  .registration-professional-page .grid-box1 {
     grid-column: 1 / 2;
   }
 
-  .grid-box2 {
+  .registration-professional-page .grid-box2 {
     grid-column: 2 / 2;
   }
 
-  .registration-professional input {
+  .registration-professional-page .registration-professional input {
     width: auto;
   }
 }
