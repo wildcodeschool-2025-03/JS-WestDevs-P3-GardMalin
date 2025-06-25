@@ -1,18 +1,18 @@
 import { Link } from "react-router";
-import "./LoginAdmin.css";
+import "./LoginPro.css";
 
-const LoginAdmin = () => {
+const LoginPro = () => {
   return (
-    <main className="login-admin-container">
-      <section className="picture-admin-container">
-        <h1>Espace administrateur</h1>
-        <img src="/images/login_admin.png" alt="avatar of a man" />
+    <main className="login-pro-container">
+      <section className="picture-pro-container">
+        <h1>Gérez ici votre espace Pro comme un pro</h1>
+        <img src="/images/login_pro.png" alt="nanny with children" />
       </section>
       <section>
         <img src="/images/gardmalin-logo.png" alt="logo gardmalin" />
-        <h1>Espace administrateur</h1>
+        <h1>Gérez ici votre espace Pro comme un pro</h1>
         <h2>Connexion</h2>
-        <form className="form-admin-container">
+        <form className="form-pro-container">
           <label htmlFor="email" hidden>
             Email
           </label>
@@ -32,12 +32,12 @@ const LoginAdmin = () => {
             <Link to="/">Conditions d'utilisation</Link>
           </label>
           <button type="submit">Se connecter</button>
-          <p>Mot de passe oublié ?</p>
-          <Link to="/">Contactez-nous ici</Link>
+          <p>Vous n'avez pas de compte ?</p>
+          <Link to="/">Cliquez ici !</Link>
         </form>
       </section>
     </main>
   );
 };
 
-export default LoginAdmin;
+export default LoginPro;
