@@ -17,7 +17,7 @@ function Home() {
     navigate("/about");
   }
   return (
-    <section className="home-page">
+    <main className="home-page">
       <img src="/images/gardmalin-logo.png" alt="logo-GardMalin" />
       <section className="home-page-presentation">
         <article>
@@ -58,35 +58,35 @@ function Home() {
           </p>
         </article>
       </section>
-      <article>
-        <h3>Conseils et information</h3>
-        <img
-          src="/images/advice1.png"
-          alt="illustration de l'article : Le développement au fil des âges de votre petit"
-        />
-        <img
-          src="/images/advice2.png"
-          alt="illustration de l'article : Activitées pour les vacances"
-        />
-        <img
-          src="/images/advice3.png"
-          alt="illustration de l'article : Voyager avec bébé"
-        />
+      <article className="home-articles">
+        <h3>Conseils et informations</h3>
         <ul>
           <li>
+            <img
+              src="/images/advice1.png"
+              alt="illustration de l'article : Le développement au fil des âges de votre petit"
+            />
             <Link to="/maintenance">
               Le développement au fil des âges de votre petit
             </Link>
           </li>
           <li>
+            <img
+              src="/images/advice2.png"
+              alt="illustration de l'article : Activitées pour les vacances"
+            />
             <Link to="/maintenance">Activitées pour les vacances</Link>
           </li>
           <li>
+            <img
+              src="/images/advice3.png"
+              alt="illustration de l'article : Voyager avec bébé"
+            />
             <Link to="/maintenance">Voyager avec bébé</Link>
           </li>
         </ul>
       </article>
-    </section>
+    </main>
   );
 }
 

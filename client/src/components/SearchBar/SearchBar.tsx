@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-// import "./SearchBar.css";
+import "./SearchBar.css";
 
 interface Nursery {
   name: string;
@@ -32,7 +32,9 @@ function SearchBar() {
           value={value}
           onChange={handleChange}
           aria-label="Ville, code postal"
+          placeholder="Ville, code postal"
         />
+        <span className="material-symbols-outlined">location_on</span>
       </section>
       <ul>
         {value &&
