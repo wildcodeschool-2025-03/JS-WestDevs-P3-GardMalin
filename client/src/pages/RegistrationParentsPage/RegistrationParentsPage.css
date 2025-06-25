@@ -35,13 +35,7 @@
   gap: 12px;
 }
 
-.registration-parents input[type="text"],
-.registration-parents input[type="email"],
-.registration-parents input[type="number"],
-.registration-parents input[type="password"],
-.registration-parents input[type="date"],
-.registration-parents input[type="file"],
-.registration-parents input[type="tel"] {
+.registration-parents input {
   font-family: var(--font-family-body);
   padding: 10px 12px;
   border: 1px solid #ccc;
