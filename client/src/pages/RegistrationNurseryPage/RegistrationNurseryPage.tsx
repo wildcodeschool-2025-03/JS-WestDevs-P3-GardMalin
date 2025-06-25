@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./RegistrationNurseryPage.css";
 
 function RegistrationNurseryPage() {
@@ -83,9 +84,12 @@ function RegistrationNurseryPage() {
               />
             </article>
             <button className="submit-professional" type="submit">
-              Suivant
+              Validé vos informations
             </button>
           </form>
+          <Link to="">
+            <button type="button">Suivant</button>
+          </Link>
         </section>
       </section>
     </main>
