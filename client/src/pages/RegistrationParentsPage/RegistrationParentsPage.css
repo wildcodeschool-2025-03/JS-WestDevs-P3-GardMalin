@@ -1,0 +1,152 @@
+.registration-parents-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.registration-parents-page .section-parents-page {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.registration-parents-page .section-parents-page img {
+  width: 200px;
+}
+
+.registration-parents-page .title-registration-parents {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 32px 0 32px 0;
+}
+
+.registration-parents-page .registration-parents {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registration-parents-page .registration-parents article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.registration-parents input {
+  font-family: var(--font-family-body);
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #d9eef4;
+  color: #333;
+  width: 100%;
+}
+
+.registration-parents-page .registration-parents input::placeholder {
+  color: #888;
+}
+
+.registration-parents-page .submit-parents {
+  font-family: var(--font-family-body);
+  margin-top: 20px;
+  background-color: #e3def6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.registration-parents-page .parents-button {
+  font-family: var(--font-family-body);
+  margin-top: 20px;
+  background-color: #d9eef4;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.registration-parents-page .custom-file-label {
+  background-color: #d9eef4;
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.registration-parents-page #file-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.registration-parents-page .submit-parents:hover {
+  background-color: #a285be;
+}
+
+@media screen and (min-width: 850px) {
+  .registration-parents-page {
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .registration-parents-page .section-parents-page {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .registration-parents-page .title-registration-parents {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 48px;
+  }
+
+  .registration-parents-page .section-parents-page img {
+    display: none;
+  }
+
+  .registration-parents-page .form-parents {
+    width: 100%;
+  }
+
+  .registration-parents-page .registration-parents {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 16px;
+  }
+
+  .registration-parents-page .submit-parents {
+    grid-column: -3 / -1;
+    justify-self: center;
+  }
+  .registration-parents-page .grid-box1 {
+    grid-column: 1 / 2;
+  }
+
+  .registration-parents-page .grid-box2 {
+    grid-column: 2 / 2;
+  }
+
+  .registration-parents-page .registration-parents input {
+    width: auto;
+  }
+}
