@@ -9,6 +9,11 @@
     margin: auto;
   }
 
+  ul {
+    text-align: left;
+    padding: 8px;
+  }
+
   h2 {
     width: 270px;
     margin: auto;
@@ -20,7 +25,7 @@
     justify-content: center;
     text-decoration: none;
     color: black;
-    margin: auto;
+    margin: 0 auto 32px;
     background-color: var(--light-bg-bloc-color-button);
     cursor: pointer;
     width: 190px;
@@ -28,33 +33,100 @@
     border-radius: 50% / 50%;
     box-shadow: 0 1px 1px 0 rgb(77, 79, 80);
   }
-}
 
-.parent-info-section-1 {
-  border: 16px solid var(--light-bg-bloc-color);
-  margin: 0 16px;
-  border-radius: 8px;
+  .parent-info-section {
+    border: 16px solid var(--light-bg-bloc-color);
+    margin: 0 16px;
+    border-radius: 8px;
+    box-shadow: 3px 2px 0 rgb(170, 176, 179);
 
-  img {
-    height: 100px;
+    img {
+      height: 100px;
+    }
   }
 }
 
-.parent-info-section-2 {
+.enfant-info-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
   background-color: var(--light-bg-bloc-color);
   margin: 0 16px;
   border-radius: 8px;
+  box-shadow: 3px 2px 0 rgb(170, 176, 179);
 
   h2 {
     margin: 16px auto;
   }
 
+  img {
+    height: 50px;
+  }
+
   article {
     background-color: white;
-    width: 290px;
+    cursor: pointer;
+    width: 250px;
     margin: auto;
+    box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .parent-info-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-image: url("/images/background.png");
+  }
+
+  h1 {
+    height: 150px;
+    padding: 48px 800px;
+    order: -1;
+    flex: 80%;
+  }
+  .enfant-info-section {
+    article {
+      width: 140px;
+      height: 170px;
+    }
+  }
+
+  .parent-info-section {
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    place-items: center;
+
+    h2 {
+      text-align: left;
+    }
+  }
+
+  .parent-info-section,
+  .enfant-info-section {
+    width: 500px;
+    height: 500px;
+    margin-bottom: 32px;
+  }
+
+  .enfant-info-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+
+    h2:first-of-type {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+
+    h2:last-of-type {
+      width: 280px;
+      grid-area: 3 / 1 / 4 / 3;
+    }
+    a {
+      grid-area: 4 / 1 / 5 / 3;
+    }
   }
 }
