@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         element: <PageUnderConstruction />,
       },
       {
-        path: "/parentinformation",
+        path: "/parent-information",
         element: <ParentInformation />,
       },
       {

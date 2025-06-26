@@ -2,19 +2,9 @@ import { Link } from "react-router";
 import "./ParentInformation.css";
 import { useEffect, useState } from "react";
 
-interface ParentProps {
-  id: number;
-  firstname: string;
-}
-
-interface KidsProps {
-  id: number;
-  firstname: string;
-}
-
 const ParentInformation = () => {
-  const [parents, setParents] = useState<ParentProps[]>([]);
-  const [kids, setKids] = useState<KidsProps[]>([]);
+  const [parents, setParents] = useState<ParentI[]>([]);
+  const [kids, setKids] = useState<KidI[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3310/api/parents")
@@ -27,7 +17,7 @@ const ParentInformation = () => {
   }, []);
 
   return (
-    <main className="parent-info-container">
+    <div className="parent-info-container">
       <h1>Espace parents informations</h1>
       <section className="parent-info-section">
         <img src="/images/family.png" alt="family avatar" />
@@ -59,7 +49,7 @@ const ParentInformation = () => {
         <h2>Vous voulez inscrire un nouvel enfant ?</h2>
         <Link to="/">Fichier inscription</Link>
       </section>
-    </main>
+    </div>
   );
 };
 
