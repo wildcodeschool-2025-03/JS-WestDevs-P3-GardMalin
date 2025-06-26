@@ -4,6 +4,7 @@ import "./global.css";
 
 // Import the main app component
 import App from "./App";
+import Home from "./pages/Home/Home";
 import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
 import LoginPro from "./pages/LoginPro/LoginPro";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/parent-information",
         element: <ParentInformation />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
       {
         path: "/spaceparent",
