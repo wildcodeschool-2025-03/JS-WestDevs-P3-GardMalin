@@ -74,14 +74,15 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     background-image: url("/images/background.png");
+
+    h1 {
+      height: 150px;
+      padding: 48px 800px;
+      order: -1;
+      flex: 80%;
+    }
   }
 
-  h1 {
-    height: 150px;
-    padding: 48px 800px;
-    order: -1;
-    flex: 80%;
-  }
   .enfant-info-section {
     article {
       width: 140px;
