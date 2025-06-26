@@ -16,13 +16,13 @@ function RegistrationParentsPage() {
   return (
     <main className="registration-parents-page">
       <section className="section-parents-page">
-        <div>
+        <article className="logo-registration-parents">
           <img src="/images/gardmalin-logo.png" alt="logo Gardmalin" />
-        </div>
+        </article>
 
-        <div className="title-registration-parents">
+        <article className="title-registration-parents">
           <h1>Création de votre espace parents</h1>
-        </div>
+        </article>
 
         <section className="form-parents">
           <form className="registration-parents">
@@ -97,8 +97,8 @@ function RegistrationParentsPage() {
               Confirmer votre incription
             </button>
           </form>
-          <Link to="">
-            <button className="parents-button" type="button">
+          <Link to="/spaceparent">
+            <button className="parents-button" type="submit">
               Espace parents
             </button>
           </Link>

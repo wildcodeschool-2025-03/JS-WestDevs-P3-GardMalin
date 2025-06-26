@@ -1,5 +1,5 @@
 .registration-parents-page {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-.registration-parents-page .section-parents-page img {
+.registration-parents-page .logo-registration-parents img {
   width: 200px;
 }
 
@@ -99,6 +99,10 @@
   background-color: #a285be;
 }
 
+.registration-parents-page .parents-button:hover {
+  background-color: #6ba8c9;
+}
+
 @media screen and (min-width: 850px) {
   .registration-parents-page {
     background-image: url("/images/background.png");
@@ -110,13 +114,6 @@
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-  }
-
-  .registration-parents-page .title-registration-parents {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 48px;
   }
 
   .registration-parents-page .section-parents-page img {

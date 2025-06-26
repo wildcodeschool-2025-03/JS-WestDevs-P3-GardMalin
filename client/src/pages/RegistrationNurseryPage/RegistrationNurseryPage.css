@@ -1,5 +1,5 @@
 .registration-professional-page {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,16 +12,16 @@
   text-align: center;
 }
 
-.registration-professional-page .section-professional-page img {
-  width: 120px;
+.registration-professional-page .logo-registration-professional img {
+  width: 200px;
   margin-bottom: 10px;
 }
 
-.registration-professional-page .title-registration-professional h1 {
+.registration-professional-page .title-registration-professional {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 20px;
   color: #333;
+  margin: 32px 0 32px 0;
 }
 
 .registration-professional-page .registration-professional {
@@ -37,6 +37,7 @@
 }
 
 .registration-professional input {
+  font-family: var(--font-family-body);
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -51,8 +52,24 @@
 }
 
 .registration-professional-page .submit-professional {
+  font-family: var(--font-family-body);
   margin-top: 20px;
   background-color: #e3def6;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 24px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+.registration-professional-page .professional-button {
+  font-family: var(--font-family-body);
+  margin-top: 20px;
+  background-color: #d9eef4;
   color: #000;
   font-weight: bold;
   border: none;
@@ -68,6 +85,10 @@
   background-color: #a285be;
 }
 
+.registration-professional-page .professional-button:hover {
+  background-color: #6ba8c9;
+}
+
 @media screen and (min-width: 850px) {
   .registration-professional-page {
     background-image: url("/images/background.png");
@@ -76,7 +97,7 @@
   }
 
   .registration-professional-page .section-professional-page {
-    max-width: 900px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
   }

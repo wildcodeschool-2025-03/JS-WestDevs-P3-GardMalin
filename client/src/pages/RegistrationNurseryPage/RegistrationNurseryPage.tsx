@@ -5,13 +5,13 @@ function RegistrationNurseryPage() {
   return (
     <main className="registration-professional-page">
       <section className="section-professional-page">
-        <div>
+        <article className="logo-registration-professional">
           <img src="/images/gardmalin-logo.png" alt="logo Gardmalin" />
-        </div>
+        </article>
 
-        <div className="title-registration-professional">
+        <article className="title-registration-professional">
           <h1>Création de votre espace professionnel</h1>
-        </div>
+        </article>
 
         <section className="form-professional">
           <form className="registration-professional">
@@ -88,7 +88,9 @@ function RegistrationNurseryPage() {
             </button>
           </form>
           <Link to="">
-            <button type="button">Suivant</button>
+            <button className="professional-button" type="button">
+              Suivant
+            </button>
           </Link>
         </section>
       </section>
