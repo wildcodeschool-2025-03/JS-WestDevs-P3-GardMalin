@@ -1,36 +1,17 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./Home.css";
 
 function Home() {
-  const navigate = useNavigate();
-
-  function handleClick1() {
-    navigate("/loginparent");
-  }
-
-  function handleClick2() {
-    navigate("/loginpro");
-  }
-
-  function handleClick3() {
-    navigate("/about");
-  }
   return (
     <main className="home-page">
       <img src="/images/gardmalin-logo.png" alt="logo-GardMalin" />
       <section className="home-page-presentation">
         <article>
           <section>
-            <button type="button" onClick={handleClick1}>
-              Je cherche une garde d'enfant
-            </button>
-            <button type="button" onClick={handleClick2}>
-              Je veux garder des enfants
-            </button>
-            <button type="button" onClick={handleClick3}>
-              Nous contacter
-            </button>
+            <Link to="/loginparent">Je cherche une garde d'enfant </Link>
+            <Link to="/loginpro">Je veux garder des enfants </Link>
+            <Link to="/about">Nous contacter </Link>
           </section>
           <section>
             <p>
