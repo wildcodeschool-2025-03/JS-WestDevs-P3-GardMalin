@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./LoginAdmin.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 const LoginAdmin = () => {
   return (
@@ -35,6 +36,7 @@ const LoginAdmin = () => {
           <p>Mot de passe oublié ?</p>
           <Link to="/">Contactez-nous ici</Link>
         </form>
+        <BackButton />
       </section>
     </main>
   );
