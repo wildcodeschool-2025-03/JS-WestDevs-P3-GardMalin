@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./LoginPro.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 const LoginPro = () => {
   return (
@@ -35,6 +36,7 @@ const LoginPro = () => {
           <p>Vous n'avez pas de compte ?</p>
           <Link to="/">Cliquez ici !</Link>
         </form>
+        <BackButton />
       </section>
     </main>
   );

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./LoginParent.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 const LoginParent = () => {
   return (
@@ -41,6 +42,7 @@ const LoginParent = () => {
             <p>Vous n'avez pas de compte ?</p>
             <Link to="/">Cliquez ici !</Link>
           </form>
+          <BackButton />
         </section>
       </main>
     </>
