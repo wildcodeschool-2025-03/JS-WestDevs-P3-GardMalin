@@ -11,8 +11,8 @@ import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
-import SpaceParent from "./pages/SpaceParent/SpaceParent";
 import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/RegistrationChildrenPage";
+import SpaceParent from "./pages/SpaceParent/SpaceParent";
 
 const router = createBrowserRouter([
   {

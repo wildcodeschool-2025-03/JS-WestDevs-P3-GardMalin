@@ -53,13 +53,19 @@ function RegistrationChildrenPage() {
           <input type="checkbox" id="no" value="no" />
           <label htmlFor="">Non</label>
 
-          <button type="submit">Valider</button>
+          <button className="validated" type="submit">
+            Valider
+          </button>
           <p>Vous n'avez pas de compte ?</p>
         </form>
-        <section className="f-registration-children">
-          <button type="button">Retour</button>
+        <section className="footer-registration-children">
+          <button className="return-button" type="button">
+            Retour
+          </button>
 
-          <button type="button">Suivant</button>
+          <button className="next-button" type="button">
+            Suivant
+          </button>
         </section>
       </section>
     </main>
