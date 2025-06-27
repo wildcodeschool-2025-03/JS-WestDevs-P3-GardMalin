@@ -13,7 +13,7 @@ const read: RequestHandler = async (req, res) => {
     if (result) {
       res.json(result);
     } else {
-      res.status(404).json();
+      res.status(404).send();
     }
   } catch (err) {
     res.status(500);
