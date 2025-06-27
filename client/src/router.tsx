@@ -9,6 +9,9 @@ import LoginParent from "./pages/LoginParent/LoginParent";
 import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
+
+import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
+import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
 
 const router = createBrowserRouter([
@@ -35,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/spaceparent",
         element: <SpaceParent />,
+      },
+      {
+        path: "/registration-nursery",
+        element: <RegistrationNurseryPage />,
+      },
+      {
+        path: "/registration-parents",
+        element: <RegistrationParentsPage />,
       },
     ],
   },

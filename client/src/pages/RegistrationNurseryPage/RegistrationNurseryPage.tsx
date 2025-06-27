@@ -4,16 +4,16 @@ import "./RegistrationNurseryPage.css";
 function RegistrationNurseryPage() {
   return (
     <main className="registration-professional-page">
-      <section className="section-professional-page">
-        <article className="logo-registration-professional">
+      <section>
+        <article>
           <img src="/images/gardmalin-logo.png" alt="logo Gardmalin" />
         </article>
 
-        <article className="title-registration-professional">
+        <article>
           <h1>Création de votre espace professionnel</h1>
         </article>
 
-        <section className="form-professional">
+        <section>
           <form className="registration-professional">
             <article className="grid-box1">
               <label htmlFor="company" hidden>
@@ -83,14 +83,10 @@ function RegistrationNurseryPage() {
                 placeholder=" Confirmer votre mot de passe"
               />
             </article>
-            <button className="submit-professional" type="submit">
-              Validé vos informations
-            </button>
+            <button type="submit">Validé vos informations</button>
           </form>
           <Link to="">
-            <button className="professional-button" type="button">
-              Suivant
-            </button>
+            <button type="button">Suivant</button>
           </Link>
         </section>
       </section>
