@@ -21,15 +21,10 @@
   font-size: 18px;
   font-weight: 600;
   color: #333;
-  margin: 32px 0 32px 0;
+  margin: 32px 0;
 }
 
-.registration-professional-page .registration-professional {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
+.registration-professional-page .registration-professional,
 .registration-professional-page .registration-professional article {
   display: flex;
   flex-direction: column;
