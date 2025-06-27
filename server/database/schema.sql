@@ -8,7 +8,9 @@ CREATE TABLE parent (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   firstname VARCHAR(50),
   lastname VARCHAR(50),
-  address VARCHAR(250),
+  street VARCHAR(250),
+  postal_code VARCHAR(5),
+  city VARCHAR(250),
   phone_number VARCHAR(15),
   user_id INT UNSIGNED,
   FOREIGN KEY(user_id)
@@ -31,7 +33,10 @@ CREATE TABLE kid (
 CREATE TABLE nursery (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(150),
-  address VARCHAR(250),
+  siret VARCHAR(14),
+  street VARCHAR(250),
+  postal_code VARCHAR(5),
+  city VARCHAR(250),
   phone_number VARCHAR(15),
   descripton VARCHAR(300),
   capacity INT,
@@ -58,11 +63,11 @@ VALUES
   ("nina@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$V0pPYXdXeFFzWGdUbjZ1SA$SuoHm8nIke7Q3Adt4qfefA"),
   ("axel@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$a3NyTTVCMlFkR2Z3OXZWdQ$QXb8VjSH8aXAcBBmODOv5Q");
 
-INSERT INTO parent (firstname, lastname, address, phone_number)
+INSERT INTO parent (firstname, lastname, street, postal_code, city, phone_number)
 VALUES
-  ("John", "Wick", "2 rue des favelas, 98500 Juven", "06 55 99 99 99"),
-  ("Nina", "Williams", "98 rue du fightclub, 53999 Aren", "06 54 99 99 99"),
-  ("Axel", "Okalm", "55 rue de la zenitude, 25599", "06 53 99 99 99" );
+  ("John", "Wick", "2 rue des favelas", "98500", "Juven", "06 55 99 99 99"),
+  ("Nina", "Williams", "98 rue du fightclub", "53999", "Aren", "06 54 99 99 99"),
+  ("Axel", "Okalm", "55 rue de la zenitude", "25599", "Rakuen", "06 53 99 99 99" );
 
 INSERT INTO kid (firstname, lastname, age, walker, allergy, handicap)
 VALUES
@@ -70,8 +75,8 @@ VALUES
   ("Shana", "Williams", "1", 0, "asthme", 0),
   ("Louis", "Okalm", "5", 1, "aucune", 1);
 
-INSERT INTO nursery (name, address, phone_number, capacity)
+INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, capacity)
 VALUES
-  ("Les Petits Explorateurs", "12 rue des érables, 75000 Paris" , "01 23 45 67 89", 50),
-  ("Les Coccinelles Joyeuses", "5 allée des Acacias, 69000 Lyon", "04 78 12 34 56", 25),
-  ("Puzzle & Petits Pas", "22 rue des Tisserands 31000 Toulouse", "05 61 23 45 67", 128);
+  ("Les Petits Explorateurs", "83475219900018", "12 rue des érables", "33600", "Pessac" , "05 56 45 67 89", 50),
+  ("Les Coccinelles Joyeuses", "89234087100025", "5 allée des Acacias", "33600", "Pessac", "05 56 12 34 56", 25),
+  ("Puzzle & Petits Pas", "90176845200037", "22 rue des Tisserands", "33600", "Pessac", "05 56 23 45 67", 128);

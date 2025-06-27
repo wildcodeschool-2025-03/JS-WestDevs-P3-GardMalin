@@ -23,6 +23,7 @@ router.get("/kids", kidsActions.browse);
 router.get("/nurseries", nurseriesActions.browse);
 router.get("/parents", parentsActions.browse);
 router.get("/users", usersActions.browse);
+router.get("/parents/:id", parentsActions.read);
 
 router.post("/user", auth.hashPassword, usersActions.add);
 router.post("/login", auth.login);
