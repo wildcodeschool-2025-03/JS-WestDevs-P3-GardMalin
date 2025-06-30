@@ -1,18 +1,57 @@
 .page-registration-children {
-
-  display: flex;
-  flex-direction: column;
-
   border: 1px solid red;
 
-  h1 {
-    display: inline-block;
-    padding: 16px 16px;
-    justify-content: center;
-    align-content: center;
+  input {
+    background-color: var(--light-bg-bloc-color);
+    border: none;
+    padding: 16px;
+    margin: 6px 16px;
+    width: max-content;
   }
 }
 
+.page-registration-children h1 {
+  display: flex;
+  padding: 16px 16px;
+  justify-content: center;
+  align-content: center;
+}
+
+.form-section,
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gender,
+.handicap,
+.walk {
+  margin: 16px;
+  background-color: var(--light-bg-bloc-color);
+  font-size: 0.9rem;
+}
+
+.field,
+.validated {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--light-bg-bloc-color-button);
+  font-family: var(--font-family-body);
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border: none;
+  border-radius: 48px;
+  height: 2rem;
+  width: 8rem;
+  margin: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.validated {
+  align-items: center;
+}
 
 .footer-registration-children {
 
@@ -31,6 +70,7 @@
 
   .return-button {
     border: none;
+    font-family: var(--font-family-body);
     background-color: white;
     height: 2rem;
     width: 8rem;
