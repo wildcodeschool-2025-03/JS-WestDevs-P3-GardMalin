@@ -19,15 +19,15 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/loginparent",
+        path: "/login-parent",
         element: <LoginParent />,
       },
       {
-        path: "/loginadmin",
+        path: "/login-admin",
         element: <LoginAdmin />,
       },
       {
-        path: "/loginpro",
+        path: "/login-pro",
         element: <LoginPro />,
       },
       {
@@ -39,11 +39,11 @@ const router = createBrowserRouter([
         element: <ParentInformation />,
       },
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/spaceparent",
+        path: "/space-parent",
         element: <SpaceParent />,
       },
     ],
