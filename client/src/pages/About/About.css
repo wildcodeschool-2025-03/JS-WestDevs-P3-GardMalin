@@ -1,4 +1,5 @@
 .about-page {
+  margin: 24px 0 24px 0;
   height: auto;
   .form-closed {
     display: none;
@@ -14,6 +15,7 @@
   margin: 8px;
   text-align: center;
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border-radius: 8px;
 }
 
 .about-page-component button:hover {
@@ -44,6 +46,7 @@
   width: 350px;
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
   margin: 8px 0 8px 0;
+  border-radius: 8px;
 }
 
 .item-conditional-display-button {
@@ -60,6 +63,7 @@
   border: none;
   font-size: 1rem;
   height: 64px;
+  border-radius: 8px 8px 0 0;
 }
 
 .item-conditional-display-button button:nth-child(2) {
@@ -80,6 +84,7 @@
   justify-content: center;
   width: 350px;
   height: 350px;
+  border-radius: 0 0 8px 8px;
 }
 
 .contact-form form {
@@ -136,6 +141,7 @@
   width: 350px;
   height: 350px;
   box-shadow: 25px;
+  border-radius: 0 0 8px 8px;
 }
 
 .coordinate-sheet p {
@@ -160,7 +166,48 @@
 }
 
 @media screen and (min-width: 768px) {
-  /* .about-page {
-    height: 80vh;
-  } */
+  .about-page {
+    margin: 0;
+    background-image: url(/images/background.png);
+    background-size: cover;
+    background-position: center;
+    padding: 64px 160px 64px 160px;
+  }
+
+  .about-page-component {
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 0.25fr repeat(2, 1fr);
+    grid-template-rows: 0.5fr repeat(2, 0.25fr) 1fr 1.25fr repeat(2, 1fr);
+    grid-column-gap: 3px;
+    grid-row-gap: 3px;
+  }
+
+  .about-page-component h1 {
+    margin: 24px 0 0 0;
+    grid-area: 1 / 2 / 2 / 5;
+  }
+
+  .about-page-component h3 {
+    grid-area: 2 / 2 / 3 / 5;
+  }
+
+  .about-page-component h3,
+  .about-page-component h1 {
+    text-align: center;
+  }
+
+  .first-presentation-paragraphe {
+    grid-area: 4 / 1 / 5 / 3;
+  }
+  .item-conditional-display {
+    grid-area: 5 / 1 / 8 / 3;
+  }
+
+  .second-presentation-paragraph {
+    grid-area: 4 / 4 / 8 / 6;
+    padding: 0;
+    margin: 0;
+    height: auto;
+  }
 }
