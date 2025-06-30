@@ -50,3 +50,11 @@ body {
 #root {
   height: 100vh;
 }
+
+main {
+  min-height: 100vh;
+
+  @media screen and (min-width: 600px) {
+    min-height: calc(100vh - 91.19px + 88.19px);
+  }
+}
