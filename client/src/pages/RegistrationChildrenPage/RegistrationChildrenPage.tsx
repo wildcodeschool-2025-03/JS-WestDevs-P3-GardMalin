@@ -14,9 +14,9 @@ function RegistrationChildrenPage() {
             <br />
 
             <label htmlFor="girl">Féminin</label>
-            <input type="radio" id="girl" value="girl" checked />
+            <input type="radio" id="girl" value="girl" name="done" />
             <label htmlFor="man">Masculin</label>
-            <input type="radio" id="man" value="man" />
+            <input type="radio" id="man" value="man" name="done" />
           </article>
 
           <label htmlFor="lastname" hidden>
@@ -40,13 +40,10 @@ function RegistrationChildrenPage() {
           <article className="handicap">
             <label htmlFor="text">Handicap ou spécificités</label>
             <br />
-
-            <input type="radio" id="yes" value="yes" checked />
+            <input type="radio" id="yes" value="yes" name="donetwo" />
             <label htmlFor="yes">Oui*</label>
-            <label htmlFor="radio">
-              <input type="radio" id="no" value="no" />
-              Non
-            </label>
+            <input type="radio" id="no" value="no" name="donetwo" />
+            <label htmlFor="no">Non</label>
           </article>
           <p className="details">
             *Si oui, merci de vous rapprocher de l'établissement choisi afin
@@ -61,9 +58,9 @@ function RegistrationChildrenPage() {
           <article className="walk">
             <label htmlFor="text">Est-ce que votre enfant marche ?</label>
             <br />
-            <input type="radio" id="yes2" value="yes2" checked />
+            <input type="radio" id="yes2" value="yes2" name="donetree" />
             <label htmlFor="yes2">Oui</label>
-            <input type="radio" id="no2" value="no2" />
+            <input type="radio" id="no2" value="no2" name="donetree" />
             <label htmlFor="no2">Non</label>
           </article>
 
