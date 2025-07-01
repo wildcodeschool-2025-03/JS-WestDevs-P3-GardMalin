@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./SpacePro.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 const SpacePro = () => {
   return (
@@ -15,7 +16,7 @@ const SpacePro = () => {
           <p>
             Bienvenue à "Les Petits Explorateurs", une crèche chaleureuse et
             innovante située en plein cœur d’un quartier verdoyant et familial.
-            Notre structure accueille les enfants de 3{" "}
+            Notre structure accueille les enfants de 3
           </p>
         </article>
         <h2>Mes coordonnées</h2>
@@ -46,6 +47,7 @@ const SpacePro = () => {
           </ul>
         </article>
       </section>
+      <BackButton />
     </div>
   );
 };
