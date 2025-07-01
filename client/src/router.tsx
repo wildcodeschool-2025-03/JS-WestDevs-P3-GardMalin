@@ -4,6 +4,7 @@ import "./global.css";
 
 // Import the main app component
 import App from "./App";
+import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import LoginAdmin from "./pages/LoginAdmin/LoginAdmin";
 import LoginParent from "./pages/LoginParent/LoginParent";
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/space-pro",
         element: <SpacePro />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/registration-nursery",
