@@ -1,4 +1,3 @@
-// import { Link } from "react-router";
 import "./RegistrationChildrenPage.css";
 
 function RegistrationChildrenPage() {
@@ -13,56 +12,66 @@ function RegistrationChildrenPage() {
           <article className="gender">
             <label htmlFor="text">Sexe de l'enfant</label>
             <br />
-            <label htmlFor="checkbox">Féminin</label>
-            <input type="checkbox" id="féminin" value="féminin" />
-            <label htmlFor="checkbox">Masculin</label>
-            <input type="checkbox" id="masculin" value="masculin" />
+
+            <label htmlFor="girl">Féminin</label>
+            <input type="radio" id="girl" value="girl" checked />
+            <label htmlFor="man">Masculin</label>
+            <input type="radio" id="man" value="man" />
           </article>
 
-          <label htmlFor="text" hidden>
+          <label htmlFor="lastname" hidden>
             Nom
           </label>
           <input type="text" id="lastname" placeholder="Nom" required />
           <br />
-          <label htmlFor="text" hidden>
+
+          <label htmlFor="firstname" hidden>
             Prénom
           </label>
           <input type="text" id="firstname" placeholder="Prénom" required />
           <br />
-          <label htmlFor="text" hidden>
+
+          <label htmlFor="age" hidden>
             Age
           </label>
-          <input type="text" id="firstname" placeholder="Age" required />
+          <input type="text" id="age" placeholder="Age" required />
           <br />
 
           <article className="handicap">
             <label htmlFor="text">Handicap ou spécificités</label>
             <br />
-            <input type="checkbox" id="yes" value="yes" />
-            <label htmlFor="">Oui</label>
-            <label htmlFor="checkbox">
-              <input type="checkbox" id="checkbox" />
+
+            <input type="radio" id="yes" value="yes" checked />
+            <label htmlFor="yes">Oui*</label>
+            <label htmlFor="radio">
+              <input type="radio" id="no" value="no" />
               Non
             </label>
           </article>
-
+          <p className="details">
+            *Si oui, merci de vous rapprocher de l'établissement choisi afin
+            d'en discuter plus en détails.
+          </p>
           <label htmlFor="text" hidden>
             Allergies
           </label>
           <input type="text" id="firstname" placeholder="Allergies" />
           <br />
+
           <article className="walk">
             <label htmlFor="text">Est-ce que votre enfant marche ?</label>
             <br />
-            <input type="checkbox" id="yes" value="yes" />
-            <label htmlFor="">Oui</label>
-            <input type="checkbox" id="no" value="no" />
-            <label htmlFor="">Non</label>
+            <input type="radio" id="yes2" value="yes2" checked />
+            <label htmlFor="yes2">Oui</label>
+            <input type="radio" id="no2" value="no2" />
+            <label htmlFor="no2">Non</label>
           </article>
 
-          <button className="validated" type="submit">
-            Valider
-          </button>
+          <div className="block-validated">
+            <button className="validated" type="submit">
+              Valider
+            </button>
+          </div>
         </form>
 
         <section className="footer-registration-children">

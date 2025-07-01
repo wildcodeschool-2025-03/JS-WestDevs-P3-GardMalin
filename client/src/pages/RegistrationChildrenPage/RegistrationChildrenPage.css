@@ -12,31 +12,56 @@
 
 .page-registration-children h1 {
   display: flex;
-  padding: 16px 16px;
+  padding-top: 16px;
   justify-content: center;
   align-content: center;
 }
 
 .form-section,
 .field {
-  display: flex;
+  display: grid;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .gender,
 .handicap,
 .walk {
+  width: 340px;
   margin: 16px;
   background-color: var(--light-bg-bloc-color);
   font-size: 0.9rem;
+  padding: 0 8px 0 8px;
+}
+
+input#lastname,
+input#firstname,
+input#age {
+  width: 340px;
+}
+
+.field,
+.details {
+  font-size: 12px;
+  margin-left: 16px;
+  width: 350px;
+}
+
+.walk {
+  margin-top: 16px;
+}
+
+.block-validated {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
 }
 
 .field,
 .validated {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background-color: var(--light-bg-bloc-color-button);
   font-family: var(--font-family-body);
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
@@ -49,11 +74,9 @@
   cursor: pointer;
 }
 
-.validated {
-  align-items: center;
-}
-
 .footer-registration-children {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 
   .next-button {
     background-color: var(--light-bg-bloc-color-button);
@@ -71,10 +94,60 @@
   .return-button {
     border: none;
     font-family: var(--font-family-body);
-    background-color: white;
     height: 2rem;
     width: 8rem;
     margin: 16px auto 16px;
     cursor: pointer;
+    padding: 0;
+    color: rgb(159, 159, 253);
+    background: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .page-registration-children {
+    background-image: url("/images/background.png");
+    background-size: cover;
+  }
+
+  .form-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-self: center;
+  }
+
+  .gender,
+  .handicap,
+  .walk,
+  input#lastname,
+  input#firstname,
+  input#age {
+    width: 750px;
+  }
+
+  .field,
+  .details {
+    font-size: 12px;
+    margin-left: 16px;
+    width: 750px;
+  }
+
+  .footer-registration-children {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    justify-items: center;
+
+    .return-button {
+      grid-column: 5/6;
+      color: rgb(159, 159, 253);
+      background: none;
+    }
+
+    .next-button {
+      grid-column: 6/7;
+    }
   }
 }
