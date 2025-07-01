@@ -4,8 +4,8 @@ import BackButton from "../../components/BackButton/BackButton";
 
 const LoginAdmin = () => {
   return (
-    <main className="login-admin-container">
-      <section className="picture-admin-container">
+    <div className="login-admin-container">
+      <section>
         <h1>Espace administrateur</h1>
         <img src="/images/login_admin.png" alt="avatar of a man" />
       </section>
@@ -38,7 +38,7 @@ const LoginAdmin = () => {
         </form>
         <BackButton />
       </section>
-    </main>
+    </div>
   );
 };
 

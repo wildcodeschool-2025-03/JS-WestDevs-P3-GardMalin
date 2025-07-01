@@ -1,5 +1,5 @@
-.picture-admin-container {
-  background-color: rgba(217, 238, 244);
+.login-admin-container section:nth-child(1) {
+  display: none;
 }
 
 .login-admin-container {
@@ -62,32 +62,19 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .picture-admin-container {
-    display: none;
-  }
-}
-
 @media screen and (min-width: 768px) {
-  .login-parent-container section:nth-child(2) {
-    h1,
-    img {
-      display: none;
-    }
-  }
-
   .login-admin-container {
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
 
-  .picture-admin-container {
+  .login-admin-container section:nth-child(1) {
+    background-color: rgba(217, 238, 244);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 
     h1 {
       font-size: 2rem;
@@ -95,7 +82,14 @@
     }
 
     img {
-      height: 634px;
+      height: 80%;
+    }
+  }
+
+  .login-admin-container section:nth-child(2) {
+    h1,
+    img {
+      display: none;
     }
   }
 

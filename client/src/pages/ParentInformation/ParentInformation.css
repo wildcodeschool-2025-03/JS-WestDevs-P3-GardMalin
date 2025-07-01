@@ -5,7 +5,7 @@
   text-align: center;
 
   h1 {
-    margin: auto;
+    margin: 16px auto;
   }
 
   ul {
@@ -70,16 +70,15 @@
 
 @media screen and (min-width: 768px) {
   .parent-info-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
     background-image: url("/images/background.png");
+    height: 100vh;
 
     h1 {
-      height: 150px;
       padding: 48px;
-      order: -1;
-      flex: 80%;
+      grid-area: 1 / 1 / 2 / 3;
     }
   }
 
