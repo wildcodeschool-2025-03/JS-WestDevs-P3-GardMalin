@@ -44,6 +44,7 @@
   align-items: center;
   flex-direction: column;
   width: 350px;
+  /* height: 350px; */
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
   margin: 8px 0 8px 0;
   border-radius: 8px;
@@ -58,7 +59,6 @@
 
 .item-conditional-display-button button:nth-child(1) {
   width: 350px;
-  font-family: var(--font-family-body);
   height: 64px;
   background-color: rgb(244, 204, 194);
   border: none;
@@ -71,7 +71,6 @@
   width: 350px;
   background-color: rgb(232, 244, 194);
   border: none;
-  font-family: var(--font-family-body);
   font-size: 1rem;
   height: 64px;
 }
@@ -149,6 +148,7 @@
   width: 350px;
   height: 350px;
   box-shadow: 25px;
+  margin: 24px 0 0 0;
   border-radius: 0 0 8px 8px;
 }
 
@@ -226,14 +226,20 @@
     display: flex;
     flex-direction: row;
     width: 500px;
+    margin: 0;
   }
 
   .item-conditional-display-button button:nth-child(1) {
     border-radius: 8px 0 0 0;
+    margin: 0;
+    align-items: center;
+    text-align: center;
   }
 
   .item-conditional-display-button button:nth-child(2) {
     border-radius: 0 9px 0 0;
+    align-items: center;
+    margin: 0;
   }
 
   .contact-form {
