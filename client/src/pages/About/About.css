@@ -22,7 +22,6 @@
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
   color: grey;
   border: 4px solid var(--light-bg-bloc-color);
-  margin: 2px;
 }
 
 .about-page-component h1 {
@@ -39,6 +38,7 @@
 }
 
 .item-conditional-display {
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +58,7 @@
 
 .item-conditional-display-button button:nth-child(1) {
   width: 350px;
+  font-family: var(--font-family-body);
   height: 64px;
   background-color: rgb(244, 204, 194);
   border: none;
@@ -70,6 +71,7 @@
   width: 350px;
   background-color: rgb(232, 244, 194);
   border: none;
+  font-family: var(--font-family-body);
   font-size: 1rem;
   height: 64px;
 }
@@ -104,32 +106,38 @@
 .contact-form input {
   width: 300px;
   height: 32px;
+  padding: 0 0 0 8px;
+  font-family: var(--font-family-body);
   margin: 16px 0 16px 0;
   border: 1px solid gray;
 }
 
 .contact-form select {
   width: 300px;
+  padding: 0 0 0 8px;
+  font-family: var(--font-family-body);
   height: 32px;
 }
 
 .contact-form textarea {
+  padding: 8px 0 0 8px;
   width: 300px;
   margin: 16px 0 16px 0;
+  font-family: var(--font-family-body);
 }
 
 .contact-form button {
   background-color: var(--light-bg-bloc-color-button);
-  height: 32px;
   border-radius: 100px;
   border: none;
   cursor: pointer;
-  margin: 8px;
+  font-family: var(--font-family-body);
+  width: 200px;
 }
 
 .contact-form button:hover {
-  margin: 0;
   border: 1px;
+  padding: 4px;
 }
 
 .coordinate-sheet {
@@ -175,17 +183,17 @@
   }
 
   .about-page-component {
-    border: 1px solid red;
     display: grid;
     grid-template-columns: repeat(2, 1fr) 0.25fr repeat(2, 1fr);
-    grid-template-rows: 0.5fr repeat(2, 0.25fr) 1fr 1.25fr repeat(2, 1fr);
+    grid-template-rows: repeat(3, 0.25fr) 1fr 1.25fr 1fr 0fr;
     grid-column-gap: 3px;
     grid-row-gap: 3px;
+    size: 12px;
   }
 
   .about-page-component h1 {
-    margin: 24px 0 0 0;
     grid-area: 1 / 2 / 2 / 5;
+    padding: 24px 0 0 0;
   }
 
   .about-page-component h3 {
@@ -199,15 +207,79 @@
 
   .first-presentation-paragraphe {
     grid-area: 4 / 1 / 5 / 3;
+    padding: 0 0 0 16px;
   }
+
+  .about-page-component p:nth-child(1) {
+    overflow: hidden;
+  }
+
   .item-conditional-display {
     grid-area: 5 / 1 / 8 / 3;
+    align-self: flex-start;
+    margin: 16px 160px 16px 80px;
+    width: 500px;
+    height: 400px;
+  }
+
+  .item-conditional-display-button {
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+  }
+
+  .item-conditional-display-button button:nth-child(1) {
+    border-radius: 8px 0 0 0;
+  }
+
+  .item-conditional-display-button button:nth-child(2) {
+    border-radius: 0 9px 0 0;
+  }
+
+  .contact-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+  }
+
+  .contact-form input {
+    font-size: 16px;
+    width: 400px;
+  }
+
+  .contact-form select {
+    font-size: 16px;
+    width: 400px;
+  }
+
+  .contact-form textarea {
+    font-size: 16px;
+    width: 400px;
+  }
+
+  .coordinate-sheet {
+    width: 500px;
+    text-align: left;
+  }
+
+  .contact-form button {
+    width: 300px;
+    height: 48px;
+    font-size: 16px;
+    margin: 0 0 16px 0;
   }
 
   .second-presentation-paragraph {
+    display: flex;
+    justify-content: flex-start;
     grid-area: 4 / 4 / 8 / 6;
-    padding: 0;
+    padding: 0 16px 0 0;
     margin: 0;
     height: auto;
+    overflow: hidden;
+    align-self: flex-start;
   }
 }
