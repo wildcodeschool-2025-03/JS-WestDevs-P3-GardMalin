@@ -45,7 +45,7 @@ function About() {
                 <option value="informations">Demande de renseignements</option>
                 <option value="dispute">Je veux signaler un litige</option>
                 <option value="suggestion">
-                  Je vous soumettre une suggestion
+                  Je veux soumettre une suggestion
                 </option>
                 <option value="others">Autres</option>
               </select>
