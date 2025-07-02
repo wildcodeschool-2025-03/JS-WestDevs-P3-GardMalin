@@ -2,11 +2,11 @@ footer {
   background-color: #e3def6;
   margin: 0;
   padding: 0;
-  height: 10vh;
 }
 
 .link-footer {
   padding: 0;
+  margin: 0;
 }
 
 .link-logo {
