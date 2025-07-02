@@ -106,7 +106,6 @@ input#age {
 }
 
 @media screen and (min-width: 768px) {
-
   .page-registration-children {
     background-image: url("/images/background.png");
     background-size: cover;
@@ -142,13 +141,13 @@ input#age {
     justify-items: center;
 
     .back-button {
-      grid-column: 5/6;
+      grid-column: 5 / 6;
       color: rgb(159, 159, 253);
       background: none;
     }
 
     .next-button {
-      grid-column: 6/7;
+      grid-column: 6 / 7;
     }
   }
 }
