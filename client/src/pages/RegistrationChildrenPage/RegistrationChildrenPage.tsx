@@ -1,3 +1,4 @@
+import BackButton from "../../components/BackButton/BackButton";
 import "./RegistrationChildrenPage.css";
 
 function RegistrationChildrenPage() {
@@ -72,9 +73,7 @@ function RegistrationChildrenPage() {
         </form>
 
         <section className="footer-registration-children">
-          <button className="return-button" type="button">
-            Retour
-          </button>
+          <BackButton />
 
           <button className="next-button" type="button">
             Suivant
