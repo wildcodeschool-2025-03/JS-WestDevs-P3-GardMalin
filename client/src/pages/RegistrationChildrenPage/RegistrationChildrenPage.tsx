@@ -3,17 +3,17 @@ import "./RegistrationChildrenPage.css";
 
 function RegistrationChildrenPage() {
   return (
-    <main className="page-registration-children">
+    <div className="page-registration-children">
       <section className="header-registration-children">
         <h1>Inscription de l'enfant</h1>
       </section>
 
       <section className="form-section">
-        <form className="fields">
+        <form>
           <article className="gender">
-            <label htmlFor="text">Sexe de l'enfant</label>
-            <br />
-
+            <div>
+              <label htmlFor="text">Sexe de l'enfant</label>
+            </div>
             <label htmlFor="girl">Féminin</label>
             <input type="radio" id="girl" value="girl" name="done" />
             <label htmlFor="man">Masculin</label>
@@ -24,23 +24,21 @@ function RegistrationChildrenPage() {
             Nom
           </label>
           <input type="text" id="lastname" placeholder="Nom" required />
-          <br />
 
           <label htmlFor="firstname" hidden>
             Prénom
           </label>
           <input type="text" id="firstname" placeholder="Prénom" required />
-          <br />
 
           <label htmlFor="age" hidden>
             Age
           </label>
           <input type="text" id="age" placeholder="Age" required />
-          <br />
 
           <article className="handicap">
-            <label htmlFor="text">Handicap ou spécificités</label>
-            <br />
+            <div>
+              <label htmlFor="text">Handicap ou spécificités</label>
+            </div>
             <input type="radio" id="yes" value="yes" name="donetwo" />
             <label htmlFor="yes">Oui*</label>
             <input type="radio" id="no" value="no" name="donetwo" />
@@ -54,11 +52,11 @@ function RegistrationChildrenPage() {
             Allergies
           </label>
           <input type="text" id="firstname" placeholder="Allergies" />
-          <br />
 
           <article className="walk">
-            <label htmlFor="text">Est-ce que votre enfant marche ?</label>
-            <br />
+            <div>
+              <label htmlFor="text">Est-ce que votre enfant marche ?</label>
+            </div>
             <input type="radio" id="yes2" value="yes2" name="donetree" />
             <label htmlFor="yes2">Oui</label>
             <input type="radio" id="no2" value="no2" name="donetree" />
@@ -80,7 +78,7 @@ function RegistrationChildrenPage() {
           </button>
         </section>
       </section>
-    </main>
+    </div>
   );
 }
 

@@ -15,8 +15,7 @@
   align-content: center;
 }
 
-.form-section,
-.field {
+.form-section {
   display: grid;
   flex-direction: column;
   justify-content: center;
@@ -104,24 +103,23 @@ input#age {
 }
 
 @media screen and (min-width: 768px) {
-  .page-registration-children {
-    background-image: url("/images/background.png");
-    background-size: cover;
-  }
-
   .form-section {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     justify-items: center;
     align-self: center;
   }
 
   .gender,
   .handicap,
-  .walk,
+  .walk {
+    width: 750px;
+  }
+
   input#lastname,
   input#firstname,
   input#age {
+    display: flex;
     width: 750px;
   }
 
@@ -134,7 +132,7 @@ input#age {
 
   .footer-registration-children {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     justify-items: center;
 
