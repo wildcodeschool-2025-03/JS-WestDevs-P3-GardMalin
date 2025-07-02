@@ -17,6 +17,7 @@ import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/Registrat
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
+import SpacePro from "./pages/SpacePro/SpacePro";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/registration-children",
         element: <RegistrationChildrenPage />,
+      },
+      {
+        path: "/space-pro",
+        element: <SpacePro />,
       },
       {
         path: "/about",
