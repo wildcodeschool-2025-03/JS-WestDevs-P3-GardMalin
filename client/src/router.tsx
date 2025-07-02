@@ -11,6 +11,7 @@ import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
 
+import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/registration-nursery",
         element: <RegistrationNurseryPage />,
+      },
+      {
+        path: "/description-nursery",
+        element: <DescriptionNursery />,
       },
       {
         path: "/registration-parents",

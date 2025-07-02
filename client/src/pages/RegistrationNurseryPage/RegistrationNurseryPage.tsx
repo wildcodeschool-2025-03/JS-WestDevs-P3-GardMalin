@@ -85,7 +85,7 @@ function RegistrationNurseryPage() {
             </article>
             <button type="submit">Validé vos informations</button>
           </form>
-          <Link to="">
+          <Link to="/description-nursery">
             <button type="button">Suivant</button>
           </Link>
         </section>
