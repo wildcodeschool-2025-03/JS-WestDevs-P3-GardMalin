@@ -41,7 +41,7 @@ function DescriptionNursery() {
               placeholder="Présentez la ou les missions de votre établissement"
             />
 
-            <h3>Accueil </h3>
+            <p>Accueil </p>
             <label htmlFor="reception-one">
               <input id="reception-one" type="checkbox" />
               Espace extérieur / jardin
@@ -51,7 +51,7 @@ function DescriptionNursery() {
               Sortie extérieures
             </label>
 
-            <h3>Activités </h3>
+            <p>Activités </p>
             <label htmlFor="activity-one">
               <input id="activity-one" type="checkbox" />
               Promenades
@@ -74,7 +74,7 @@ function DescriptionNursery() {
             </label>
           </article>
           <article className="nursery-checkbox-two">
-            <h3>Les horaires et les jours d'ouverture</h3>
+            <p>Les horaires et les jours d'ouverture</p>
             <label htmlFor="day-one">
               <input id="day-one" type="checkbox" />
               Lundi
@@ -95,8 +95,8 @@ function DescriptionNursery() {
               <input id="day-five" type="checkbox" />
               Vendredi
             </label>
-
-            <label htmlFor="hour-morning">
+            <p>Choissisez votre horaire d'ouverture</p>
+            <label htmlFor="hour-morning" hidden>
               Choissisez votre horaire d'ouverture
             </label>
 
@@ -108,8 +108,8 @@ function DescriptionNursery() {
               max="19:00"
               required
             />
-
-            <label htmlFor="hour-morning">
+            <p>Choissisez votre horaire de fermeture</p>
+            <label htmlFor="hour-morning" hidden>
               Choissisez votre horaire de fermeture
             </label>
 
