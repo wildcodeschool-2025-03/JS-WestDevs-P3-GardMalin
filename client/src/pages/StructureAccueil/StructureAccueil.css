@@ -1,0 +1,21 @@
+.type-of-reception {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.type-of-reception-choice {
+  flex-direction: row;
+  margin: 8px;
+}
+
+.period-reservation {
+  flex-direction: row;
+  margin: 8px;
+}
+
+.period-reservation input {
+  margin: 8px;
+}

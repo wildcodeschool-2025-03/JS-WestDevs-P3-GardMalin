@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import SearchBar from "../../components/SearchBar/SearchBar";
+// import SearchBar from "../../components/SearchBar/SearchBar";
 import "./Home.css";
 
 function Home() {
@@ -9,8 +9,8 @@ function Home() {
       <section className="home-page-presentation">
         <article>
           <section>
-            <Link to="/loginparent">Je cherche une garde d'enfant </Link>
-            <Link to="/loginpro">Je veux garder des enfants </Link>
+            <Link to="/login-parent">Je cherche une garde d'enfant </Link>
+            <Link to="/login-pro">Je veux garder des enfants </Link>
             <Link to="/about">Nous contacter </Link>
           </section>
           <section>
@@ -18,7 +18,7 @@ function Home() {
               Trouver les meilleurs garde d'enfants <br />
               près de chez vous !
             </p>
-            <SearchBar />
+            {/* <SearchBar /> */}
           </section>
         </article>
         <article>

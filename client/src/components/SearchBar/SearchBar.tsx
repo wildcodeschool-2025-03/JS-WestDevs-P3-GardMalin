@@ -4,12 +4,17 @@ import "./SearchBar.css";
 
 interface Nursery {
   name: string;
-  address: string;
+  postal_code: string;
+  city: string;
   phone: string;
   id?: number;
 }
+interface SearchBarProps {
+  searchEstablishment: Nursery[];
+  setSearchEstablishment: React.Dispatch<React.SetStateAction<never[]>>;
+}
 
-function SearchBar() {
+function SearchBar(props?: SearchBarProps | undefined) {
   const [value, setValue] = useState<string>("");
   const [nurseries, setNurseries] = useState([]);
 
@@ -17,12 +22,23 @@ function SearchBar() {
     setValue(event.target.value);
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/nurseries")
-      .then((res) => res.json())
-      .then((responseData) => {
-        setNurseries(responseData);
-      });
-  }, []);
+    if (value !== "") {
+      fetch("http://localhost:3310/api/nurseries")
+        .then((res) => res.json())
+        .then((responseData) => {
+          const filterNurseries = responseData.filter((element: Nursery) => {
+            return (
+              element.city.toLowerCase().startsWith(value.toLowerCase()) ||
+              element.postal_code.startsWith(value)
+            );
+          });
+          setNurseries(filterNurseries);
+          if (props) {
+            props.setSearchEstablishment(filterNurseries);
+          }
+        });
+    }
+  }, [value, props]);
 
   return (
     <article className="search-bar">
@@ -38,18 +54,11 @@ function SearchBar() {
       </section>
       <ul>
         {value &&
-          nurseries
-            .filter((element: Nursery) => {
-              return element.address
-                .toLowerCase()
-                .startsWith(value.toLowerCase());
-              // || element.address.toLowerCase().startsWith(value.toLowerCase())
-            })
-            .map((element: Nursery) => (
-              <li key={element.id}>
-                <Link to={"/maintenance"}>{element.name}</Link>
-              </li>
-            ))}
+          nurseries.map((element: Nursery) => (
+            <li key={element.id}>
+              <Link to={"/maintenance"}>{element.name}</Link>
+            </li>
+          ))}
       </ul>
     </article>
   );

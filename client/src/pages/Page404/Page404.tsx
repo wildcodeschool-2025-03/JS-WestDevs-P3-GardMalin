@@ -13,7 +13,7 @@ function Page404() {
 
       if (newSeconds <= 0) {
         clearInterval(interval);
-        navigate("/Home");
+        navigate("/");
       }
     }, 1000);
 
