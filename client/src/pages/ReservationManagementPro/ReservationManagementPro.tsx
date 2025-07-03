@@ -10,20 +10,34 @@ const ReservationManagementPro: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   return (
-    <div className="reservation-container">
+    <section className="reservation-pro-management">
       <h1>Gestion des réservations</h1>
+      <div className="reservation-container">
+        <p>
+          <strong>Date sélectionnée :</strong>{" "}
+          {format(selectedDate, "dd-MM-yyyy")}
+        </p>
 
-      <p>
-        <strong>Date sélectionnée :</strong>{" "}
-        {format(selectedDate, "dd-MM-yyyy")}
-      </p>
+        <Calendar
+          date={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          locale={fr}
+        />
+      </div>
 
-      <Calendar
-        date={selectedDate}
-        onChange={(date) => setSelectedDate(date)}
-        locale={fr}
-      />
-    </div>
+      <div className="availability-container">
+        <p>
+          <strong>Date sélectionnée :</strong>{" "}
+          {format(selectedDate, "dd-MM-yyyy")}
+        </p>
+
+        <Calendar
+          date={selectedDate}
+          onChange={(date) => setSelectedDate(date)}
+          locale={fr}
+        />
+      </div>
+    </section>
   );
 };
 
