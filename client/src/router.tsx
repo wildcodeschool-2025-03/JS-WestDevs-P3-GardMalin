@@ -14,6 +14,7 @@ import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstr
 
 import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
+import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/RegistrationChildrenPage";
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path: "/space-parent",
         element: <SpaceParent />,
+      },
+      {
+        path: "/registration-children",
+        element: <RegistrationChildrenPage />,
       },
       {
         path: "/space-pro",
