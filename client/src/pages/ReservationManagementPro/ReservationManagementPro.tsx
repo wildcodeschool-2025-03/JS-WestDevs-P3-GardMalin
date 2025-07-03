@@ -10,34 +10,40 @@ const ReservationManagementPro: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   return (
-    <section className="reservation-pro-management">
-      <h1>Gestion des réservations</h1>
-      <div className="reservation-container">
-        <p>
-          <strong>Date sélectionnée :</strong>{" "}
-          {format(selectedDate, "dd-MM-yyyy")}
-        </p>
+    <div className="page-reservation-pro-management">
+      <section>
+        <h1>Votre plannig de réservations</h1>
+        <article>
+          <p>
+            <strong>Date sélectionnée :</strong>{" "}
+            {format(selectedDate, "dd-MM-yyyy")}
+          </p>
 
-        <Calendar
-          date={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          locale={fr}
-        />
-      </div>
+          <Calendar
+            date={selectedDate}
+            onChange={(date) => setSelectedDate(date)}
+            locale={fr}
+          />
+        </article>
+      </section>
 
-      <div className="availability-container">
-        <p>
-          <strong>Date sélectionnée :</strong>{" "}
-          {format(selectedDate, "dd-MM-yyyy")}
-        </p>
-
-        <Calendar
-          date={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          locale={fr}
-        />
-      </div>
-    </section>
+      <section>
+        <h1>Informations planning</h1>
+        <article>
+          <p>Date : 03-07-2025</p>
+          <div>
+            <p>Liste des inscriptions validées</p>
+          </div>
+          <p>Places disponibles: ../10</p>
+          <div>
+            <p>Demandes de réservation : 4</p>
+          </div>
+        </article>
+        <button className="valid-reservation" type="submit">
+          Confirmation
+        </button>
+      </section>
+    </div>
   );
 };
 

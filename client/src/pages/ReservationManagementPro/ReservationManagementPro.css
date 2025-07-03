@@ -1,23 +1,26 @@
-.reservation-pro-management h1 {
-  margin: 10px;
-}
+.page-reservation-pro-management {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin: 16px;
 
-.reservation-container,
-.availability-container {
-  padding: 20px;
-}
-
-@media screen and (min-width: 765px) {
-
-  .reservation-container,
-  .availability-container {
-    margin: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  h1 {
+    display: ;
   }
 
-  .reservation-container {
-    width: 370px;
+  .valid-reservation {
+    font-family: var(--font-family-body);
+    margin-top: 20px;
+    background-color: var(--light-bg-bloc-color-button);
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 48px;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+    transition: background-color 0.3s ease;
   }
-}
+
+  /* @media screen and (min-width: 765px) {} */
