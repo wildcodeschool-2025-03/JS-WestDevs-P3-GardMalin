@@ -6,21 +6,22 @@
 }
 
 div.page-reservation-pro-management {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   justify-items: center;
   align-items: center;
   margin: 0;
+
+  p {
+    padding: 8px 8px 0;
+    margin-bottom: 0;
+  }
 }
 
 .container-one {
   display: flex;
   flex-direction: column;
   background-color: white;
-
-  h2 {
-    margin: 32px 16px;
-  }
 
   .rdrCalendarWrapper {
     display: grid;
@@ -29,9 +30,19 @@ div.page-reservation-pro-management {
   }
 }
 
+.bloc-reservation {
+  display: flex;
+}
+
+.bloc-validation {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .container-two {
   background-color: var(--light-bg-bloc-color);
-  padding: 24px;
+  padding: 24px 24px 0;
+  margin-bottom: 24px;
 
   h2 {
     margin: 0;
