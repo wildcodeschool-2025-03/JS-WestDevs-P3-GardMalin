@@ -1,26 +1,79 @@
-.page-reservation-pro-management {
+.title-page {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+
+div.page-reservation-pro-management {
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   justify-items: center;
   align-items: center;
-  margin: 16px;
+  margin: 0;
+}
 
-  h1 {
-    display: ;
+.container-one {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  h2 {
+    margin: 32px 16px;
+  }
+
+  p {
+    margin-left: 32px;
+  }
+
+  .rdrCalendarWrapper {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.container-two {
+  background-color: var(--light-bg-bloc-color);
+  padding: 24px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.valid-reservation {
+  font-family: var(--font-family-body);
+  margin-top: 20px;
+  background-color: var(--light-bg-bloc-color-button);
+  color: #000;
+  border: none;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  padding: 12px;
+  border-radius: 48px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  transition: background-color 0.3s ease;
+  margin-bottom: 16px;
+}
+
+@media screen and (min-width: 765px) {
+  .page-reservation-pro-management {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: 16px;
+  }
+
+  .reservation,
+  .information {
+    grid-row: 2/3;
   }
 
   .valid-reservation {
-    font-family: var(--font-family-body);
-    margin-top: 20px;
-    background-color: var(--light-bg-bloc-color-button);
-    color: #000;
-    border: none;
-    padding: 12px;
-    border-radius: 48px;
-    cursor: pointer;
-    width: fit-content;
-    align-self: center;
-    transition: background-color 0.3s ease;
+    grid-column: 2/3;
   }
-
-  /* @media screen and (min-width: 765px) {} */
+}
