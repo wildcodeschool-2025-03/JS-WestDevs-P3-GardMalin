@@ -39,10 +39,10 @@ const ReservationManagementPro: React.FC = () => {
             <div>
               <p>Demandes de réservation : 4</p>
             </div>
+            <button className="valid-reservation" type="submit">
+              Confirmation
+            </button>
           </article>
-          <button className="valid-reservation" type="submit">
-            Confirmation
-          </button>
         </section>
       </div>
     </>

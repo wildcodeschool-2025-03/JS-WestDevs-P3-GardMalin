@@ -22,10 +22,6 @@ div.page-reservation-pro-management {
     margin: 32px 16px;
   }
 
-  p {
-    margin-left: 32px;
-  }
-
   .rdrCalendarWrapper {
     display: grid;
     align-items: center;
