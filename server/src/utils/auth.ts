@@ -1,7 +1,7 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
-import usersRepository from "../modules/users/usersRepository";
 import jwt from "jsonwebtoken";
+import usersRepository from "../modules/users/usersRepository";
 
 const hashPassword: RequestHandler = async (req, res, next) => {
   try {
