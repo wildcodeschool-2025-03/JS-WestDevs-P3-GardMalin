@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./StructureAccueil.css";
 import { Link } from "react-router";
+import Carrousel from "../../components/Carrousel/Carrousel";
 
 interface Nursery {
   name: string;
@@ -15,24 +16,21 @@ interface Nursery {
 
 function StructureAccueil() {
   const [searchEstablishment, setSearchEstablishment] = useState([]);
-  const [selectedNurseryIndex] = useState(0);
+  const [selectedNurseryIndex, setSelectedNurseryIndex] = useState(0);
   const [selectedNursery, setSelectedNursery] = useState<Nursery | undefined>(
     undefined,
+  );
+  const [reservationDate, setReservationDate] = useState<string>(
+    new Date().toISOString().split("T")[0],
   );
 
   useEffect(() => {
     if (searchEstablishment.length) {
       setSelectedNursery(searchEstablishment[selectedNurseryIndex]);
+    } else {
+      setSelectedNursery(undefined);
     }
   }, [searchEstablishment, selectedNurseryIndex]);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3310/api/reservation")
-  //     .then((res) => res.json())
-  //     .then((responseData) => {
-  //       setSelectedNurseryIndex(responseData);
-  //     });
-  // }, []);
 
   return (
     <main className="structure-accueil">
@@ -40,11 +38,11 @@ function StructureAccueil() {
       <section className="type-of-reception">
         <h3>Quel type d'accueil souhaitez-vous ?</h3>
         <section className="type-of-reception-choice">
-          <input type="checkbox" id="nursery" name="select" value="nursery" />
+          <input type="radio" id="nusery" name="select" value="nursery" />
           <label htmlFor="nursery">Crèche</label>
 
           <input
-            type="checkbox"
+            type="radio"
             id="childminder"
             name="select"
             value="childminder"
@@ -54,17 +52,51 @@ function StructureAccueil() {
 
         <section className="period-reservation">
           <label>
-            Date de votre réservation souhaitée : <input type="date" />
+            Date de votre réservation souhaitée :
+            <input
+              type="date"
+              value={reservationDate}
+              onChange={(e) => setReservationDate(e.currentTarget.value)}
+            />
           </label>
         </section>
         <SearchBar
           setSearchEstablishment={setSearchEstablishment}
           searchEstablishment={searchEstablishment}
+          reservationDate={reservationDate}
         />
+      </section>
+      <section className="child-selected">
+        <h3>Sélectionner l'enfant concerné par cette réservation : </h3>
+        <Carrousel />
       </section>
       {selectedNursery && (
         <section className="selected-nursery">
-          <button type="button">Voir établissement suivant</button>
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedNurseryIndex((current) => {
+                const nextIndex = current > 0 ? current - 1 : current;
+                return nextIndex;
+              });
+            }}
+          >
+            Voir établissement précédent
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedNurseryIndex((current) => {
+                const nextIndex =
+                  current < searchEstablishment.length - 1
+                    ? current + 1
+                    : current;
+                return nextIndex;
+              });
+            }}
+          >
+            Voir établissement suivant
+          </button>
           <h3>Crèche sélectionnée</h3>
           <section className="coordinate">
             <h4>Horaires et contacts</h4>
@@ -88,11 +120,10 @@ function StructureAccueil() {
           </section>
         </section>
       )}
-
       <section className="button-section">
         <button type="button">Tarifs</button>
         <Link to="/establishment-presentation">Voir l'établissement</Link>
-        <Link to="/reservation">Faire ma réservation</Link>
+        <button type="submit">Confirmer ma réservation</button>
       </section>
     </main>
   );
