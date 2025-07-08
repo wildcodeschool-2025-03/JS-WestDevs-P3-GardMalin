@@ -19,6 +19,7 @@ CREATE TABLE parent (
 
 CREATE TABLE kid (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  gender BOOLEAN,
   firstname VARCHAR(50),
   lastname VARCHAR(50),
   age INT NOT NULL,
@@ -69,14 +70,30 @@ VALUES
   ("Nina", "Williams", "98 rue du fightclub", "53999", "Aren", "06 54 99 99 99"),
   ("Axel", "Okalm", "55 rue de la zenitude", "25599", "Rakuen", "06 53 99 99 99" );
 
-INSERT INTO kid (firstname, lastname, age, walker, allergy, handicap)
+INSERT INTO kid (gender, firstname, lastname, age, walker, allergy, handicap)
 VALUES
-  ("Flora", "Wick", "8", 1, "aucune", 0),
-  ("Shana", "Williams", "1", 0, "asthme", 0),
-  ("Louis", "Okalm", "5", 1, "aucune", 1);
+  ('F', "Flora", "Wick", "8", 1, "aucune", 0),
+  ('F',"Shana", "Williams", "1", 0, "asthme", 0),
+  ('U',"Louis", "Okalm", "5", 1, "aucune", 1),
+  ('M',"Ethan", "Lamar", "4", 1, "gluten", 0),
+  ('F',"Maya", "Chen", "3", 0, "aucune", 0),
+  ('U',"Noah", "Dubreuil", "6", 1, "lactose", 1),
+  ('F',"Zoe", "Martens", "2", 0, "pollen", 0),
+  ('M',"Leo", "Nguyen", "7", 1, "aucune", 0);
 
 INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, capacity)
 VALUES
   ("Les Petits Explorateurs", "83475219900018", "12 rue des érables", "33600", "Pessac" , "05 56 45 67 89", 50),
-  ("Les Coccinelles Joyeuses", "89234087100025", "5 allée des Acacias", "33600", "Pessac", "05 56 12 34 56", 25),
+  ("Les Coccinelles Joyeuses", "89234087100025", "5 allée des Acacias", "33600", "Pessac", "05 56 12 34 56", 5),
   ("Puzzle & Petits Pas", "90176845200037", "22 rue des Tisserands", "33600", "Pessac", "05 56 23 45 67", 128);
+
+  INSERT INTO reservation (kid_id, nursery_id, date, is_validated) VALUES 
+  (1, 1, "2025-07-03", true),
+  (2, 3, "2025-07-04", true),
+  (3, 1, "2025-07-05", true),
+  (4, 2, "2025-07-04", true),
+  (5, 2, "2025-07-04", true),
+  (6, 2, "2025-07-04", true),
+  (7, 2, "2025-07-04", true),
+  (8, 2, "2025-07-04", true);
+  

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar } from "react-date-range";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
@@ -9,6 +9,42 @@ import Card from "../../components/Card/Card";
 
 const ReservationManagementPro: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+
+  const formattedSelectedDate = format(selectedDate, "yyyy-MM-dd");
+
+  // Appel à l’API
+  useEffect(() => {
+    fetch("/api/reservations")
+      .then((res) => res.json())
+      .then((data) => setReservations(data))
+      .catch((err) => console.error("Erreur API:", err));
+  }, []);
+
+  // Filtre validation
+  const validatedRequests = reservations.filter(
+    (r) =>
+      r.date === formattedSelectedDate &&
+      r.is_validated === true &&
+      r.is_refused === false,
+  );
+
+  // Filtre réservation
+  const pendingRequests = reservations.filter(
+    (r) =>
+      r.date === formattedSelectedDate &&
+      r.is_validated === false &&
+      r.is_refused === false,
+  );
+
+  // Filtre refusées
+  const refusedRequests = reservations.filter(
+    (r) =>
+      r.date === formattedSelectedDate &&
+      r.is_validated === false &&
+      r.is_refused === true,
+  );
 
   return (
     <>
@@ -33,16 +69,57 @@ const ReservationManagementPro: React.FC = () => {
           <strong>Informations planning</strong>
           <article className="information">
             <p>Date : {format(selectedDate, "dd-MM-yyyy")}</p>
-            <div className="bloc-validated">
-              <p>Liste des inscriptions validées</p>
 
-              <Card image="/images/little_boy.png" />
-              <Card image="/images/little_girl.png" />
+            {/* Validées */}
+            <div className="bloc-validated">
+              <button type="button">
+                <p>Liste des inscriptions validées</p>
+              </button>
+              {validatedRequests.map((res) => (
+                <Card
+                  key={res.id}
+                  image="/images/little_boy.png"
+                  text={`${res.kid.firstname} ${res.kid.lastname}`}
+                  name={res.kid.firstname}
+                  age={res.kid.age}
+                />
+              ))}
             </div>
-            <p>Places disponibles: ../10</p>
+
+            <p>Places disponibles: {10 - validatedRequests.length}/10</p>
+
+            {/* En attente */}
             <div className="bloc-reservation">
-              <p>Demandes de réservation : 4</p>
+              <button type="button">
+                <p>Demandes de réservation : {pendingRequests.length}</p>
+              </button>
+              {pendingRequests.map((res) => (
+                <Card
+                  key={res.id}
+                  image="/images/little_girl.png"
+                  text={`${res.kid.firstname} ${res.kid.lastname}`}
+                  name={res.kid.firstname}
+                  age={res.kid.age}
+                />
+              ))}
             </div>
+
+            {/* Refusées */}
+            <div className="bloc-refused">
+              <button type="button">
+                <p>Demandes refusées : {refusedRequests.length}</p>
+              </button>
+              {refusedRequests.map((res) => (
+                <Card
+                  key={res.id}
+                  image="/images/little_girl.png"
+                  text={`${res.kid.firstname} ${res.kid.lastname}`}
+                  name={res.kid.firstname}
+                  age={res.kid.age}
+                />
+              ))}
+            </div>
+
             <button className="valid-reservation" type="submit">
               Confirmation
             </button>

@@ -39,7 +39,9 @@ div.page-reservation-pro-management {
   grid-template-columns: 1fr;
 }
 
-.container-two {
+.information {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr, 1fr);
   background-color: var(--light-bg-bloc-color);
   padding: 24px 24px 0;
   margin-bottom: 24px;
