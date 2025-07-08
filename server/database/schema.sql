@@ -19,7 +19,7 @@ CREATE TABLE parent (
 
 CREATE TABLE kid (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  gender BOOLEAN,
+  gender ENUM('F', 'M', 'U') DEFAULT "U",
   firstname VARCHAR(50),
   lastname VARCHAR(50),
   age INT NOT NULL,
@@ -96,4 +96,3 @@ VALUES
   (6, 2, "2025-07-04", true),
   (7, 2, "2025-07-04", true),
   (8, 2, "2025-07-04", true);
-  
