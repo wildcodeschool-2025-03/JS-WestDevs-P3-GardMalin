@@ -1,10 +1,9 @@
 import "./CardsCarrousel.css";
 
 function ChildCard({ gender, name, firstname, age }: Child) {
-  const imgGirl = "/images/little_girl.png";
-  const imgBoy = "/images/little_boy.png";
-  const imgElse =
-    "/images/avatar-de-licorne-mythique-3d-avec-des-yeux-de-dessin-anime-removebg-preview.png";
+  const imgGirl = "/images/little-girl2.png";
+  const imgBoy = "/images/little-boy2.png";
+  const imgElse = "/images/avatar-de-licorne.png";
 
   return (
     <figure className="card-carrousel">
