@@ -3,6 +3,19 @@ import "./LoginParent.css";
 import BackButton from "../../components/BackButton/BackButton";
 
 const LoginParent = () => {
+  const handleSubmit = (formData: FormData) => {
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:3310/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => console.warn("Ma réponse : ", res.ok));
+  };
+
   return (
     <>
       <main className="login-parent-container">
@@ -14,13 +27,14 @@ const LoginParent = () => {
           <img src="./images/gardmalin-logo.png" alt="logo gardmalin" />
           <h1>Chers parents, gérez ici la garde de vos enfants !</h1>
           <h2>Connexion</h2>
-          <form className="form-parent-container">
+          <form action={handleSubmit} className="form-parent-container">
             <label htmlFor="email" hidden>
               Email
             </label>
             <input
               type="email"
               id="email"
+              name="email"
               placeholder="Adresse mail"
               required
             />
@@ -31,6 +45,7 @@ const LoginParent = () => {
             <input
               type="password"
               id="password"
+              name="password"
               placeholder="Mot de passe"
               required
             />
