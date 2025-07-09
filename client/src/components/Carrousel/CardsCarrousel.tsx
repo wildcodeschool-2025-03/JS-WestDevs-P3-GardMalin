@@ -47,7 +47,8 @@ function ChildCard({ gender, name, firstname, age }: Child) {
         {firstname} <br /> {name} <br />
         {age} mois
       </p>
-      <input className="selected-child"
+      <input
+        className="selected-child"
         type="radio"
         id="child"
         name="select"

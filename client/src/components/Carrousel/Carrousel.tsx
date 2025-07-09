@@ -77,7 +77,7 @@ const arrayKids = [
     firstname: "Laura",
     name: "Wick",
     age: "8",
-  }
+  },
 ];
 
 function Carrousel() {
