@@ -70,16 +70,11 @@ VALUES
   ("Nina", "Williams", "98 rue du fightclub", "53999", "Aren", "06 54 99 99 99"),
   ("Axel", "Okalm", "55 rue de la zenitude", "25599", "Rakuen", "06 53 99 99 99" );
 
-INSERT INTO kid (gender, firstname, lastname, age, walker, allergy, handicap)
+INSERT INTO kid (gender, firstname, lastname, age, walker, allergy, handicap, parent_id)
 VALUES
-  ('F', "Flora", "Wick", "8", 1, "aucune", 0),
-  ('F',"Shana", "Williams", "1", 0, "asthme", 0),
-  ('U',"Louis", "Okalm", "5", 1, "aucune", 1),
-  ('M',"Ethan", "Lamar", "4", 1, "gluten", 0),
-  ('F',"Maya", "Chen", "3", 0, "aucune", 0),
-  ('U',"Noah", "Dubreuil", "6", 1, "lactose", 1),
-  ('F',"Zoe", "Martens", "2", 0, "pollen", 0),
-  ('M',"Leo", "Nguyen", "7", 1, "aucune", 0);
+  ("F", "Flora", "Wick", "8", 1, "aucune", 0, 1),
+  ("F", "Shana", "Williams", "1", 0, "asthme", 0, 3),
+  ("M", "Louis", "Okalm", "5", 1, "aucune", 1, 1);
 
 INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, capacity)
 VALUES
