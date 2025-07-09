@@ -9,16 +9,18 @@ interface KidI {
 }
 
 interface CardProps {
+  id: number;
   image: string;
   name: string;
   age: number;
-  text: string;
+  status: "validated" | "pending" | "refused";
 }
 
 type Kid = {
   firstname: string;
   lastname: string;
   age: number;
+  gender: string;
 };
 
 type Nursery = {
@@ -27,9 +29,10 @@ type Nursery = {
 
 type Reservation = {
   id: number;
+  kid_id: number;
+  nursery_id: number;
   date: string;
   is_validated: boolean;
   is_refused: boolean;
   kid: Kid;
-  nursery: Nursery;
 };
