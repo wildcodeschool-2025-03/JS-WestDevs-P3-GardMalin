@@ -29,6 +29,55 @@ const arrayKids = [
     name: "Wick",
     age: "7",
   },
+  {
+    id: 4,
+    gender: "F",
+    firstname: "Lana",
+    name: "Wu",
+    age: "8",
+  },
+  {
+    id: 5,
+    gender: "M",
+    firstname: "Pierre",
+    name: "Rocher",
+    age: "6",
+  },
+  {
+    id: 6,
+    gender: "U",
+    firstname: "Paul",
+    name: "Pain",
+    age: "7",
+  },
+  {
+    id: 7,
+    gender: "F",
+    firstname: "Fanny",
+    name: "Durand",
+    age: "8",
+  },
+  {
+    id: 8,
+    gender: "M",
+    firstname: "Kylian",
+    name: "Gadjo",
+    age: "6",
+  },
+  {
+    id: 9,
+    gender: "U",
+    firstname: "Lou",
+    name: "Anne",
+    age: "7",
+  },
+  {
+    id: 10,
+    gender: "F",
+    firstname: "Laura",
+    name: "Wick",
+    age: "8",
+  }
 ];
 
 function Carrousel() {
@@ -42,7 +91,7 @@ function Carrousel() {
   // }, [id]);
 
   return (
-    <section>
+    <section className="structure-accueil-carrousel">
       <Swiper
         effect={"cards"}
         grabCursor={true}
