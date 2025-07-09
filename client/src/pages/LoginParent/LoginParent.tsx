@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./LoginParent.css";
+import { toast } from "react-toastify";
 import BackButton from "../../components/BackButton/BackButton";
 
 const LoginParent = () => {
@@ -13,7 +14,13 @@ const LoginParent = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => console.warn("Ma réponse : ", res.ok));
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("Vous êtes connecté !");
+      } else {
+        toast.error("Echec de connexion");
+      }
+    });
   };
 
   return (
@@ -39,7 +46,6 @@ const LoginParent = () => {
               required
             />
             <label htmlFor="password" hidden>
-              {" "}
               Votre mot de passe
             </label>
             <input
@@ -55,7 +61,7 @@ const LoginParent = () => {
             </label>
             <button type="submit">Se connecter</button>
             <p>Vous n'avez pas de compte ?</p>
-            <Link to="/">Cliquez ici !</Link>
+            <Link to="/registration-parents">Cliquez ici !</Link>
           </form>
           <BackButton />
         </section>
