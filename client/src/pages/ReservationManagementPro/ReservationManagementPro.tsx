@@ -57,8 +57,7 @@ function ReservationManagementPro() {
 
   const formattedSelectedDate = format(selectedDate, "yyyy-MM-dd");
 
-  //
-  const [isFormOpen, setIsFormOpen] = useState(true);
+  // const [isFormOpen, setIsFormOpen] = useState(true);
 
   // Appel à l’API
   useEffect(() => {
