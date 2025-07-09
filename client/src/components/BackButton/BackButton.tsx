@@ -10,7 +10,7 @@ function BackButton() {
   return (
     <section className="back-button">
       <button type="button" onClick={previousPage}>
-        Page précédente
+        Retour
       </button>
     </section>
   );

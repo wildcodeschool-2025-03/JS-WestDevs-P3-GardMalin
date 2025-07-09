@@ -12,10 +12,13 @@ import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
 
+import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
+import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/RegistrationChildrenPage";
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
+import SpacePro from "./pages/SpacePro/SpacePro";
 import StructureAccueil from "./pages/StructureAccueil/StructureAccueil";
 
 const router = createBrowserRouter([
@@ -52,12 +55,24 @@ const router = createBrowserRouter([
         element: <SpaceParent />,
       },
       {
+        path: "/registration-children",
+        element: <RegistrationChildrenPage />,
+      },
+      {
+        path: "/space-pro",
+        element: <SpacePro />,
+      },
+      {
         path: "/about",
         element: <About />,
       },
       {
         path: "/registration-nursery",
         element: <RegistrationNurseryPage />,
+      },
+      {
+        path: "/description-nursery",
+        element: <DescriptionNursery />,
       },
       {
         path: "/registration-parents",

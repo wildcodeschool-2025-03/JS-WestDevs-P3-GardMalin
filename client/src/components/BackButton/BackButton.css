@@ -9,8 +9,6 @@
   -webkit-border-radius: 100px / 160px;
   -moz-border-radius: 100px / 160px;
   border-radius: 100px / 160px;
-  padding: 16px;
-  margin: 32px;
   border: none;
   cursor: pointer;
 }
