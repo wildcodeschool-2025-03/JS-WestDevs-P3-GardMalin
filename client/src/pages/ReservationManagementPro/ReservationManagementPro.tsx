@@ -67,19 +67,19 @@ function ReservationManagementPro() {
       .catch((err) => console.error("Erreur API:", err));
   }, []);
 
-  // Filtre validation
-  const validatedRequests = reservations.filter(
-    (r) =>
-      r.date === formattedSelectedDate &&
-      r.is_validated === true &&
-      r.is_refused === false,
-  );
-
   // Filtre réservation
   const pendingRequests = reservations.filter(
     (r) =>
       r.date === formattedSelectedDate &&
       r.is_validated === false &&
+      r.is_refused === false,
+  );
+
+  // Filtre validation
+  const validatedRequests = reservations.filter(
+    (r) =>
+      r.date === formattedSelectedDate &&
+      r.is_validated === true &&
       r.is_refused === false,
   );
 
@@ -93,8 +93,8 @@ function ReservationManagementPro() {
 
   return (
     <>
-      <h1 className="title-page">Votre plannig de réservations</h1>
       <div className="page-reservation-pro-management">
+        <h1 className="title-page">Votre plannig de réservations</h1>
         <section className="container-one">
           <article className="reservation">
             <p>
@@ -110,62 +110,66 @@ function ReservationManagementPro() {
           </article>
         </section>
 
-        <div className="container-two">
-          <strong>Informations planning</strong>
-          <section className="information">
-            <p>Date : {format(selectedDate, "dd-MM-yyyy")}</p>
+        <strong>
+          <p>Informations planning</p>
+        </strong>
+        <section className="information">
+          {/* En attente */}
+          <article className="bloc-reservation">
+            <p className="date">Date : {format(selectedDate, "dd-MM-yyyy")}</p>
+            <h4 className="pending-c">
+              Demandes réservées : {pendingRequests.length}
+            </h4>
 
-            {/* Validées */}
-            <article className="bloc-validated">
-              <p>Liste des inscriptions validées</p>
+            {pendingRequests.map((res) => (
+              <Card
+                key={res.id}
+                id={res.id}
+                image="/images/little_girl.png"
+                name={`${res.kid.firstname} ${res.kid.lastname}`}
+                age={res.kid.age}
+                status="en attente"
+              />
+            ))}
+          </article>
 
-              {validatedRequests.map((res) => (
-                <Card
-                  key={res.id}
-                  id={res.id}
-                  image="/images/little_girl.png"
-                  name={`${res.kid.firstname} ${res.kid.lastname}`}
-                  age={res.kid.age}
-                  status="pending"
-                />
-              ))}
-            </article>
-
+          {/* Validées */}
+          <article className="bloc-validated">
             <p>Places disponibles: {10 - validatedRequests.length}/10</p>
+            <h4 className="validated-c">
+              Demandes validées : {validatedRequests.length}
+            </h4>
+            {validatedRequests.map((res) => (
+              <Card
+                key={res.id}
+                id={res.id}
+                image="/images/little_girl.png"
+                name={`${res.kid.firstname} ${res.kid.lastname}`}
+                age={res.kid.age}
+                status="validées"
+              />
+            ))}
+          </article>
 
-            {/* En attente */}
-            <article className="bloc-reservation">
-              <p>Demandes de réservation : {pendingRequests.length}</p>
+          {/* Refusées */}
+          <article className="bloc-refused">
+            <p>Refus: {10 - refusedRequests.length}/10</p>
+            <h4 className="refused-c">
+              Demandes refusées : {refusedRequests.length}
+            </h4>
 
-              {pendingRequests.map((res) => (
-                <Card
-                  key={res.id}
-                  id={res.id}
-                  image="/images/little_girl.png"
-                  name={`${res.kid.firstname} ${res.kid.lastname}`}
-                  age={res.kid.age}
-                  status="pending"
-                />
-              ))}
-            </article>
-
-            {/* Refusées */}
-            <article className="bloc-refused">
-              <p>Demandes refusées : {refusedRequests.length}</p>
-
-              {refusedRequests.map((res) => (
-                <Card
-                  key={res.id}
-                  id={res.id}
-                  image="/images/little_girl.png"
-                  name={`${res.kid.firstname} ${res.kid.lastname}`}
-                  age={res.kid.age}
-                  status="refused"
-                />
-              ))}
-            </article>
-          </section>
-        </div>
+            {refusedRequests.map((res) => (
+              <Card
+                key={res.id}
+                id={res.id}
+                image="/images/little_girl.png"
+                name={`${res.kid.firstname} ${res.kid.lastname}`}
+                age={res.kid.age}
+                status="refusées"
+              />
+            ))}
+          </article>
+        </section>
       </div>
     </>
   );

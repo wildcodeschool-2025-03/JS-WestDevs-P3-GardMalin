@@ -1,88 +1,71 @@
-.title-page {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: space-around;
-}
-
-div.page-reservation-pro-management {
+.page-reservation-pro-management {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
   margin: 0;
 
-  p {
-    padding: 8px 8px 0;
-    margin-bottom: 0;
-  }
-}
-
-.container-one {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-
-  .rdrCalendarWrapper {
-    display: grid;
-    align-items: center;
+  .title-page {
     justify-content: center;
+    padding: 0 8px 4px 26px;
   }
-}
 
-.bloc-reservation {
-  display: flex;
-}
-
-.bloc-validation {
-  display: grid;
-  grid-template-columns: 1fr;
+  .strong {
+    margin: 16px 0 16px;
+  }
 }
 
 .information {
   display: grid;
-  grid-template-columns: repeat(3, 1fr, 1fr);
+  align-items: start;
+  grid-template-rows: repeat(1, 1fr);
   background-color: var(--light-bg-bloc-color);
-  padding: 24px 24px 0;
+  padding: 24px;
   margin-bottom: 24px;
+  border-radius: 10px;
 
   h2 {
     margin: 0;
   }
-}
 
-.valid-reservation {
-  font-family: var(--font-family-body);
-  margin-top: 20px;
-  background-color: var(--light-bg-bloc-color-button);
-  color: #000;
-  border: none;
-  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
-  padding: 12px;
-  border-radius: 48px;
-  cursor: pointer;
-  width: fit-content;
-  align-self: center;
-  transition: background-color 0.3s ease;
-  margin-bottom: 16px;
+  .pending-c,
+  .validated-c,
+  .refused-c {
+    display: flex;
+    padding: 18px 0 18px 0;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .pending-c {
+    background-color: rgba(232, 244, 194, 1);
+  }
+
+  .validated-c {
+    background-color: rgba(244, 204, 194, 1);
+  }
+
+  .refused-c {
+    background-color: rgba(255, 153, 153, 1);
+  }
 }
 
 @media screen and (min-width: 765px) {
-  .page-reservation-pro-management {
+
+  .page-reservation-pro-management .information {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
-    margin: 16px;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .reservation,
-  .information {
-    grid-row: 2/3;
+  .pending-c {
+    border-radius: 10px 0 0 10px;
   }
 
-  .valid-reservation {
-    grid-column: 2/3;
+  .validated-c {
+    border-radius: 0;
+  }
+
+  .refused-c {
+    border-radius: 0 10px 10px 0;
   }
 }

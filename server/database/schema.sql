@@ -85,9 +85,5 @@ VALUES
   INSERT INTO reservation (kid_id, nursery_id, date, is_validated) VALUES 
   (1, 1, "2025-07-03", true),
   (2, 3, "2025-07-04", true),
-  (3, 1, "2025-07-05", true),
-  (4, 2, "2025-07-04", true),
-  (5, 2, "2025-07-04", true),
-  (6, 2, "2025-07-04", true),
-  (7, 2, "2025-07-04", true),
-  (8, 2, "2025-07-04", true);
+  (3, 1, "2025-07-05", true);
+

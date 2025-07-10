@@ -13,7 +13,9 @@ interface CardProps {
   image: string;
   name: string;
   age: number;
-  status: "validated" | "pending" | "refused";
+  status: "validées" | "en attente" | "refusées";
+  onValidate?: (id: number) => void;
+  onRefuse?: (id: number) => void;
 }
 
 type Kid = {
