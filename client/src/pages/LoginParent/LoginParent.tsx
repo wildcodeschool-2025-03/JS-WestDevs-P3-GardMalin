@@ -2,8 +2,11 @@ import { Link } from "react-router";
 import "./LoginParent.css";
 import { toast } from "react-toastify";
 import BackButton from "../../components/BackButton/BackButton";
+import { useAuth } from "../../services/AuthContext";
 
 const LoginParent = () => {
+  const { setIsLogged } = useAuth();
+
   const handleSubmit = (formData: FormData) => {
     const data = Object.fromEntries(formData);
 
@@ -17,8 +20,10 @@ const LoginParent = () => {
     }).then((res) => {
       if (res.ok) {
         toast.success("Vous êtes connecté !");
+        setIsLogged(true);
       } else {
         toast.error("Echec de connexion");
+        setIsLogged(false);
       }
     });
   };
