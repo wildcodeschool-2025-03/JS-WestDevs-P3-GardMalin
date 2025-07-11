@@ -12,7 +12,10 @@ const Header = () => {
       </Link>
       <nav>
         {!isLogged ? (
-          <Link to="/login-parent">Connexion</Link>
+          <>
+            <Link to="/login-parent">Connexion parents</Link>
+            <Link to="/login-pro">Connexion pros</Link>
+          </>
         ) : (
           <button type="button">Se déconnecter</button>
         )}
