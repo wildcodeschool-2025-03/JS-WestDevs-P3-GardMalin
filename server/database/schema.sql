@@ -1,6 +1,7 @@
 CREATE TABLE user (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(150) UNIQUE,
+  role ENUM('parent', 'professional', 'admin') NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
@@ -58,11 +59,11 @@ CREATE TABLE reservation (
   REFERENCES kid(id)
 );
 
-INSERT INTO user (email, password)
+INSERT INTO user (email, password, role)
 VALUES
-  ("john@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$R1FUTjk2c0owYjZBamJLTQ$v48LC0PDqRhr7jpy1ifjtQ"),
-  ("nina@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$V0pPYXdXeFFzWGdUbjZ1SA$SuoHm8nIke7Q3Adt4qfefA"),
-  ("axel@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$a3NyTTVCMlFkR2Z3OXZWdQ$QXb8VjSH8aXAcBBmODOv5Q");
+  ("john@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$R1FUTjk2c0owYjZBamJLTQ$v48LC0PDqRhr7jpy1ifjtQ","parent"),
+  ("nina@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$V0pPYXdXeFFzWGdUbjZ1SA$SuoHm8nIke7Q3Adt4qfefA","professional"),
+  ("axel@gmail.com", "$argon2id$v=19$m=16,t=2,p=1$a3NyTTVCMlFkR2Z3OXZWdQ$QXb8VjSH8aXAcBBmODOv5Q","admin");
 
 INSERT INTO parent (firstname, lastname, street, postal_code, city, phone_number)
 VALUES
