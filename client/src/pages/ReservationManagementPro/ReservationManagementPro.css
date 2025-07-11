@@ -8,7 +8,6 @@
   .title-page {
     justify-content: center;
     padding: 0 8px 4px 26px;
-
   }
 
   .strong {
@@ -52,7 +51,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .page-reservation-pro-management {
     display: grid;
     grid-template-columns: repeat(2, 0.8fr, 1.5fr);
