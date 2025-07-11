@@ -1,6 +1,6 @@
 import "./CardsCarrousel.css";
 
-function ChildCard({ gender, name, firstname, age }: Child) {
+function ChildCard({ gender, name, firstname }: Child) {
   const imgGirl = [
     "/images/little-girl/little-girl2.png",
     "/images/little-girl/little-girl3.png",
@@ -42,10 +42,9 @@ function ChildCard({ gender, name, firstname, age }: Child) {
 
   return (
     <section className="card-carrousel">
-      <img src={imgSrc} alt={name} />
+      <img src={imgSrc} alt={name} aria-label="avatar-de-l'enfant" />
       <p>
-        {firstname} <br /> {name} <br />
-        {age} mois
+        {firstname} {name} <br />
       </p>
       <input
         className="selected-child"

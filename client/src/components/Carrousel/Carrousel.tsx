@@ -2,10 +2,10 @@ import "./Carrousel.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { EffectCards } from "swiper/modules";
-// import { useEffect, useState } from "react";
 import ChildCard from "./CardsCarrousel";
-// import { useParams } from "react-router";
 
 const arrayKids = [
   {
@@ -39,7 +39,7 @@ const arrayKids = [
   {
     id: 5,
     gender: "M",
-    firstname: "Pierre",
+    firstname: "Pierre-Louis",
     name: "Rocher",
     age: "6",
   },
@@ -81,14 +81,16 @@ const arrayKids = [
 ];
 
 function Carrousel() {
-  // const [kids, setKids] = useState<Child[]>([]);
-  // const { id } = useParams();
+  const [kids, setKids] = useState<Child[]>([]);
+  const { id } = useParams();
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:3310/api/kids/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setKids(data))
-  // }, [id]);
+  useEffect(() => {
+    fetch(`http://localhost:3310/api/kids/${id}`)
+      .then((res) => res.json())
+      .then((data) => setKids(data));
+  }, [id]);
+
+  kids; // à corriger quand le back sera branché
 
   return (
     <section className="structure-accueil-carrousel">

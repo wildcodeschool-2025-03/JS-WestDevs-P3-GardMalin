@@ -3,8 +3,10 @@
   margin: 0;
 }
 .card-carrousel img {
-  max-width: 112px;
-  margin-top: 16px;
+  object-fit: cover;
+  width: 50%;
+  height: 40%;
+  margin-top: 8px;
 }
 
 .card-carrousel p {
