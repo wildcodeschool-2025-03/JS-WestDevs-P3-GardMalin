@@ -57,6 +57,14 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .bloc-validated,
+  .bloc-reservation,
+  .bloc-refused {
+    p {
+      padding-left: 16px;
+    }
+  }
+
   .pending-c {
     border-radius: 10px 0 0 10px;
   }
