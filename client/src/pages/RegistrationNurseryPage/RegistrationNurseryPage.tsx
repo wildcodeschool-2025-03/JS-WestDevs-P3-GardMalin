@@ -3,7 +3,7 @@ import "./RegistrationNurseryPage.css";
 
 function RegistrationNurseryPage() {
   return (
-    <main className="registration-professional-page">
+    <div className="registration-professional-page">
       <section>
         <article>
           <img src="/images/gardmalin-logo.png" alt="logo Gardmalin" />
@@ -90,7 +90,7 @@ function RegistrationNurseryPage() {
           </Link>
         </section>
       </section>
-    </main>
+    </div>
   );
 }
 
