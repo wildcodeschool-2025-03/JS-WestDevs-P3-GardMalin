@@ -94,7 +94,8 @@ function ReservationManagementPro() {
   return (
     <>
       <div className="page-reservation-pro-management">
-        <h1 className="title-page">Votre plannig de réservations</h1>
+        <h1 className="title-page">Votre planning de réservations</h1>
+
         <section className="container-one">
           <article className="reservation">
             <p>
@@ -110,16 +111,12 @@ function ReservationManagementPro() {
           </article>
         </section>
 
-        <strong>
-          <p>Informations planning</p>
-        </strong>
+        <div className="info-p">Informations planning</div>
         <section className="information">
           {/* En attente */}
           <article className="bloc-reservation">
             <p className="date">Date : {format(selectedDate, "dd-MM-yyyy")}</p>
-            <h4 className="pending-c">
-              Demandes réservées : {pendingRequests.length}
-            </h4>
+            <h4 className="pending-c">réservées : {pendingRequests.length}</h4>
 
             {pendingRequests.map((res) => (
               <Card
@@ -137,7 +134,7 @@ function ReservationManagementPro() {
           <article className="bloc-validated">
             <p>Places disponibles: {10 - validatedRequests.length}/10</p>
             <h4 className="validated-c">
-              Demandes validées : {validatedRequests.length}
+              validées : {validatedRequests.length}
             </h4>
             {validatedRequests.map((res) => (
               <Card
@@ -154,10 +151,7 @@ function ReservationManagementPro() {
           {/* Refusées */}
           <article className="bloc-refused">
             <p>Refus: {10 - refusedRequests.length}/10</p>
-            <h4 className="refused-c">
-              Demandes refusées : {refusedRequests.length}
-            </h4>
-
+            <h4 className="refused-c">refusées : {refusedRequests.length}</h4>
             {refusedRequests.map((res) => (
               <Card
                 key={res.id}
