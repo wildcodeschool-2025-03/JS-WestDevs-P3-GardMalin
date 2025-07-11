@@ -34,7 +34,7 @@ const LoginPro = () => {
           </label>
           <button type="submit">Se connecter</button>
           <p>Vous n'avez pas de compte ?</p>
-          <Link to="/">Cliquez ici !</Link>
+          <Link to="/registration-nursery">Cliquez ici !</Link>
         </form>
         <BackButton />
       </section>
