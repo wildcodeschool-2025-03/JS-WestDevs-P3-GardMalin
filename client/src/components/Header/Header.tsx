@@ -1,15 +1,21 @@
 import { Link } from "react-router";
 import "./Header.css";
+import { useAuth } from "../../services/AuthContext";
 
 const Header = () => {
+  const { isLogged } = useAuth();
+
   return (
     <header className="header-container">
       <Link to="/">
         <img src="./images/gardmalin-logo.png" alt="logo" />
       </Link>
       <nav>
-        <Link to="space-parent">Espace parent</Link>
-        <Link to="space-pro">Espace pro</Link>
+        {!isLogged ? (
+          <Link to="/login-parent">Connexion</Link>
+        ) : (
+          <button type="button">Se déconnecter</button>
+        )}
         <Link to="about">A propos</Link>
       </nav>
     </header>

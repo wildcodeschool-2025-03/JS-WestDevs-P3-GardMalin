@@ -21,6 +21,17 @@
     box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
     text-decoration: none;
   }
+
+  nav button {
+    cursor: pointer;
+    background-color: var(--light-bg-bloc-color);
+    border: none;
+    margin: 8px;
+    padding: 0 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+    font-family: "lemonada", sans-serif;
+  }
 }
 
 @media screen and (min-width: 768px) {
