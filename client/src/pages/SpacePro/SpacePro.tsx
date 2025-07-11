@@ -9,7 +9,7 @@ const SpacePro = () => {
         <h1>Espace pro</h1>
         <h2>"Les Petits Explorateurs"</h2>
       </header>
-      <Link to="/">Accès au planning</Link>
+      <Link to="/reservation-management-pro">Accès au planning</Link>
       <section>
         <article>
           <h2>Ma présentation</h2>
