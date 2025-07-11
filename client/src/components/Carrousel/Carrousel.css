@@ -1,0 +1,60 @@
+.structure-accueil-carrousel {
+  height: 100%;
+  width: 300px;
+}
+
+.swiper {
+  width: 160px;
+  height: 220px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: rgb(51, 51, 51);
+}
+
+.swiper-slide:nth-child(1n) {
+  background-color: rgb(255, 192, 203);
+}
+
+.swiper-slide:nth-child(2n) {
+  background-color: rgb(189, 236, 182);
+}
+
+.swiper-slide:nth-child(3n) {
+  background-color: rgb(255, 249, 196);
+}
+
+.swiper-slide:nth-child(4n) {
+  background-color: rgb(173, 216, 230);
+}
+
+.swiper-slide:nth-child(5n) {
+  background-color: rgb(255, 218, 185);
+}
+
+.swiper-slide:nth-child(6n) {
+  background-color: rgb(230, 230, 250);
+}
+
+.swiper-slide:nth-child(7n) {
+  background-color: rgb(245, 240, 225);
+}
+
+.swiper-slide:nth-child(8n) {
+  background-color: rgb(221, 160, 221);
+}
+
+.swiper-slide:nth-child(9n) {
+  background-color: rgb(204, 221, 255);
+}
+
+.swiper-slide:nth-child(10n) {
+  background-color: rgb(255, 228, 225);
+}
