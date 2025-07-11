@@ -38,3 +38,11 @@ type Reservation = {
   is_refused: boolean;
   kid: Kid;
 };
+
+interface Child {
+  gender: string;
+  name: string;
+  firstname: string;
+  age: string;
+  id?: number;
+}

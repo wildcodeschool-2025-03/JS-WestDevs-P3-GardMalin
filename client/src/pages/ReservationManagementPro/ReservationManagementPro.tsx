@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import { Calendar } from "react-date-range";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import { useEffect, useState } from "react";
+import { Calendar } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import "./ReservationManagementPro.css";
 import Card from "../../components/Card/Card";
+import "./ReservationManagementPro.css";
 
 function ReservationManagementPro() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());

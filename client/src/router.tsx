@@ -19,7 +19,11 @@ import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/Registratio
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
 import SpacePro from "./pages/SpacePro/SpacePro";
+<<<<<<< HEAD
 import ReservationManagementPro from "./pages/ReservationManagementPro/ReservationManagementPro";
+=======
+import StructureAccueil from "./pages/StructureAccueil/StructureAccueil";
+>>>>>>> 5053ac29dd9993ca8fa8b93780291110b947ba4d
 
 const router = createBrowserRouter([
   {
@@ -79,8 +83,13 @@ const router = createBrowserRouter([
         element: <RegistrationParentsPage />,
       },
       {
+<<<<<<< HEAD
         path: "/reservation-management-pro",
         element: <ReservationManagementPro />,
+=======
+        path: "/childcare-facility",
+        element: <StructureAccueil />,
+>>>>>>> 5053ac29dd9993ca8fa8b93780291110b947ba4d
       },
     ],
   },
