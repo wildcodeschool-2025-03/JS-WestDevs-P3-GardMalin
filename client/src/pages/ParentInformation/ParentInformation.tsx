@@ -47,7 +47,7 @@ const ParentInformation = () => {
           </ul>
         </article>
         <h2>Vous voulez inscrire un nouvel enfant ?</h2>
-        <Link to="/">Fichier inscription</Link>
+        <Link to="/registration-children">Fichier inscription</Link>
       </section>
     </div>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./SpaceParent.css";
 
 function SpaceParent() {
@@ -8,9 +9,11 @@ function SpaceParent() {
       </header>
 
       <div className="page-parent">
-        <button className="my-news" type="button">
-          Mes informations
-        </button>
+        <Link to="/parent-information">
+          <button className="my-news" type="button">
+            Mes informations
+          </button>
+        </Link>
         <section className="space-reservation">
           <h3>Mes réservations</h3>
           <div className="scroller">
@@ -27,9 +30,11 @@ function SpaceParent() {
               <p>au 00/00/0000</p>
             </article>
           </div>
-          <button type="button" className="new-reservation">
-            Nouvelle réservation
-          </button>
+          <Link to="/childcare-facility">
+            <button type="button" className="new-reservation">
+              Nouvelle réservation
+            </button>
+          </Link>
         </section>
 
         <section className="space-children">
