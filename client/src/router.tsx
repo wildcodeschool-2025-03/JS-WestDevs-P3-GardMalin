@@ -19,6 +19,7 @@ import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/Registratio
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
 import SpacePro from "./pages/SpacePro/SpacePro";
+import StructureAccueil from "./pages/StructureAccueil/StructureAccueil";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: "/registration-parents",
         element: <RegistrationParentsPage />,
+      },
+      {
+        path: "/childcare-facility",
+        element: <StructureAccueil />,
       },
     ],
   },

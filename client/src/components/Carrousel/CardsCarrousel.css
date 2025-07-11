@@ -1,0 +1,14 @@
+.card-carrousel {
+  height: 300px;
+  margin: 0;
+}
+.card-carrousel img {
+  object-fit: cover;
+  width: 50%;
+  height: 40%;
+  margin-top: 8px;
+}
+
+.card-carrousel p {
+  margin: auto;
+}
