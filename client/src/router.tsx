@@ -17,10 +17,10 @@ import ParentInformation from "./pages/ParentInformation/ParentInformation";
 import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/RegistrationChildrenPage";
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
+import ReservationManagementPro from "./pages/ReservationManagementPro/ReservationManagementPro";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
 import SpacePro from "./pages/SpacePro/SpacePro";
 import StructureAccueil from "./pages/StructureAccueil/StructureAccueil";
-import ReservationManagementPro from "./pages/ReservationManagementPro/ReservationManagementPro";
 
 const router = createBrowserRouter([
   {
