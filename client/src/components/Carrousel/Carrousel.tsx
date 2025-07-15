@@ -7,81 +7,12 @@ import { useParams } from "react-router";
 import { EffectCards } from "swiper/modules";
 import ChildCard from "./CardsCarrousel";
 
-const arrayKids = [
-  {
-    id: 1,
-    gender: "F",
-    firstname: "Fiora",
-    name: "Wick",
-    age: "8",
-  },
-  {
-    id: 2,
-    gender: "M",
-    firstname: "Florian",
-    name: "Wick",
-    age: "6",
-  },
-  {
-    id: 3,
-    gender: "U",
-    firstname: "Fia",
-    name: "Wick",
-    age: "7",
-  },
-  {
-    id: 4,
-    gender: "F",
-    firstname: "Lana",
-    name: "Wu",
-    age: "8",
-  },
-  {
-    id: 5,
-    gender: "M",
-    firstname: "Pierre-Louis",
-    name: "Rocher",
-    age: "6",
-  },
-  {
-    id: 6,
-    gender: "U",
-    firstname: "Paul",
-    name: "Pain",
-    age: "7",
-  },
-  {
-    id: 7,
-    gender: "F",
-    firstname: "Fanny",
-    name: "Durand",
-    age: "8",
-  },
-  {
-    id: 8,
-    gender: "M",
-    firstname: "Kylian",
-    name: "Gadjo",
-    age: "6",
-  },
-  {
-    id: 9,
-    gender: "U",
-    firstname: "Lou",
-    name: "Anne",
-    age: "7",
-  },
-  {
-    id: 10,
-    gender: "F",
-    firstname: "Laura",
-    name: "Wick",
-    age: "8",
-  },
-];
+type CarrouselProps = {
+  onKidSelect: (kid: Kid | undefined) => void;
+};
 
-function Carrousel() {
-  const [kids, setKids] = useState<Child[]>([]);
+function Carrousel({ onKidSelect }: CarrouselProps) {
+  const [kids, setKids] = useState<Kid[]>([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -90,7 +21,15 @@ function Carrousel() {
       .then((data) => setKids(data));
   }, [id]);
 
-  kids; // à corriger quand le back sera branché
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    onKidSelect(kids[selectedIndex]);
+  }, [selectedIndex, kids, onKidSelect]);
+
+  if (kids.length === 0) {
+    return <p>Chargement des enfants...</p>;
+  }
 
   return (
     <section className="structure-accueil-carrousel">
@@ -99,8 +38,11 @@ function Carrousel() {
         grabCursor={true}
         modules={[EffectCards]}
         className="mySwiper"
+        onSlideChange={(swiper) => {
+          setSelectedIndex(swiper.activeIndex);
+        }}
       >
-        {arrayKids.map((kid) => {
+        {kids.map((kid) => {
           return (
             <SwiperSlide key={kid.id}>
               <ChildCard
@@ -108,7 +50,7 @@ function Carrousel() {
                 name={kid.name}
                 firstname={kid.firstname}
                 age={kid.age}
-              />
+                id={0} />
             </SwiperSlide>
           );
         })}
