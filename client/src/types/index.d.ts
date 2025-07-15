@@ -27,6 +27,13 @@ interface CardProps {
 }
 
 type Nursery = {
+  mail: ReactNode;
+  phone_number: ReactNode;
+  street: ReactNode;
+  id: number;
+  phone: ReactNode;
+  postal_code: ReactNode;
+  city: ReactNode;
   name: string;
 };
 
