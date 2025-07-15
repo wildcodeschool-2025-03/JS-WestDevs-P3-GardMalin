@@ -1,5 +1,5 @@
-import type { UserPayload, Auth, Children } from "../types/auth";
 import { createContext, useContext, useState } from "react";
+import type { Auth, Children, UserPayload } from "../types/auth";
 
 const AuthContext = createContext<null | Auth>(null);
 
