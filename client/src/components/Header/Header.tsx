@@ -1,15 +1,26 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./Header.css";
+import { toast } from "react-toastify";
 import { useAuth } from "../../services/AuthContext";
 
 const Header = () => {
-  const { isLogged, setIsLogged } = useAuth();
+  const { isLogged, setIsLogged, setUser } = useAuth();
+  const navigate = useNavigate();
 
   function handleLogout() {
     fetch("http://localhost:3310/api/logout", {
       method: "POST",
       credentials: "include",
-    }).then((res) => res.ok && setIsLogged(false));
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("Déconnexion réussie");
+        setIsLogged(false);
+        setUser(null);
+        navigate("/");
+      } else {
+        toast.error("Erreur lors de la déconnexion");
+      }
+    });
   }
 
   return (
