@@ -55,7 +55,7 @@ const login: RequestHandler = async (req, res) => {
       secure: false,
     });
 
-    res.status(200).json("Contragulations, you're logged in !");
+    res.status(200).json(payload);
   } catch (err) {
     res.sendStatus(500);
   }
