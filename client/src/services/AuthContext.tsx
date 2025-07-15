@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { Auth, Children, UserPayload } from "../types/auth";
 
 const AuthContext = createContext<null | Auth>(null);
@@ -6,6 +6,17 @@ const AuthContext = createContext<null | Auth>(null);
 export const AuthProvider = ({ children }: Children) => {
   const [isLogged, setIsLogged] = useState(false);
   const [user, setUser] = useState<UserPayload | null>(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3310/api/refresh", {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLogged(true);
+        setUser(data);
+      });
+  }, []);
 
   return (
     <AuthContext value={{ isLogged, setIsLogged, user, setUser }}>
