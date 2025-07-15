@@ -8,12 +8,22 @@ interface KidI {
   firstname: string;
 }
 
-interface Child {
-  gender: string;
-  name: string;
-  firstname: string;
-  age: string;
+interface Kid {
   id?: number;
+  firstname: string;
+  lastname?: string;
+  name?: string;
+  gender?: string;
+  age: number;
+}
+
+interface kids {
+  id?: number;
+  firstname?: string;
+  lastname?: string;
+  name?: string;
+  gender?: string;
+  age?: string;
 }
 
 interface CardProps {
