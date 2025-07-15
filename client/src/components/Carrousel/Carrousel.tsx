@@ -50,7 +50,8 @@ function Carrousel({ onKidSelect }: CarrouselProps) {
                 name={kid.name}
                 firstname={kid.firstname}
                 age={kid.age}
-                id={0} />
+                id={0}
+              />
             </SwiperSlide>
           );
         })}
