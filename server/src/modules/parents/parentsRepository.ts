@@ -1,4 +1,7 @@
-import databaseClient, { type Rows } from "../../../database/client";
+import databaseClient, {
+  type Result,
+  type Rows,
+} from "../../../database/client";
 
 class parentsRepository {
   async readAll() {
@@ -14,6 +17,31 @@ class parentsRepository {
     );
 
     return rows[0];
+  }
+
+  async create(body: Parent) {
+    const [newParentarent] = await databaseClient.query<Result>(
+      "INSERT INTO parent ( firstname, lastname, street,  postal_code, city, phone_number, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [
+        body.firstname,
+        body.lastname,
+        body.street,
+        body.postal_code,
+        body.city,
+        body.phone_number,
+        body.user_id,
+      ],
+    );
+    return newParentarent.affectedRows;
+  }
+
+  async delete(id: string) {
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM parent WHERE id = ?",
+      [id],
+    );
+
+    return result.affectedRows;
   }
 }
 
