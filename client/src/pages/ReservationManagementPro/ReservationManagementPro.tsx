@@ -16,11 +16,10 @@ function ReservationManagementPro() {
 
   // Appel à l’API
   useEffect(() => {
-    fetch("http://localhost:3310/api/reservations")
+    fetch(`http://localhost:3310/api/reservations?date=${selectedDate}`)
       .then((res) => res.json())
       .then((data) => setReservations(data));
-  }, []);
-  console.warn(setReservations);
+  }, [selectedDate]);
 
   // Filtre réservation
   const pendingRequests = reservations.filter(
@@ -50,7 +49,7 @@ function ReservationManagementPro() {
     <>
       <div className="page-reservation-pro-management">
         <h1 className="title-page">Votre planning de réservations</h1>
-
+        {/* {console.info(reservations)} */}
         <section className="container-one">
           <article className="reservation">
             <p>

@@ -30,6 +30,7 @@ const add: RequestHandler = async (req, res) => {
       date,
       is_validated,
     });
+    console.info(newReservation);
 
     res.status(201).json("Votre place est bien réservée");
   } catch (err) {

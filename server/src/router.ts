@@ -31,7 +31,7 @@ router.get("/parents", parentsActions.browse);
 router.get("/parents/:id", parentsActions.read);
 
 router.get("/reservations", reservationsActions.browse);
-router.get("/reservations", reservationsActions.read);
+router.get("/reservationsone", reservationsActions.read);
 router.post("/reservations", reservationsActions.add);
 
 router.get("/users", usersActions.browse);

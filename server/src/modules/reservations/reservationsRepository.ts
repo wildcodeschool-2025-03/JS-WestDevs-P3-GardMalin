@@ -2,7 +2,19 @@ import databaseClient, { type Rows } from "../../../database/client";
 
 class reservationsRepository {
   async readAll() {
-    const [rows] = await databaseClient.query("SELECT * FROM reservation");
+    const [rows] = await databaseClient.query(`SELECT 
+      reservation.kid_id,
+      reservation.nursery_id,
+      reservation.date,
+      reservation.is_validated,
+      kid.firstname AS kid_firstname,
+      kid.lastname AS kid_lastname,
+      kid.age AS kid_age,
+      nursery.name AS nursery_name
+      
+    FROM reservation
+    INNER JOIN kid ON reservation.kid_id = kid.id
+    INNER JOIN nursery ON reservation.nursery_id = nursery.id`);
 
     return rows;
   }
