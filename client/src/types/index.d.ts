@@ -1,11 +1,22 @@
 interface ParentI {
   id: number;
   firstname: string;
+  lastname: string;
+  street: string;
+  postal_code: string;
+  city: string;
+  phone_number: string;
 }
 
 interface KidI {
   id: number;
+  gender: string;
   firstname: string;
+  lastname: string;
+  age: number;
+  handicap: boolean;
+  allergy: string;
+  walker: boolean;
 }
 
 interface Kid {
