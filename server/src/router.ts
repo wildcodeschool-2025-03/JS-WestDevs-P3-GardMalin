@@ -38,6 +38,8 @@ router.post(
 );
 
 router.post("/login", validation.userValidation, auth.login);
+router.post("/logout", auth.logout);
+router.get("/refresh", auth.refreshToken);
 
 /* ************************************************************************* */
 
