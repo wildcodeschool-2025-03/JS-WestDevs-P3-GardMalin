@@ -13,4 +13,18 @@ const browse: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse };
+const read: RequestHandler = async (req, res) => {
+  try {
+    const result = await nurseriesRepository.readById(req.params.id);
+
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).send("This ID doesn't exist !");
+    }
+  } catch {
+    res.sendStatus(500);
+  }
+};
+
+export default { browse, read };

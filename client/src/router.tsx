@@ -14,6 +14,7 @@ import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstr
 
 import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
+import PresentationEstablishment from "./pages/PresentationEstablishment/PresentationEstablishment";
 import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/RegistrationChildrenPage";
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "/reservation-management-pro",
         element: <ReservationManagementPro />,
+      },
+      {
+        path: "/establishment/:id",
+        element: <PresentationEstablishment />,
       },
     ],
   },
