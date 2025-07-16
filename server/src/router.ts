@@ -43,7 +43,7 @@ router.post(
   auth.hashPassword,
   usersActions.add,
 );
-router.delete("/users/:id", parentsActions.destroy);
+router.delete("/user/:id", usersActions.destroy);
 
 router.post("/login", validation.userValidation, auth.login);
 router.post("/logout", auth.logout);
