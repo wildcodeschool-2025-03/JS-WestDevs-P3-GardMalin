@@ -16,6 +16,7 @@ router.post("/items", itemActions.add);
 import kidsActions from "./modules/kids/kidsActions";
 import nurseriesActions from "./modules/nurseries/nurseriesActions";
 import parentsActions from "./modules/parents/parentsActions";
+import reservationsActions from "./modules/reservations/reservationsActions";
 import usersActions from "./modules/users/usersActions";
 import auth from "./utils/auth";
 import validation from "./utils/validation";
@@ -30,6 +31,10 @@ router.get("/parents", parentsActions.browse);
 router.post("/parents", parentsActions.add);
 router.get("/parents/:id", parentsActions.read);
 router.delete("/parents/:id", parentsActions.destroy);
+
+router.get("/reservations", reservationsActions.browse);
+router.get("/reservationsone", reservationsActions.read);
+router.post("/reservations", reservationsActions.add);
 
 router.get("/users", usersActions.browse);
 router.post(

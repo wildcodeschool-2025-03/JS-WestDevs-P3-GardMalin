@@ -10,62 +10,16 @@ import "./ReservationManagementPro.css";
 function ReservationManagementPro() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
-  const [reservations, setReservations] = useState<Reservation[]>([
-    {
-      id: 1,
-      kid_id: 1,
-      nursery_id: 1,
-      date: "2025-07-08",
-      is_validated: true,
-      is_refused: false,
-      kid: {
-        firstname: "Flora",
-        lastname: "Wick",
-        age: 8,
-        gender: "F",
-      },
-    },
-    {
-      id: 2,
-      kid_id: 2,
-      nursery_id: 1,
-      date: "2025-07-08",
-      is_validated: false,
-      is_refused: false,
-      kid: {
-        firstname: "Louis",
-        lastname: "Okalm",
-        age: 5,
-        gender: "M",
-      },
-    },
-    {
-      id: 3,
-      kid_id: 3,
-      nursery_id: 1,
-      date: "2025-07-08",
-      is_validated: false,
-      is_refused: true,
-      kid: {
-        firstname: "Shana",
-        lastname: "Williams",
-        age: 1,
-        gender: "F",
-      },
-    },
-  ]);
+  const [reservations, setReservations] = useState<Reservation[]>([]);
 
   const formattedSelectedDate = format(selectedDate, "yyyy-MM-dd");
 
-  // const [isFormOpen, setIsFormOpen] = useState(true);
-
   // Appel à l’API
   useEffect(() => {
-    fetch("/api/reservations")
+    fetch(`http://localhost:3310/api/reservations?date=${selectedDate}`)
       .then((res) => res.json())
-      .then((data) => setReservations(data))
-      .catch((err) => console.error("Erreur API:", err));
-  }, []);
+      .then((data) => setReservations(data));
+  }, [selectedDate]);
 
   // Filtre réservation
   const pendingRequests = reservations.filter(
@@ -95,7 +49,7 @@ function ReservationManagementPro() {
     <>
       <div className="page-reservation-pro-management">
         <h1 className="title-page">Votre planning de réservations</h1>
-
+        {/* {console.info(reservations)} */}
         <section className="container-one">
           <article className="reservation">
             <p>
