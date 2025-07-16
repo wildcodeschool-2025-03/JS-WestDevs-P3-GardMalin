@@ -26,8 +26,8 @@
 }
 
 .expandable-article.expanded .header {
-  max-width: 100px; /* Réduit la largeur */
-  align-self: flex-start; /* Aligne à gauche */
+  max-width: 100px;
+  align-self: flex-start;
   border: none;
   width: 32px;
 }
@@ -66,12 +66,12 @@
   .expandable-article .header {
     width: 100%;
     max-width: none;
-    cursor: default; /* Désactive le curseur pointer */
+    cursor: default;
     display: none;
   }
 
   .expandable-article .arrow {
-    display: none; /* Cache la flèche en desktop */
+    display: none;
   }
 
   .expandable-article .header h3 {

@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import { EffectCards } from "swiper/modules";
+import { useAuth } from "../../services/AuthContext";
 import ChildCard from "./CardsCarrousel";
 
 type CarrouselProps = {
@@ -13,13 +13,16 @@ type CarrouselProps = {
 
 function Carrousel({ onKidSelect }: CarrouselProps) {
   const [kids, setKids] = useState<Kid[]>([]);
-  const { id } = useParams();
+  const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:3310/api/kids/${id}`)
+    if (!user) return;
+
+    fetch(`http://localhost:3310/api/kids/by-user/${user.id}`)
       .then((res) => res.json())
-      .then((data) => setKids(data));
-  }, [id]);
+      .then((data) => setKids(data))
+      .catch(console.error);
+  }, [user]);
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 

@@ -38,4 +38,15 @@ const read: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, add, read };
+const readByUserId: RequestHandler<{ userId: string }> = async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const kids = await kidsRepository.readByUserId(Number(userId));
+    res.status(200).json(kids);
+  } catch (err) {
+    res.sendStatus(500);
+  }
+};
+
+export default { browse, add, read, readByUserId };
