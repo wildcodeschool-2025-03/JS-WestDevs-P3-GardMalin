@@ -1,6 +1,6 @@
 import "./CardsCarrousel.css";
 
-function ChildCard({ gender, name, firstname }: Child) {
+function ChildCard({ gender, name, firstname }: Kid) {
   const imgGirl = [
     "/images/little-girl/little-girl2.png",
     "/images/little-girl/little-girl3.png",
@@ -50,7 +50,7 @@ function ChildCard({ gender, name, firstname }: Child) {
         className="selected-child"
         type="radio"
         id="child"
-        name="select"
+        name="selected"
         value="child"
       />
     </section>

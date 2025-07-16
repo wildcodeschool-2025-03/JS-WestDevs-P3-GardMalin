@@ -62,6 +62,7 @@ function StructureAccueil() {
   const [reservationDate, setReservationDate] = useState<string>(
     new Date().toISOString().split("T")[0],
   );
+  const [selectedKid, setSelectedKid] = useState<Kid | null>(null);
 
   useEffect(() => {
     if (searchEstablishment.length) {
@@ -70,6 +71,45 @@ function StructureAccueil() {
       setSelectedNursery(undefined);
     }
   }, [searchEstablishment, selectedNurseryIndex]);
+
+  const handleReservationSubmit = async () => {
+    if (!selectedNursery) {
+      alert("Veuillez sélectionner une crèche.");
+      return;
+    }
+
+    if (!selectedKid) {
+      alert("Veuillez sélectionner un enfant.");
+      return;
+    }
+
+    const reservationData = {
+      date: reservationDate,
+      nurseryId: selectedNursery.id,
+      kidId: selectedKid.id,
+    };
+
+    try {
+      const response = await fetch("http://localhost:3310/api/reservations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reservationData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de la réservation");
+      }
+
+      const result = await response.json();
+      console.log("Réservation réussie :", result);
+      alert("Réservation confirmée !");
+    } catch (error) {
+      console.error("Erreur :", error);
+      alert("Erreur lors de la réservation.");
+    }
+  };
 
   return (
     <section className="structure-accueil">
@@ -108,7 +148,7 @@ function StructureAccueil() {
         </section>
         <section className="child-selected">
           <h3>Sélectionner l'enfant concerné par cette réservation : </h3>
-          <Carrousel />
+          <Carrousel onKidSelect={(kid) => setSelectedKid(kid ?? null)} />
         </section>
       </section>
       {selectedNursery && (
@@ -227,7 +267,11 @@ function StructureAccueil() {
             >
               Voir l'établissement
             </Link>
-            <button type="submit" className="button-reservation">
+            <button
+              type="submit"
+              className="button-reservation"
+              onClick={handleReservationSubmit}
+            >
               Confirmer ma réservation
             </button>
           </section>
