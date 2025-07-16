@@ -15,7 +15,7 @@ CREATE TABLE parent (
   phone_number VARCHAR(150),
   user_id INT UNSIGNED,
   FOREIGN KEY(user_id)
-  REFERENCES user(id)
+  REFERENCES user(id) ON DELETE CASCADE
 );
 
 CREATE TABLE kid (
@@ -28,7 +28,8 @@ CREATE TABLE kid (
   allergy VARCHAR(250),
   handicap BOOLEAN,
   parent_id INT UNSIGNED,
-  FOREIGN KEY (parent_id) REFERENCES parent(id) ON DELETE CASCADE
+  FOREIGN KEY (parent_id) 
+  REFERENCES parent(id) ON DELETE CASCADE
 );
 
 CREATE TABLE nursery (
@@ -53,7 +54,7 @@ CREATE TABLE reservation (
   kid_id INT UNSIGNED,
   nursery_id INT UNSIGNED,
   FOREIGN KEY (nursery_id)
-  REFERENCES nursery(id),
+  REFERENCES nursery(id) ON DELETE CASCADE,
   FOREIGN KEY (kid_id) 
   REFERENCES kid(id) ON DELETE CASCADE
 );
