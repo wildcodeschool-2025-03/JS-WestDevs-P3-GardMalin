@@ -1,8 +1,13 @@
-import { useState } from "react";
 import BackButton from "../../components/BackButton/BackButton";
 import "./RegistrationChildrenPage.css";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import { useAuth } from "../../services/AuthContext";
 
 function RegistrationChildrenPage() {
+  const { user } = useAuth();
+
   const [formData, setFormData] = useState({
     gender: "",
     firstname: "",
@@ -11,23 +16,19 @@ function RegistrationChildrenPage() {
     walker: false,
     allergies: "",
     handicap: false,
-    parent_id: "",
+    parent_id: user?.id,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value, type } = e.target;
+    const { id, value, type, name } = e.target;
 
     if (type === "radio") {
-      if (id === "girl" || id === "man") {
-        setFormData({ ...formData, gender: id });
-      } else if (id === "yes") {
-        setFormData({ ...formData, handicap: true });
-      } else if (id === "no") {
-        setFormData({ ...formData, handicap: false });
-      } else if (id === "yes2") {
-        setFormData({ ...formData, walker: true });
-      } else if (id === "no2") {
-        setFormData({ ...formData, walker: false });
+      if (name === "gender") {
+        setFormData({ ...formData, gender: value });
+      } else if (name === "handicap") {
+        setFormData({ ...formData, handicap: value === "yes" });
+      } else if (name === "walk") {
+        setFormData({ ...formData, walker: value === "yes2" });
       }
     } else {
       setFormData({ ...formData, [id]: value });
@@ -37,19 +38,31 @@ function RegistrationChildrenPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const payload = {
+      ...formData,
+      parent_id: Number(user?.id),
+    };
+
+    console.log("Payload envoyé :", payload);
+
     const res = await fetch("http://localhost:3310/api/kids", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(payload),
     });
 
     if (res.ok) {
-      alert("Enfant inscrit avec succès !");
+      toast.success("Enfant inscrit avec succès !");
     } else {
-      alert("Erreur lors de l'inscription");
+      toast.error("Erreur lors de l'inscription");
     }
+  };
+
+  const navigate = useNavigate();
+  const nextPage = () => {
+    navigate("/childcare-facility");
   };
 
   return (
@@ -64,19 +77,19 @@ function RegistrationChildrenPage() {
             <div>
               <label htmlFor="text">Sexe de l'enfant</label>
             </div>
-            <label htmlFor="girl">Féminin</label>
+            <label htmlFor="F">Féminin</label>
             <input
               type="radio"
-              id="girl"
-              value="girl"
+              id="F"
+              value="F"
               name="gender"
               onChange={handleChange}
             />
-            <label htmlFor="man">Masculin</label>
+            <label htmlFor="M">Masculin</label>
             <input
               type="radio"
-              id="man"
-              value="man"
+              id="M"
+              value="M"
               name="gender"
               onChange={handleChange}
             />
@@ -110,7 +123,7 @@ function RegistrationChildrenPage() {
           <input
             type="text"
             id="age"
-            placeholder="Age"
+            placeholder="Age (mois)"
             required
             onChange={handleChange}
           />
@@ -145,7 +158,7 @@ function RegistrationChildrenPage() {
           </label>
           <input
             type="text"
-            id="firstname"
+            id="allergy"
             placeholder="Allergies"
             onChange={handleChange}
           />
@@ -182,7 +195,7 @@ function RegistrationChildrenPage() {
         <section className="footer-registration-children">
           <BackButton />
 
-          <button className="next-button" type="button">
+          <button className="next-button" type="button" onClick={nextPage}>
             Suivant
           </button>
         </section>
