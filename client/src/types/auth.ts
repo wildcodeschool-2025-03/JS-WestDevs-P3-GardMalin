@@ -7,4 +7,11 @@ export interface Children {
 export interface Auth {
   isLogged: boolean;
   setIsLogged: (value: boolean) => void;
+  user: UserPayload | null;
+  setUser: (value: UserPayload | null) => void;
+}
+
+export interface UserPayload {
+  id: number;
+  email: string;
 }
