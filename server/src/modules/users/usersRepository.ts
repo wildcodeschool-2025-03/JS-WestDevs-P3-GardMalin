@@ -7,8 +7,8 @@ import databaseClient, {
 class usersRepository {
   async create(body: User) {
     const [user] = await databaseClient.query<Result>(
-      "INSERT INTO user (email, password) VALUE (?, ?)",
-      [body.email, body.password],
+      "INSERT INTO user (email, password, role) VALUE (?, ?, ?)",
+      [body.email, body.password, body.role],
     );
 
     return user.affectedRows;

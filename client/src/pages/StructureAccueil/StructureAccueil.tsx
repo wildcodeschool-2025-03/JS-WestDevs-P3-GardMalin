@@ -262,7 +262,7 @@ function StructureAccueil() {
           </section>
           <section className="group-buttons-reservation">
             <Link
-              to="/establishment-presentation"
+              to={`/establishment/${selectedNursery.id}`}
               className="link-to-establishment"
             >
               Voir l'établissement
