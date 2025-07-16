@@ -22,4 +22,14 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, add };
+const destroy: RequestHandler = async (req, res) => {
+  const deleteParent = await usersRepository.delete(req.params.id);
+
+  if (deleteParent) {
+    res.status(200).json("A profile user has been successfully deleted !");
+  } else {
+    res.status(404).json("Impossible to delete a profile user");
+  }
+};
+
+export default { browse, add, destroy };

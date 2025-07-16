@@ -28,7 +28,9 @@ router.get("/kids/:id", kidsActions.read);
 router.get("/nurseries", nurseriesActions.browse);
 
 router.get("/parents", parentsActions.browse);
+router.post("/parents", parentsActions.add);
 router.get("/parents/:id", parentsActions.read);
+router.delete("/parents/:id", parentsActions.destroy);
 
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
@@ -41,6 +43,7 @@ router.post(
   auth.hashPassword,
   usersActions.add,
 );
+router.delete("/users/:id", parentsActions.destroy);
 
 router.post("/login", validation.userValidation, auth.login);
 router.post("/logout", auth.logout);
