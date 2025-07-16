@@ -104,6 +104,6 @@
     grid-template-columns: repeat(2, 1fr);
     margin: 0;
     align-self: center;
-    gap: 8px;
+    gap: 16px;
   }
 }
