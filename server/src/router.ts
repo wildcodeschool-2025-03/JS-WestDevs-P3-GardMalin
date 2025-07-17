@@ -28,6 +28,7 @@ router.get("/kids/by-user/:userId", kidsActions.readByUserId);
 
 router.get("/nurseries", nurseriesActions.browse);
 router.get("/nurseries/:id", nurseriesActions.read);
+router.post("/nurseries", nurseriesActions.add);
 
 router.get("/parents", parentsActions.browse);
 router.post("/parents", parentsActions.add);

@@ -37,7 +37,7 @@ class nurseriesRepository {
         body.postal_code,
         body.city,
         body.phone_number,
-        body.descripton,
+        body.description,
         body.capacity,
       ],
     );

@@ -5,6 +5,6 @@ interface Nursery {
   postal_code: string;
   city: string;
   phone_number: string;
-  descripton: string;
+  description: string;
   capacity: number;
 }

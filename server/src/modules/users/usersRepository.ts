@@ -7,7 +7,7 @@ import databaseClient, {
 class usersRepository {
   async create(body: User) {
     const [user] = await databaseClient.query<Result>(
-      "INSERT INTO user (email, password, role) VALUE (?, ?, ?)",
+      "INSERT INTO user (email, password, role) VALUES (?, ?, ?)",
       [body.email, body.password, body.role],
     );
 

@@ -61,7 +61,7 @@ function RegistrationNurseryPage() {
     }
 
     try {
-      const userResponse = await fetch("http://localhost:3310/api/users", {
+      const userResponse = await fetch("http://localhost:3310/api/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,7 +165,7 @@ function RegistrationNurseryPage() {
                 Adresse
               </label>
               <input
-                id="adress"
+                id="street"
                 type="text"
                 placeholder="Adresse"
                 value={formData.street}
@@ -188,7 +188,7 @@ function RegistrationNurseryPage() {
                 Code postale
               </label>
               <input
-                id="postal"
+                id="postal_code"
                 type="text"
                 placeholder="Code postale"
                 value={formData.postal_code}
@@ -199,7 +199,7 @@ function RegistrationNurseryPage() {
                 Numéro de téléphone
               </label>
               <input
-                id="phone"
+                id="phone_number"
                 type="tel"
                 placeholder=" Numéro de téléphone"
                 value={formData.phone_number}
@@ -210,7 +210,7 @@ function RegistrationNurseryPage() {
                 Capacité d'accueil
               </label>
               <input
-                id="reception-capacity"
+                id="capacity"
                 type="number"
                 placeholder="Capacité d'accueil"
                 value={formData.capacity}
@@ -218,7 +218,7 @@ function RegistrationNurseryPage() {
               />
               <label className="details-establishment">
                 <textarea
-                  id="message"
+                  id="description"
                   name="description"
                   rows={5}
                   cols={33}
@@ -244,7 +244,7 @@ function RegistrationNurseryPage() {
                 Confirmer votre mot de passe
               </label>
               <input
-                id="confirm-password"
+                id="confirmPassword"
                 type="password"
                 placeholder=" Confirmer votre mot de passe"
                 value={formData.confirmPassword}
