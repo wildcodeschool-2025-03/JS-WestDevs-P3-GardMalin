@@ -24,6 +24,7 @@ import validation from "./utils/validation";
 router.get("/kids", kidsActions.browse);
 router.post("/kids", kidsActions.add);
 router.get("/kids/:id", kidsActions.read);
+router.get("/kids/by-user/:userId", kidsActions.readByUserId);
 
 router.get("/nurseries", nurseriesActions.browse);
 router.get("/nurseries/:id", nurseriesActions.read);
@@ -35,6 +36,7 @@ router.delete("/parents/:id", parentsActions.destroy);
 
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
+router.get("/reservations/:id", reservationsActions.read);
 router.post("/reservations", reservationsActions.add);
 
 router.get("/users", usersActions.browse);

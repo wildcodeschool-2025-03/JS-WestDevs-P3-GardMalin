@@ -10,17 +10,15 @@ function ExpandableArticle({ title, children }: ExpandableArticleProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
-  // Écoute les changements de taille d'écran
   useEffect(() => {
     const handleResize = () => {
       const desktop = window.innerWidth >= 768;
       setIsDesktop(desktop);
-      if (desktop)
-        setIsExpanded(true); // Forcer le dépliage en desktop
-      else setIsExpanded(false); // Replier si retour mobile
+      if (desktop) setIsExpanded(true);
+      else setIsExpanded(false);
     };
 
-    handleResize(); // Exécuter à l'initialisation
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
