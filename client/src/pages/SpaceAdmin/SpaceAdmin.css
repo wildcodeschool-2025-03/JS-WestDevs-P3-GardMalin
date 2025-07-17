@@ -1,5 +1,25 @@
 .body-admin {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 36px;
+  background-color: ;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  border-radius: 8px;
+}
+
+.header-space-admin {
+  grid-row: 1;
   align-items: center;
+
+  h1 {
+    padding: 32px;
+  }
+}
+
+.input-search {
+  grid-row: 2;
+}
+
+.display-results {
+  grid-row: 3;
 }
