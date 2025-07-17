@@ -40,6 +40,7 @@ const login: RequestHandler = async (req, res) => {
     const payload = {
       id: user.id,
       email: user.email,
+      role: user.role,
     };
 
     const secretKey = process.env.APP_SECRET;

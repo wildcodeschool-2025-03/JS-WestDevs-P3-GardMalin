@@ -27,12 +27,18 @@ const LoginPro = () => {
         return response.json();
       })
       .then((data) => {
+        if (data.role !== "professional") {
+          toast.error("Accès refusé : rôle non autorisé");
+          return;
+        }
+
         toast.success("Vous êtes connecté");
         setIsLogged(true);
         setUser(data);
         navigate("/space-pro");
       });
   };
+
   return (
     <main className="login-pro-container">
       <section className="picture-pro-container">
@@ -47,19 +53,25 @@ const LoginPro = () => {
           <label htmlFor="email" hidden>
             Email
           </label>
-          <input type="email" id="email" placeholder="Adresse mail" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Adresse mail"
+            required
+          />
           <label htmlFor="password" hidden>
-            {" "}
             Votre mot de passe
           </label>
           <input
             type="password"
             id="password"
+            name="password"
             placeholder="Mot de passe"
             required
           />
           <label htmlFor="checkbox">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="checkbox" required />
             <Link to="/">Conditions d'utilisation</Link>
           </label>
           <button type="submit">Se connecter</button>

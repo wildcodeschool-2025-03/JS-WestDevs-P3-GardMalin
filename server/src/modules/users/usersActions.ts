@@ -8,14 +8,16 @@ const browse: RequestHandler = async (req, res) => {
 
 const add: RequestHandler = async (req, res) => {
   try {
-    const user = await usersRepository.create(req.body);
+    const result = await usersRepository.create(req.body);
 
-    if (user) {
+    if (result.affectedRows === 1) {
       res
         .status(201)
-        .json("Contragulations, your account has been created successfully !");
+        .json({ id: result.id, message: "Compte créé avec succès !" });
     } else {
-      res.status(404).json("An error occured during the registration");
+      res
+        .status(500)
+        .json({ error: "Erreur lors de la création de l'utilisateur" });
     }
   } catch (err) {
     res.sendStatus(500);
