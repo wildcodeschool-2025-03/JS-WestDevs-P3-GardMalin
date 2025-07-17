@@ -6,11 +6,11 @@ function SpaceAdmin() {
 
   return (
     <>
-      <div className="body-admin">
-        <header className="header-space-admin">
-          <h1>Espace Administrateur</h1>
-        </header>
+      <header className="header-space-admin">
+        <h1>Espace Administrateur</h1>
+      </header>
 
+      <div className="body-admin">
         <article className="input-search">
           <input
             type="text"
