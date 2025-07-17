@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router";
 import "./LoginPro.css";
+import { toast } from "react-toastify";
 import BackButton from "../../components/BackButton/BackButton";
 import { useAuth } from "../../services/AuthContext";
-import { toast } from "react-toastify";
 
 const LoginPro = () => {
   const { setIsLogged, setUser } = useAuth();
