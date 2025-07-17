@@ -23,6 +23,14 @@ class nurseriesRepository {
     );
     return rows[0];
   }
+
+  async readByUserId(user_id: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM nursery WHERE user_id = ?",
+      [user_id],
+    );
+    return rows[0];
+  }
 }
 
 export default new nurseriesRepository();

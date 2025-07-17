@@ -1,8 +1,24 @@
 import { Link } from "react-router";
 import "./SpacePro.css";
+import { useEffect, useState } from "react";
 import BackButton from "../../components/BackButton/BackButton";
+import { useAuth } from "../../services/AuthContext";
 
 const SpacePro = () => {
+  const [nursery, setNursery] = useState<Nursery | null>(null);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) return;
+    console.info(" Données utilisateur :", user);
+    fetch(`http://localhost:3310/api/nurseries/by-user/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => setNursery(data));
+  }, [user]);
+
+  if (!user || !nursery) {
+    return <p>Chargement en cours...</p>;
+  }
   return (
     <div className="space-pro-container">
       <header>
@@ -13,28 +29,30 @@ const SpacePro = () => {
       <section>
         <article>
           <h2>Ma présentation</h2>
-          <p>
-            Bienvenue à "Les Petits Explorateurs", une crèche chaleureuse et
-            innovante située en plein cœur d’un quartier verdoyant et familial.
-            Notre structure accueille les enfants de 3
-          </p>
+          <p>{nursery.description}</p>
         </article>
         <h2>Mes coordonnées</h2>
         <article>
-          <p>📍 12 rue des Érables, 75000 Paris</p>
-          <p>📞 01 23 45 67 89</p>
-          <p>✉️ contact@lespetitsexplorateurs.fr</p>
-          <input type="file" />
+          <p>
+            📍 {nursery.street}, {nursery.postal_code} {nursery.city}
+          </p>
+          <p>📞 {nursery.phone_number}</p>
+          <p>✉️ {user.email}</p>
         </article>
       </section>
       <section>
         <article>
           <h2>Nos atouts</h2>
-          <p>
-            🌿 Espaces d’éveil thématiques : coin nature, salle de motricité,
-            bibliothèque enfantine, atelier sensoriel… 👶 Accueil personnalisé :
-            adaptation progressive,
-          </p>
+          <ul>
+            <li>
+              🌿 Espaces d’éveil thématiques : coin nature, salle de motricité,
+              bibliothèque enfantine, atelier sensoriel…
+            </li>
+            <li>
+              👶 Accueil personnalisé : adaptation progressive, respect des
+              rythmes de chaque enfant.
+            </li>
+          </ul>
         </article>
         <article>
           <h2>Mes horaires</h2>
