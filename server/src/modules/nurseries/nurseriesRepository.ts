@@ -1,4 +1,7 @@
-import databaseClient, { type Rows } from "../../../database/client";
+import databaseClient, {
+  type Result,
+  type Rows,
+} from "../../../database/client";
 
 class nurseriesRepository {
   async readAll() {
@@ -22,6 +25,23 @@ class nurseriesRepository {
       [id],
     );
     return rows[0];
+  }
+
+  async create(body: Nursery) {
+    const [nursery] = await databaseClient.query<Result>(
+      "INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+      [
+        body.name,
+        body.siret,
+        body.street,
+        body.postal_code,
+        body.city,
+        body.phone_number,
+        body.descripton,
+        body.capacity,
+      ],
+    );
+    return nursery.affectedRows;
   }
 }
 

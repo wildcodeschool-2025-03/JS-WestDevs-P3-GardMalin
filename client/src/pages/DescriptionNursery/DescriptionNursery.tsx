@@ -1,5 +1,6 @@
 import { type ChangeEvent, useState } from "react";
 import "./DescriptionNursery.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 function DescriptionNursery() {
   const [filePicture, setFilePicture] = useState("Aucun fichier sélectionné");
@@ -141,6 +142,10 @@ function DescriptionNursery() {
 
           <button type="submit">Validez</button>
         </form>
+        <h5>
+          * Les champs non renseignés pourront être remplis ultérieurement.😉
+        </h5>
+        <BackButton />
       </section>
     </main>
   );

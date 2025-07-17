@@ -1,8 +1,38 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./LoginPro.css";
+import { toast } from "react-toastify";
 import BackButton from "../../components/BackButton/BackButton";
+import { useAuth } from "../../services/AuthContext";
 
 const LoginPro = () => {
+  const { setIsLogged, setUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = (formData: FormData) => {
+    const data = Object.fromEntries(formData);
+
+    fetch("http://localhost:3310/api/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          toast.error("Echec de connexion");
+          throw new Error("Connexion failed");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        toast.success("Vous êtes connecté");
+        setIsLogged(true);
+        setUser(data);
+        navigate("/space-pro");
+      });
+  };
   return (
     <main className="login-pro-container">
       <section className="picture-pro-container">
@@ -13,7 +43,7 @@ const LoginPro = () => {
         <img src="/images/gardmalin-logo.png" alt="logo gardmalin" />
         <h1>Gérez ici votre espace Pro comme un pro</h1>
         <h2>Connexion</h2>
-        <form className="form-pro-container">
+        <form action={handleSubmit} className="form-pro-container">
           <label htmlFor="email" hidden>
             Email
           </label>
