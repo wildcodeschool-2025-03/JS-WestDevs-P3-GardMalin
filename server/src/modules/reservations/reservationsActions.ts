@@ -13,7 +13,7 @@ const read: RequestHandler = async (req, res) => {
     if (result) {
       res.json(result);
     } else {
-      res.status(404).send();
+      res.status(404).send("Réservation non trouvée");
     }
   } catch (err) {
     res.status(500);
@@ -23,7 +23,6 @@ const read: RequestHandler = async (req, res) => {
 const add: RequestHandler = async (req, res) => {
   try {
     const { kid_id, nursery_id, date, is_validated } = req.body;
-
     const newReservation = await reservationsRepository.create({
       kid_id,
       nursery_id,

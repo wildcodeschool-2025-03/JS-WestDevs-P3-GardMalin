@@ -50,7 +50,7 @@ CREATE TABLE nursery (
 CREATE TABLE reservation (
   PRIMARY KEY (kid_id, nursery_id),
   date DATE,
-  is_validated BOOLEAN,
+  is_validated BOOLEAN NOT NULL DEFAULT FALSE,
   kid_id INT UNSIGNED,
   nursery_id INT UNSIGNED,
   FOREIGN KEY (nursery_id)

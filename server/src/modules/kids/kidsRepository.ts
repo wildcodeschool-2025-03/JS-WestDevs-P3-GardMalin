@@ -34,6 +34,16 @@ class kidsRepository {
     );
     return rows;
   }
+  async readByUserId(userId: number) {
+    const [rows] = await databaseClient.query(
+      `SELECT kid.* FROM kid
+     JOIN parent ON kid.parent_id = parent.id
+     JOIN user ON parent.user_id = user.id
+     WHERE user.id = ?`,
+      [userId],
+    );
+    return rows;
+  }
 }
 
 export default new kidsRepository();

@@ -3,7 +3,9 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import "./StructureAccueil.css";
 import { Popover } from "@base-ui-components/react/popover";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
 import Carrousel from "../../components/Carrousel/Carrousel";
+import { useAuth } from "../../services/AuthContext";
 
 interface Nursery {
   name: string;
@@ -63,6 +65,7 @@ function StructureAccueil() {
     new Date().toISOString().split("T")[0],
   );
   const [selectedKid, setSelectedKid] = useState<Kid | null>(null);
+  const [reservation, setReservation] = useState<ReservationRecap | null>(null);
 
   useEffect(() => {
     if (searchEstablishment.length) {
@@ -83,10 +86,20 @@ function StructureAccueil() {
       return;
     }
 
+    if (!user) {
+      toast.error("Vous devez être connecté pour faire une réservation");
+      return;
+    }
+
+    if (reservation && reservation.date === reservationDate) {
+      toast.warning("Vous avez déjà une réservation à cette date.");
+      return;
+    }
+
     const reservationData = {
       date: reservationDate,
-      nurseryId: selectedNursery.id,
-      kidId: selectedKid.id,
+      nursery_id: selectedNursery.id,
+      kid_id: selectedKid.id,
     };
 
     try {
@@ -102,14 +115,25 @@ function StructureAccueil() {
         throw new Error("Erreur lors de la réservation");
       }
 
-      const result = await response.json();
-      console.log("Réservation réussie :", result);
-      alert("Réservation confirmée !");
+      setReservation({
+        date: reservationDate,
+        nursery: selectedNursery,
+        kid: selectedKid,
+      });
+      toast.success("Réservation confirmée !");
     } catch (error) {
-      console.error("Erreur :", error);
       alert("Erreur lors de la réservation.");
     }
   };
+
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user) return;
+    fetch(`http://localhost:3310/api/reservations/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => setReservation(data));
+  }, [user]);
 
   return (
     <section className="structure-accueil">
@@ -118,9 +142,8 @@ function StructureAccueil() {
         <section className="type-of-reception">
           <h3>Quel type d'accueil souhaitez-vous ?</h3>
           <section className="type-of-reception-choice">
-            <input type="radio" id="nusery" name="select" value="nursery" />
+            <input type="radio" id="nursery" name="select" value="nursery" />
             <label htmlFor="nursery">Crèche</label>
-
             <input
               type="radio"
               id="childminder"
@@ -129,7 +152,6 @@ function StructureAccueil() {
             />
             <label htmlFor="childminder">Assistante maternelle</label>
           </section>
-
           <section className="period-reservation">
             <label>
               Date de votre réservation souhaitée :
