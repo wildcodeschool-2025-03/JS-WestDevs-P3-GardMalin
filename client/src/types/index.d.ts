@@ -41,7 +41,7 @@ type Nursery = {
   phone_number: ReactNode;
   street: ReactNode;
   id: number;
-  phone: ReactNode;
+  phone?: ReactNode;
   postal_code: ReactNode;
   city: ReactNode;
   name: string;
@@ -56,3 +56,8 @@ type Reservation = {
   is_refused: boolean;
   kid: Kid;
 };
+interface ReservationRecap {
+  date: string;
+  nursery: Nursery;
+  kid: Kid;
+}
