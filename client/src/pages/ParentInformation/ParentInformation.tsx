@@ -36,6 +36,7 @@ const ParentInformation = () => {
           <li>Nom : {parent.lastname}</li>
           <li>Adresse : {parent.street}</li>
           <li>Ville : {parent.city}</li>
+          <li>Code postal : {parent.postal_code}</li>
           <li>Téléphone : {parent.phone_number}</li>
         </ul>
       </section>

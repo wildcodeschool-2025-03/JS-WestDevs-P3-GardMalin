@@ -23,7 +23,7 @@ const ChildCard = ({
     <section className="child-card-container">
       <img src={imgSrc} alt={`Avatar de ${firstname}`} />
       <ul>
-        <li>prénom : {firstname}</li>
+        <li>Prénom : {firstname}</li>
         <li>Nom : {lastname}</li>
         <li>Age : {age}</li>
         <li>Handicap : {handicap ? "Oui" : "Non"}</li>
