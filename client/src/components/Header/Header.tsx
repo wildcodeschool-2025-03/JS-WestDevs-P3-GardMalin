@@ -40,7 +40,6 @@ const Header = () => {
             Se déconnecter
           </button>
         )}
-        <Link to="about">A propos</Link>
       </nav>
     </header>
   );
