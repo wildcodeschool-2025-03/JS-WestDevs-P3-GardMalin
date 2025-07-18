@@ -34,6 +34,7 @@ class nurseriesRepository {
     );
     return rows[0];
   }
+
   async create(body: Nursery) {
     const [nursery] = await databaseClient.query<Result>(
       "INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -50,6 +51,32 @@ class nurseriesRepository {
       ],
     );
     return nursery.affectedRows;
+  }
+
+  async update(body: Nursery, id: string) {
+    const [rows] = await databaseClient.query<Result>(
+      "UPDATE nursery SET name = ?, siret = ?, street = ?, postal_code = ?, city = ?, phone_number = ?, description = ? WHERE id = ?",
+      [
+        body.name,
+        body.siret,
+        body.street,
+        body.postal_code,
+        body.city,
+        body.phone_number,
+        body.description,
+      ],
+    );
+
+    return rows.affectedRows;
+  }
+
+  async delete(id: string) {
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM nursery WHERE id = ?",
+      [id],
+    );
+
+    return result.affectedRows;
   }
 }
 
