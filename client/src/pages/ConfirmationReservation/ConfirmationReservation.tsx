@@ -19,7 +19,13 @@ const ConfirmationReservation = () => {
         <Link to="/space-parent">Espace parent</Link>
       </article>
       <article className="section-on-the-left">
-        <p>coucou</p>
+        <h2>Félicitations !</h2>
+        <p>
+          Nous avons bien pris en compte tous les éléments pour votre demande de
+          réservation.
+          <br />
+          Votre demande sera vérifié par nos équipes dans un délai de 48h.
+        </p>
       </article>
     </section>
   );

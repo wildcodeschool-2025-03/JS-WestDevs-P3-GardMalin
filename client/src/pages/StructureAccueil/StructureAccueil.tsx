@@ -105,13 +105,16 @@ function StructureAccueil() {
     };
 
     try {
-      const response = await fetch("http://localhost:3310/api/reservations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:3310/api/reservationstwo",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reservationData),
         },
-        body: JSON.stringify(reservationData),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Erreur lors de la réservation");

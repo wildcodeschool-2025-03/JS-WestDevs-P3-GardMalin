@@ -5,6 +5,13 @@
   align-items: center;
 }
 
+.section-on-the-right {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -22,9 +29,49 @@
 }
 
 .section-on-the-right a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   background-color: var(--light-bg-bloc-color-button);
-  height: 32px;
+  height: 48px;
   width: 200px;
   padding: 16px;
+  margin: 16px;
+  border-radius: 18px;
+}
+
+.section-on-the-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .confirmation-reservation {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fade-in-once {
+    margin: 24px;
+    width: 500px;
+  }
+
+  .section-on-the-left {
+    font-size: 16px;
+    width: 50%;
+  }
+
+  .section-on-the-left h2 {
+    margin: 48px;
+    font-size: 32px;
+  }
+
+  .section-on-the-left p {
+    width: 600px;
+  }
 }

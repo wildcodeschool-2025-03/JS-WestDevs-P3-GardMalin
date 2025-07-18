@@ -96,7 +96,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/confirmation-demande-reservation",
-        element: <ConfirmationReservation />
+        element: <ConfirmationReservation />,
       },
       {
         path: "/space-admin",
