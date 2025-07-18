@@ -30,9 +30,32 @@ const add: RequestHandler = async (req, res) => {
       is_validated,
     });
 
-    res.status(201).json("Votre place est bien réservée");
+    if (!kid_id || !nursery_id || !date || typeof is_validated !== "boolean") {
+      res.status(400).json({ error: "Champs manquants ou invalides" });
+      return;
+    }
+
+    res.status(201).json({
+      message: "Votre place est bien réservée",
+    });
   } catch (err) {
+    console.error("Erreur lors de la création de la réservation :", err);
     res.status(500).json("Erreur lors de la création de la réservation");
+  }
+};
+
+const readByUserId: RequestHandler = async (req, res) => {
+  try {
+    const userId = Number.parseInt(req.params.userId, 10);
+    const result = await reservationsRepository.readByUserId(userId);
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json(
+        "Erreur lors de la récupération des réservations de l'utilisateur.",
+      );
   }
 };
 
@@ -50,4 +73,4 @@ const readByParentID: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, readByParentID };
+export default { browse, read, add, readByParentID, readByUserId };

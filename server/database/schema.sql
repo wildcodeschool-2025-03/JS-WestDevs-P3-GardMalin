@@ -48,15 +48,13 @@ CREATE TABLE nursery (
 );
 
 CREATE TABLE reservation (
-  PRIMARY KEY (kid_id, nursery_id),
-  date DATE,
-  is_validated BOOLEAN NOT NULL DEFAULT FALSE,
   kid_id INT UNSIGNED,
   nursery_id INT UNSIGNED,
-  FOREIGN KEY (nursery_id)
-  REFERENCES nursery(id) ON DELETE CASCADE,
-  FOREIGN KEY (kid_id) 
-  REFERENCES kid(id) ON DELETE CASCADE
+  date DATE,
+  is_validated BOOLEAN NOT NULL DEFAULT FALSE,
+  PRIMARY KEY (kid_id, nursery_id, date),
+  FOREIGN KEY (nursery_id) REFERENCES nursery(id) ON DELETE CASCADE,
+  FOREIGN KEY (kid_id) REFERENCES kid(id) ON DELETE CASCADE
 );
 
 INSERT INTO user (email, password, role)
