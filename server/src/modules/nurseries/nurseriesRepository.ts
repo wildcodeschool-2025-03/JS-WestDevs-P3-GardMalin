@@ -51,6 +51,15 @@ class nurseriesRepository {
     );
     return nursery.affectedRows;
   }
+
+  async delete(id: string) {
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM nursery WHERE id = ?",
+      [id],
+    );
+
+    return result.affectedRows;
+  }
 }
 
 export default new nurseriesRepository();

@@ -59,4 +59,14 @@ const readByUserId: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, readByUserId };
+const destroy: RequestHandler = async (req, res) => {
+  const deleteNursery = await nurseriesRepository.delete(req.params.id);
+
+  if (deleteNursery) {
+    res.status(200).json("A nursery has been successfully deleted !");
+  } else {
+    res.status(404).json("Impossible to delete a nursery");
+  }
+};
+
+export default { browse, read, add, readByUserId, destroy };
