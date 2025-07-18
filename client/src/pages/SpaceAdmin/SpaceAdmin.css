@@ -1,31 +1,129 @@
+/* Espace général */
+.header-space-admin {
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.header-space-admin h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
 .body-admin {
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-rows: auto auto auto;
+  gap: 2rem;
   background-color: var(--light-bg-bloc-color);
-  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  padding: 2rem;
+  margin: 1rem;
   border-radius: 8px;
-  margin: 16px;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
 }
 
-.header-space-admin {
-  align-items: center;
+/* Tables communes */
+.input-search {
+  margin-left: 0;
+}
 
-  h1 {
-    padding: 32px;
+.input-search input {
+  display: flex;
+  align-items: center;
+  width: 800%;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+}
+
+th,
+td {
+  text-align: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+button {
+  margin: 8px 8px 8px;
+}
+
+button[aria-label="delete"] {
+  background-color: rgb(199, 180, 216);
+  color: black;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[aria-label="delete"]:hover {
+  background-color: rgb(244, 204, 194);
+}
+
+@media screen and (max-width: 768px) {
+  .body-admin {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .input-search input {
+    width: 100%;
+  }
+
+  table {
+    margin: auto;
+    border-collapse: collapse;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th {
+    display: none;
+  }
+
+  .tr-parents {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+  }
+
+  tbody td {
+    padding: 0.5rem;
+    text-align: left;
+    position: relative;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25rem;
   }
 }
-
-.input-search {
-  grid-row: 1;
-}
-
-.article-parents {
-  grid-row: 2;
-}
-
-.article-pro {
-  grid-row: 3;
-}
-
-/* @media screen and (min-width: 768px) {} */
