@@ -1,15 +1,72 @@
-import { type ChangeEvent, useState } from "react";
 import { Link } from "react-router";
 import "./RegistrationParentsPage.css";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 function RegistrationParentsPage() {
-  const [fileName, setFileName] = useState("Aucun fichier sélectionné");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    role: "parent",
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    street: "",
+    postal_code: "",
+    city: "",
+    phone_number: "",
+  });
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFileName(e.target.files[0].name);
-    } else {
-      setFileName("Aucun fichier sélectionné");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (formData.password !== confirmPassword) {
+      toast.error("Les mots de passe ne correspondent pas");
+      return;
+    }
+
+    try {
+      const userRes = await fetch("http://localhost:3310/api/user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+          role: formData.role,
+        }),
+      });
+
+      if (!userRes.ok) toast.error("Adress mail inccorect");
+
+      const user = await userRes.json();
+
+      const detailsRes = await fetch("http://localhost:3310/api/parent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          user_id: user.id,
+          firstname: formData.firstname,
+          lastname: formData.lastname,
+          street: formData.street,
+          postal_code: formData.postal_code,
+          city: formData.city,
+          phone_number: formData.phone_number,
+        }),
+      });
+
+      if (!detailsRes.ok) throw new Error("Erreur infos parent");
+
+      toast.success("Compte parent créé avec succès !");
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -25,80 +82,124 @@ function RegistrationParentsPage() {
         </article>
 
         <section>
-          <form className="registration-parents">
+          <form className="registration-parents" onSubmit={handleSubmit}>
             <article className="grid-box-parents1">
               <label htmlFor="lastnames" hidden>
                 Nom
               </label>
-              <input id="lastnames" type="text" placeholder="Nom" />
+              <input
+                id="lastnames"
+                name="lastname"
+                type="text"
+                placeholder="Nom"
+                onChange={handleChange}
+                required
+              />
 
               <label htmlFor="firstnames" hidden>
                 Prénom
               </label>
-              <input id="firstnames" type="text" placeholder="Prénom" />
+              <input
+                id="firstnames"
+                name="firstname"
+                type="text"
+                placeholder="Prénom"
+                onChange={handleChange}
+                required
+              />
 
               <label htmlFor="email" hidden>
-                Adresse email
-              </label>
-              <input id="email" type="email" placeholder="Adresse email" />
-              <label htmlFor="birthday" hidden>
-                Date de naissance
+                Email
               </label>
               <input
-                id="birthday"
-                type="text"
-                placeholder="Date de naissance ex : 01/01/1901"
-                pattern="\d{2}/\d{2}/\d{4}"
-                title="Format attendu : jj/mm/aaaa"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Adresse email"
+                onChange={handleChange}
+                required
               />
-              <label htmlFor="address" hidden>
+
+              <label htmlFor="street" hidden>
                 Adresse
               </label>
-              <input id="address" type="text" placeholder="Adresse" />
+              <input
+                id="street"
+                name="street"
+                type="text"
+                placeholder="Adresse"
+                onChange={handleChange}
+                required
+              />
             </article>
+
             <article className="grid-box-parents2">
               <label htmlFor="city" hidden>
                 Ville
               </label>
-              <input id="city" type="text" placeholder="Ville" />
+              <input
+                id="city"
+                name="city"
+                type="text"
+                placeholder="Ville"
+                onChange={handleChange}
+                required
+              />
+
               <label htmlFor="postal" hidden>
                 Code postale
               </label>
-              <input id="postal" type="number" placeholder="Code postale" />
+              <input
+                id="postal"
+                name="postal_code"
+                type="number"
+                placeholder="Code postale"
+                onChange={handleChange}
+                required
+              />
+
               <label htmlFor="phone" hidden>
-                Numéro de téléphone
+                Téléphone
               </label>
-              <input id="phone" type="tel" placeholder="Numéro de téléphone" />
+              <input
+                id="phone"
+                name="phone_number"
+                type="tel"
+                placeholder="Numéro de téléphone"
+                onChange={handleChange}
+                required
+              />
+
               <label htmlFor="password" hidden>
                 Mot de passe
               </label>
-              <input id="password" type="password" placeholder="Mot de passe" />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Mot de passe"
+                onChange={handleChange}
+                required
+              />
+
               <label htmlFor="confirm-password" hidden>
-                Confirmer votre mot de passe
+                Confirmer
               </label>
               <input
                 id="confirm-password"
                 type="password"
-                placeholder="Confirmer cotre mot de passe"
+                placeholder="Confirmer votre mot de passe"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </article>
-            <label htmlFor="select-file" className="custom-file-label">
-              Mettez en format PDF une copie de votre livret de famille
-            </label>
-            <span className="file-name">{fileName}</span>
-            <input
-              id="select-file"
-              type="file"
-              name="livretPdf"
-              accept="application/pdf"
-              onChange={handleFileChange}
-              hidden
-            />
 
             <button className="submit-parents" type="submit">
-              Confirmer votre incription
+              Confirmer votre inscription
             </button>
           </form>
+
           <Link to="/space-parent">
             <button className="parents-button" type="button">
               Espace parents

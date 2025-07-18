@@ -19,6 +19,7 @@ import RegistrationChildrenPage from "./pages/RegistrationChildrenPage/Registrat
 import RegistrationNurseryPage from "./pages/RegistrationNurseryPage/RegistrationNurseryPage";
 import RegistrationParentsPage from "./pages/RegistrationParentsPage/RegistrationParentsPage";
 import ReservationManagementPro from "./pages/ReservationManagementPro/ReservationManagementPro";
+import SpaceAdmin from "./pages/SpaceAdmin/SpaceAdmin";
 import SpaceParent from "./pages/SpaceParent/SpaceParent";
 import SpacePro from "./pages/SpacePro/SpacePro";
 import StructureAccueil from "./pages/StructureAccueil/StructureAccueil";
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "/establishment/:id",
         element: <PresentationEstablishment />,
+      },
+      {
+        path: "/space-admin",
+        element: <SpaceAdmin />,
       },
     ],
   },
