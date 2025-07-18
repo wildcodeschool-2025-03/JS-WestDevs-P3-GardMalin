@@ -25,6 +25,7 @@ const SpacePro = () => {
         <h2>{nursery.name}</h2>
       </header>
       <Link to="/reservation-management-pro">Accès au planning</Link>
+      <Link to="/description-nursery">Modifier mes renseignements</Link>
       <section>
         <article>
           <h2>Ma présentation</h2>

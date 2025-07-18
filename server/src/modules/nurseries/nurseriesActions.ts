@@ -27,6 +27,24 @@ const read: RequestHandler = async (req, res) => {
   }
 };
 
+const add: RequestHandler = async (req, res) => {
+  try {
+    const nursery = await nurseriesRepository.create(req.body);
+
+    if (nursery) {
+      res.status(201).json("Congratulation your nursery has been created !");
+    } else {
+      res
+        .status(404)
+        .json(
+          "Sorry, but it seems you made a mistake registering your establishment.",
+        );
+    }
+  } catch (err) {
+    res.sendStatus(500);
+  }
+};
+
 const readByUserId: RequestHandler = async (req, res) => {
   try {
     const result = await nurseriesRepository.readByUserId(req.params.id);
@@ -41,4 +59,4 @@ const readByUserId: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, readByUserId };
+export default { browse, read, add, readByUserId };

@@ -91,12 +91,11 @@ const refreshToken: RequestHandler = (req, res) => {
       const { id, email } = verifyToken as JwtPayload;
 
       const newToken = jwt.sign({ id, email }, secretKey, { expiresIn: "1d" });
-
       res.cookie("token", newToken);
       res.status(200).json({ id, email });
     }
   } catch (err) {
-    console.error((err as Error).message);
+    res.sendStatus(500);
   }
 };
 
