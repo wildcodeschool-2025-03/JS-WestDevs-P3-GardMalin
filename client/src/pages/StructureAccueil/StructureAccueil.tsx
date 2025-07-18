@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./StructureAccueil.css";
 import { Popover } from "@base-ui-components/react/popover";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Carrousel from "../../components/Carrousel/Carrousel";
 import { useAuth } from "../../services/AuthContext";
@@ -75,6 +75,8 @@ function StructureAccueil() {
     }
   }, [searchEstablishment, selectedNurseryIndex]);
 
+  const navigate = useNavigate();
+
   const handleReservationSubmit = async () => {
     if (!selectedNursery) {
       alert("Veuillez sélectionner une crèche.");
@@ -103,13 +105,16 @@ function StructureAccueil() {
     };
 
     try {
-      const response = await fetch("http://localhost:3310/api/reservation", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "http://localhost:3310/api/reservationstwo",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reservationData),
         },
-        body: JSON.stringify(reservationData),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Erreur lors de la réservation");
@@ -121,6 +126,7 @@ function StructureAccueil() {
         kid: selectedKid,
       });
       toast.success("Réservation confirmée !");
+      navigate("/confirmation-demande-reservation");
     } catch (error) {
       alert("Erreur lors de la réservation.");
     }

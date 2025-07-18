@@ -28,6 +28,10 @@ router.get("/kids/by-user/:userId", kidsActions.readByUserId);
 
 router.get("/nurseries", nurseriesActions.browse);
 router.get("/nurseries/:id", nurseriesActions.read);
+router.post("/nurserie", nurseriesActions.add);
+router.get("/nurseries/by-user/:id", nurseriesActions.readByUserId);
+router.put("/nurseriesedit/:id", nurseriesActions.edit);
+router.delete("/nurseries/:id", parentsActions.destroy);
 
 router.get("/parents", parentsActions.browse);
 router.post("/parent", parentsActions.add);
@@ -39,7 +43,7 @@ router.get("/reservations/parent/:userId", reservationsActions.readByParentID);
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
 router.get("/reservations/:id", reservationsActions.read);
-router.post("/reservation", reservationsActions.add);
+router.post("/reservationstwo", reservationsActions.add);
 
 router.get("/users", usersActions.browse);
 router.post(

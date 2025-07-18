@@ -62,6 +62,18 @@
     width: 100%;
   }
 
+  textarea {
+    font-family: var(--font-family-body);
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #d9eef4;
+    color: #333;
+    width: 100%;
+    resize: none;
+  }
+
   input::placeholder {
     color: #888;
   }
