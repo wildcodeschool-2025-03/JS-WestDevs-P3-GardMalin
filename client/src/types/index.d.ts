@@ -52,6 +52,7 @@ type Nursery = {
   phone_number: ReactNode;
   street: ReactNode;
   id: number;
+  description?: string;
   phone?: ReactNode;
   postal_code: ReactNode;
   city: ReactNode;

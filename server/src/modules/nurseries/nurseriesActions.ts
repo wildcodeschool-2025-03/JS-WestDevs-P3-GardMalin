@@ -27,4 +27,18 @@ const read: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read };
+const readByUserId: RequestHandler = async (req, res) => {
+  try {
+    const result = await nurseriesRepository.readByUserId(req.params.id);
+
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).send("This ID doesn't exist !");
+    }
+  } catch {
+    res.sendStatus(500);
+  }
+};
+
+export default { browse, read, readByUserId };

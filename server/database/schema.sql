@@ -40,7 +40,7 @@ CREATE TABLE nursery (
   postal_code VARCHAR(5),
   city VARCHAR(250),
   phone_number VARCHAR(15),
-  descripton VARCHAR(300),
+  description TEXT,
   capacity INT,
   user_id INT UNSIGNED,
   FOREIGN KEY(user_id)
@@ -90,11 +90,11 @@ VALUES
   ("M","Leo", "Nguyen", "7", 1, "aucune", 0, 2);
 
 
-INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, capacity, user_id)
+INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity, user_id)
 VALUES
-  ("Les Petits Explorateurs", "83475219900018", "12 rue des érables", "33600", "Pessac" , "05 56 45 67 89", 50, 4),
-  ("Les Coccinelles Joyeuses", "89234087100025", "5 allée des Acacias", "33600", "Pessac", "05 56 12 34 56", 5, 5),
-  ("Puzzle & Petits Pas", "90176845200037", "22 rue des Tisserands", "33600", "Pessac", "05 56 23 45 67", 128, 6);
+  ("Les Petits Explorateurs", "83475219900018", "12 rue des érables", "33600", "Pessac" , "05 56 45 67 89", "Bienvenue dans notre établissement Les Petits Explorateurs, une crèche chaleureuse et innovante située en plein cœur d'un quartier verdoyant et familial. Notre structure accueille les enfants de 3 mois à 3 ans, dans un environnement sécurisé, stimulant et bienveillant, propice à l'éveil et au développement de chacun.", 50, 4),
+  ("Les Coccinelles Joyeuses", "89234087100025", "5 allée des Acacias", "33600", "Pessac" , "05 56 45 67 89", "Bienvenue dans notre établissement Les Coccinelles Joyeuses, une crèche chaleureuse et innovante située en plein cœur d'un quartier verdoyant et familial. Notre structure accueille les enfants de 3 mois à 3 ans, dans un environnement sécurisé, stimulant et bienveillant, propice à l'éveil et au développement de chacun.", 5, 5),
+  ("Puzzle & Petits Pas", "90176845200037", "22 rue des Tisserands", "33600", "Pessac", "05 56 23 45 67", "Bienvenue dans notre établissement Puzzle & Petits Pas, une crèche chaleureuse et innovante située en plein cœur d'un quartier verdoyant et familial. Notre structure accueille les enfants de 3 mois à 3 ans, dans un environnement sécurisé, stimulant et bienveillant, propice à l'éveil et au développement de chacun.", 128, 6);
 
 INSERT INTO reservation (kid_id, nursery_id, date, is_validated) VALUES 
   (1, 1, "2025-07-03", true),
