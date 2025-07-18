@@ -47,6 +47,18 @@ class reservationsRepository {
 
     return result;
   }
+
+  async readByUserId(userId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      `SELECT r.*, k.firstname AS kid_firstname, k.lastname AS kid_lastname, n.name AS nursery_name
+     FROM reservation r
+     JOIN kid k ON r.kid_id = k.id
+     JOIN nursery n ON r.nursery_id = n.id
+     WHERE k.parent_id = ?`,
+      [userId],
+    );
+    return rows;
+  }
 }
 
 export default new reservationsRepository();
