@@ -12,6 +12,7 @@ import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
 
+import ConfirmationReservation from "./pages/ConfirmationReservation/ConfirmationReservation";
 import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
 import PresentationEstablishment from "./pages/PresentationEstablishment/PresentationEstablishment";
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/establishment/:id",
         element: <PresentationEstablishment />,
+      },
+      {
+        path: "/confirmation-demande-reservation",
+        element: <ConfirmationReservation />,
       },
       {
         path: "/space-admin",

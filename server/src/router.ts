@@ -41,7 +41,7 @@ router.delete("/parents/:id", parentsActions.destroy);
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
 router.get("/reservations/:id", reservationsActions.read);
-router.post("/reservations", reservationsActions.add);
+router.post("/reservationstwo", reservationsActions.add);
 
 router.get("/users", usersActions.browse);
 router.post(

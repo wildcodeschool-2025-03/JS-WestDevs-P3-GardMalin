@@ -32,7 +32,7 @@ class reservationsRepository {
     kid_id: number;
     nursery_id: number;
     date: string;
-    is_validated: string;
+    is_validated: boolean;
   }) {
     const [result] = await databaseClient.query(
       `INSERT INTO reservation (kid_id, nursery_id, date, is_validated)
