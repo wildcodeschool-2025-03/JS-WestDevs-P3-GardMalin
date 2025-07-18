@@ -38,13 +38,13 @@ function SpaceAdmin() {
   }, []);
 
   // Supprimer un parent
-  const handleDeleteParent = async (parentId: number) => {
+  const handleDeleteParent = async (userId: number) => {
     try {
-      const res = await fetch(`http://localhost:3310/api/parents/${parentId}`, {
+      const res = await fetch(`http://localhost:3310/api/parents/${userId}`, {
         method: "DELETE",
       });
       if (res.ok) {
-        setParents((prev) => prev.filter((p) => p.id !== parentId));
+        setParents((prev) => prev.filter((p) => p.id !== userId));
       } else {
         toast.error("Erreur lors de la suppression du parent");
       }
