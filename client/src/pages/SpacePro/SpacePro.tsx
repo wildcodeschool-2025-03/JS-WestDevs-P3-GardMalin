@@ -10,7 +10,6 @@ const SpacePro = () => {
 
   useEffect(() => {
     if (!user) return;
-    console.info(" Données utilisateur :", user);
     fetch(`http://localhost:3310/api/nurseries/by-user/${user.id}`)
       .then((res) => res.json())
       .then((data) => setNursery(data));
@@ -23,7 +22,7 @@ const SpacePro = () => {
     <div className="space-pro-container">
       <header>
         <h1>Espace pro</h1>
-        <h2>"Les Petits Explorateurs"</h2>
+        <h2>{nursery.name}</h2>
       </header>
       <Link to="/reservation-management-pro">Accès au planning</Link>
       <section>
