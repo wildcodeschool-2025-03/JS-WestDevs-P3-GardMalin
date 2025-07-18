@@ -43,8 +43,21 @@ const add: RequestHandler = async (req, res) => {
     }
   } catch (err) {
     console.error("Error while creating nursery:", err);
+  }
+};
+
+const readByUserId: RequestHandler = async (req, res) => {
+  try {
+    const result = await nurseriesRepository.readByUserId(req.params.id);
+
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).send("This ID doesn't exist !");
+    }
+  } catch {
     res.sendStatus(500);
   }
 };
 
-export default { browse, read, add };
+export default { browse, read, add, readByUserId };

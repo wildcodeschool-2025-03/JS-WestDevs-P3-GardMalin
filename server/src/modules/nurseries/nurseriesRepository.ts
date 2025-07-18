@@ -27,6 +27,13 @@ class nurseriesRepository {
     return rows[0];
   }
 
+  async readByUserId(user_id: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM nursery WHERE user_id = ?",
+      [user_id],
+    );
+    return rows[0];
+  }
   async create(body: Nursery) {
     const [nursery] = await databaseClient.query<Result>(
       "INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
