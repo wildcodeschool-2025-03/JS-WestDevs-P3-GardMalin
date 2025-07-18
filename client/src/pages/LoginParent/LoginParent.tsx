@@ -27,6 +27,11 @@ const LoginParent = () => {
         return response.json();
       })
       .then((data) => {
+        if (data.role !== "parent") {
+          toast.error("Accès refusé : rôle non autorisé");
+          return;
+        }
+
         toast.success("Vous êtes connecté");
         setIsLogged(true);
         setUser(data);
@@ -67,7 +72,7 @@ const LoginParent = () => {
               required
             />
             <label htmlFor="checkbox">
-              <input type="checkbox" id="checkbox" />
+              <input type="checkbox" id="checkbox" required />
               <Link to="/">Conditions d'utilisation</Link>
             </label>
             <button type="submit">Se connecter</button>

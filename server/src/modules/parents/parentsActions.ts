@@ -47,7 +47,6 @@ const add: RequestHandler = async (req, res) => {
         .json({ error: "Something went wrong during registration" });
     }
   } catch (err) {
-    console.error("Error creating parent:", err);
     res.status(500).json({ error: "Internal server error", details: err });
   }
 };
