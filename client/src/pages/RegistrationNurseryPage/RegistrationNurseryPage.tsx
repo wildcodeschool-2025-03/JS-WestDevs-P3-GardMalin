@@ -75,13 +75,10 @@ function RegistrationNurseryPage() {
       });
 
       if (!userResponse.ok) {
-        const errorText = await userResponse.text();
         toast.error("Erreur lors de la création du compte utilisateur");
-        console.error("User creation failed:", errorText);
         return;
       }
       const newUser = await userResponse.json();
-      console.log("User created:", newUser);
       const userId = newUser.id;
 
       const nurseryPayload = {
@@ -111,10 +108,8 @@ function RegistrationNurseryPage() {
         navigate("/login-pro");
       } else {
         toast.error("Erreur lors de l'enregistrement de l'établissement");
-        console.error("Nursery creation failed:");
       }
     } catch (err) {
-      console.error(err);
       toast.error("Erreur réseau");
     }
   };

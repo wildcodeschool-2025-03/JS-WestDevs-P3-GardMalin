@@ -17,7 +17,6 @@ const hashPassword: RequestHandler = async (req, res, next) => {
 
     next();
   } catch (err) {
-    console.error("HashPassword error:", err);
     res.sendStatus(500);
   }
 };
@@ -47,7 +46,6 @@ const login: RequestHandler = async (req, res) => {
     const secretKey = process.env.APP_SECRET;
 
     if (!secretKey) {
-      console.error("Missing APP_SECRET in environment variables.");
       throw new Error("A secret must be provided");
     }
 
@@ -60,7 +58,6 @@ const login: RequestHandler = async (req, res) => {
 
     res.status(200).json(payload);
   } catch (err) {
-    console.error("Login error:", err);
     res.sendStatus(500);
   }
 };
@@ -85,7 +82,6 @@ const refreshToken: RequestHandler = (req, res) => {
     const secretKey = process.env.APP_SECRET;
 
     if (!secretKey) {
-      console.error("Missing APP_SECRET in environment variables.");
       throw new Error("A secret must be provided");
     }
 
@@ -95,14 +91,11 @@ const refreshToken: RequestHandler = (req, res) => {
       const { id, email } = verifyToken as JwtPayload;
 
       const newToken = jwt.sign({ id, email }, secretKey, { expiresIn: "1d" });
-      console.log("Cookies reçus :", req.cookies);
       res.cookie("token", newToken);
       res.status(200).json({ id, email });
     }
-    console.log("refreshToken route hit", req.cookies);
   } catch (err) {
-    console.error("Logout error:", err);
-    console.error((err as Error).message);
+    res.sendStatus(500);
   }
 };
 

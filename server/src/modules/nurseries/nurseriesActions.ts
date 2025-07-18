@@ -29,7 +29,6 @@ const read: RequestHandler = async (req, res) => {
 
 const add: RequestHandler = async (req, res) => {
   try {
-    console.log("REQ BODY:", req.body);
     const nursery = await nurseriesRepository.create(req.body);
 
     if (nursery) {
@@ -42,7 +41,7 @@ const add: RequestHandler = async (req, res) => {
         );
     }
   } catch (err) {
-    console.error("Error while creating nursery:", err);
+    res.sendStatus(500);
   }
 };
 
