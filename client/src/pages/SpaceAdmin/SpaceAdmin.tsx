@@ -137,6 +137,7 @@ function SpaceAdmin() {
                   <td data-label="Téléphone">{parent.phone_number}</td>
                   <td>
                     <button
+                      className="click-b"
                       onClick={() => handleDeleteParent(parent.id)}
                       type="button"
                       aria-label="delete"
@@ -174,6 +175,7 @@ function SpaceAdmin() {
                   <td data-label="Téléphone">{nursery.phone_number}</td>
                   <td>
                     <button
+                      className="click-b"
                       onClick={() => handleAcceptNursery(nursery.id)}
                       type="button"
                       aria-label="accept"
@@ -181,6 +183,7 @@ function SpaceAdmin() {
                       accepter
                     </button>
                     <button
+                      className="click-b"
                       onClick={() => handleDeleteNursery(nursery.id)}
                       type="button"
                       aria-label="delete"
