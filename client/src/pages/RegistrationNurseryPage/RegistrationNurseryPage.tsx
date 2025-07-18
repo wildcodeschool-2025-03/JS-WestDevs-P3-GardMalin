@@ -71,14 +71,17 @@ function RegistrationNurseryPage() {
           password: formData.password,
           role: formData.role,
         }),
+        credentials: "include",
       });
 
       if (!userResponse.ok) {
+        const errorText = await userResponse.text();
         toast.error("Erreur lors de la création du compte utilisateur");
+        console.error("User creation failed:", errorText);
         return;
       }
-
       const newUser = await userResponse.json();
+      console.log("User created:", newUser);
       const userId = newUser.id;
 
       const nurseryPayload = {
@@ -90,16 +93,17 @@ function RegistrationNurseryPage() {
         phone_number: formData.phone_number,
         email: formData.email,
         description: formData.description,
-        capacity: formData.capacity,
+        capacity: Number(formData.capacity),
         user_id: userId,
       };
 
-      const nurseryRes = await fetch("http://localhost:3310/api/nurseries", {
+      const nurseryRes = await fetch("http://localhost:3310/api/nurserie", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(nurseryPayload),
+        credentials: "include",
       });
 
       if (nurseryRes.ok) {
@@ -107,6 +111,7 @@ function RegistrationNurseryPage() {
         navigate("/login-pro");
       } else {
         toast.error("Erreur lors de l'enregistrement de l'établissement");
+        console.error("Nursery creation failed:");
       }
     } catch (err) {
       console.error(err);
@@ -132,7 +137,7 @@ function RegistrationNurseryPage() {
                 Nom de votre établissement
               </label>
               <input
-                id="company"
+                id="name"
                 type="text"
                 placeholder=" Nom de votre établissement"
                 value={formData.name}

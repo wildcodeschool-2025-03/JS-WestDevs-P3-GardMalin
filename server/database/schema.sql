@@ -35,12 +35,12 @@ CREATE TABLE kid (
 CREATE TABLE nursery (
   id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(150),
-  siret VARCHAR(14),
+  siret VARCHAR(17),
   street VARCHAR(250),
   postal_code VARCHAR(5),
   city VARCHAR(250),
   phone_number VARCHAR(15),
-  descripton VARCHAR(300),
+  description VARCHAR(300),
   capacity INT,
   user_id INT UNSIGNED,
   FOREIGN KEY(user_id)

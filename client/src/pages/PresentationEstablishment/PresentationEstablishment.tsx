@@ -36,7 +36,6 @@ function PresentationEstablishment() {
               📅 Ouvert du lundi au vendredi <br /> 🕘 De 7h00 à 19h00 <br />📍{" "}
               {nursery.street} {nursery.city} {nursery.postal_code} <br />📞{" "}
               {nursery.phone_number} <br />
-              ✉️ {nursery.mail}
             </p>
           </section>
         </article>

@@ -29,7 +29,7 @@ class nurseriesRepository {
 
   async create(body: Nursery) {
     const [nursery] = await databaseClient.query<Result>(
-      "INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+      "INSERT INTO nursery (name, siret, street, postal_code, city, phone_number, description, capacity, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [
         body.name,
         body.siret,
@@ -39,6 +39,7 @@ class nurseriesRepository {
         body.phone_number,
         body.description,
         body.capacity,
+        body.user_id,
       ],
     );
     return nursery.affectedRows;

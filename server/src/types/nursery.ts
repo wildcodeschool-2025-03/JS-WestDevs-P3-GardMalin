@@ -7,4 +7,5 @@ interface Nursery {
   phone_number: string;
   description: string;
   capacity: number;
+  user_id: number;
 }
