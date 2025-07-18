@@ -1,6 +1,8 @@
 .header-page-parent {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 
   h1 {
     justify-content: center;
@@ -59,8 +61,7 @@
   margin-bottom: 8px;
 }
 
-.bloc-one,
-.bloc-two {
+.reservation-bloc {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -84,6 +85,25 @@
   width: 12rem;
   margin: 16px auto 16px;
   cursor: pointer;
+}
+
+.space-children .scroller-children {
+  width: auto;
+  height: 400px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-bg-bloc-color-button) white;
+  margin-bottom: 8px;
+}
+
+.space-children {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 3px 2px 0 rgb(170, 176, 179);
+  margin: 0 16px 16px 16px;
+  padding: 16px;
 }
 
 .bloc-three,
@@ -128,11 +148,7 @@
   margin-bottom: 110px;
 }
 
-@media screen and (min-width: 992px) {
-  .body-parents {
-    background-image: url("/images/background.png");
-  }
-
+@media screen and (min-width: 768px) {
   .header-page-parent {
     h1 {
       display: flex;

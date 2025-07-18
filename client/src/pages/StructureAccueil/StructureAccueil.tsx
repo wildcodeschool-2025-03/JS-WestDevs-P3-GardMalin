@@ -103,7 +103,7 @@ function StructureAccueil() {
     };
 
     try {
-      const response = await fetch("http://localhost:3310/api/reservations", {
+      const response = await fetch("http://localhost:3310/api/reservation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

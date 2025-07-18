@@ -34,10 +34,12 @@ router.post("/parent", parentsActions.add);
 router.get("/parents/:id", parentsActions.read);
 router.delete("/parents/:id", parentsActions.destroy);
 
+router.get("/reservations/parent/:userId", reservationsActions.readByParentID);
+
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
 router.get("/reservations/:id", reservationsActions.read);
-router.post("/reservations", reservationsActions.add);
+router.post("/reservation", reservationsActions.add);
 
 router.get("/users", usersActions.browse);
 router.post(
