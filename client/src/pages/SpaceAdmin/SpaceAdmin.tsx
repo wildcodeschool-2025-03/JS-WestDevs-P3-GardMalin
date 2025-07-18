@@ -49,7 +49,7 @@ function SpaceAdmin() {
         toast.error("Erreur lors de la suppression du parent");
       }
     } catch (err) {
-      console.error("Erreur réseau :", err);
+      toast.error("Erreur réseau");
     }
   };
 
@@ -73,7 +73,7 @@ function SpaceAdmin() {
         toast.error("Erreur lors de l'acceptation de la crèche");
       }
     } catch (err) {
-      console.error("Erreur réseau :", err);
+      toast.error("Erreur réseau");
     }
   };
 
@@ -89,10 +89,10 @@ function SpaceAdmin() {
       if (res.ok) {
         setNurseries((prev) => prev.filter((n) => n.id !== nurseryId));
       } else {
-        console.error("Erreur lors de la suppression de la crèche");
+        toast.error("Erreur lors de la suppression de la crèche");
       }
     } catch (err) {
-      console.error("Erreur réseau :", err);
+      toast.error("Erreur réseau");
     }
   };
 
