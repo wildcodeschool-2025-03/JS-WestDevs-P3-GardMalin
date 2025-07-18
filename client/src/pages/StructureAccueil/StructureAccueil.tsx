@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import "./StructureAccueil.css";
 import { Popover } from "@base-ui-components/react/popover";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import Carrousel from "../../components/Carrousel/Carrousel";
 import { useAuth } from "../../services/AuthContext";
@@ -75,6 +75,8 @@ function StructureAccueil() {
     }
   }, [searchEstablishment, selectedNurseryIndex]);
 
+  const navigate = useNavigate();
+
   const handleReservationSubmit = async () => {
     if (!selectedNursery) {
       alert("Veuillez sélectionner une crèche.");
@@ -121,6 +123,7 @@ function StructureAccueil() {
         kid: selectedKid,
       });
       toast.success("Réservation confirmée !");
+      navigate("/confirmation-demande-reservation");
     } catch (error) {
       alert("Erreur lors de la réservation.");
     }
