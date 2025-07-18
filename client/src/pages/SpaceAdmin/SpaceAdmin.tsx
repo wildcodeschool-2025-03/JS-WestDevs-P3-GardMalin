@@ -103,8 +103,9 @@ function SpaceAdmin() {
       </header>
 
       <div className="body-admin">
-        <article className="input-search">
+        <article className="input-search-admin">
           <input
+            className="search-admin-i"
             type="text"
             placeholder="Recherche (parents & crèches)"
             aria-label="Search"

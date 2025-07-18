@@ -22,17 +22,18 @@
 }
 
 /* Tables communes */
-.input-search {
-  margin-left: 0;
-}
+.input-search-admin {
+  margin: 0;
 
-.input-search input {
-  display: flex;
-  align-items: center;
-  width: 800%;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  .search-admin-i {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+  }
 }
 
 table {
