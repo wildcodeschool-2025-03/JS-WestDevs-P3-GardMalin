@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import "./SpaceParent.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 function SpaceParent() {
   return (
@@ -65,6 +66,7 @@ function SpaceParent() {
           </article>
         </section>
       </div>
+      <BackButton />
     </main>
   );
 }

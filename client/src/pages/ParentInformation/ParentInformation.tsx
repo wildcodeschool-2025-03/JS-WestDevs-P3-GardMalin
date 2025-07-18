@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import "./ParentInformation.css";
 import { useEffect, useState } from "react";
+import BackButton from "../../components/BackButton/BackButton";
 import ChildCard from "../../components/ChildCard/ChildCard";
 import { useAuth } from "../../services/AuthContext";
 
@@ -63,6 +64,7 @@ const ParentInformation = () => {
 
         <h2>Vous voulez inscrire un nouvel enfant ?</h2>
         <Link to="/registration-children">Fichier inscription</Link>
+        <BackButton />
       </section>
     </div>
   );
