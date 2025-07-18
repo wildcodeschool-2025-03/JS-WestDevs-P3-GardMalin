@@ -36,4 +36,18 @@ const add: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add };
+const readByParentID: RequestHandler = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const reservations =
+      await reservationsRepository.readByParentUserId(userId);
+    res.json(reservations);
+  } catch (err) {
+    console.error("Erreur lors de la récupération des réservations :", err);
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la récupération des réservations" });
+  }
+};
+
+export default { browse, read, add, readByParentID };
