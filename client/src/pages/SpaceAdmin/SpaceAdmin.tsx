@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./SpaceAdmin.css";
+import { toast } from "react-toastify";
 
 interface Parent {
   id: number;
@@ -35,6 +36,65 @@ function SpaceAdmin() {
       .then((res) => res.json())
       .then((data) => setNurseries(data));
   }, []);
+
+  // Supprimer un parent
+  const handleDeleteParent = async (parentId: number) => {
+    try {
+      const res = await fetch(`http://localhost:3310/api/parents/${parentId}`, {
+        method: "DELETE",
+      });
+      if (res.ok) {
+        setParents((prev) => prev.filter((p) => p.id !== parentId));
+      } else {
+        toast.error("Erreur lors de la suppression du parent");
+      }
+    } catch (err) {
+      console.error("Erreur réseau :", err);
+    }
+  };
+
+  // Accepter une crèche
+  const handleAcceptNursery = async (nurseryId: number) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3310/api/nurseries/${nurseryId}/accept`,
+        {
+          method: "PUT",
+        },
+      );
+      if (res.ok) {
+        // soit tu refetch, soit tu mets à jour localement
+        setNurseries((prev) =>
+          prev.map((n) =>
+            n.id === nurseryId ? { ...n, is_accepted: true } : n,
+          ),
+        );
+      } else {
+        toast.error("Erreur lors de l'acceptation de la crèche");
+      }
+    } catch (err) {
+      console.error("Erreur réseau :", err);
+    }
+  };
+
+  // Supprimer une crèche
+  const handleDeleteNursery = async (nurseryId: number) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3310/api/nurseries/${nurseryId}`,
+        {
+          method: "DELETE",
+        },
+      );
+      if (res.ok) {
+        setNurseries((prev) => prev.filter((n) => n.id !== nurseryId));
+      } else {
+        console.error("Erreur lors de la suppression de la crèche");
+      }
+    } catch (err) {
+      console.error("Erreur réseau :", err);
+    }
+  };
 
   return (
     <>
@@ -75,7 +135,11 @@ function SpaceAdmin() {
                   <td data-label="Ville">{parent.city}</td>
                   <td data-label="Téléphone">{parent.phone_number}</td>
                   <td>
-                    <button type="submit" aria-label="delete">
+                    <button
+                      onClick={() => handleDeleteParent(parent.id)}
+                      type="button"
+                      aria-label="delete"
+                    >
                       supprimer
                     </button>
                   </td>
@@ -108,10 +172,18 @@ function SpaceAdmin() {
                   <td data-label="Ville">{nursery.city}</td>
                   <td data-label="Téléphone">{nursery.phone_number}</td>
                   <td>
-                    <button type="submit" aria-label="delete">
+                    <button
+                      onClick={() => handleAcceptNursery(nursery.id)}
+                      type="button"
+                      aria-label="accept"
+                    >
                       accepter
                     </button>
-                    <button type="submit" aria-label="delete">
+                    <button
+                      onClick={() => handleDeleteNursery(nursery.id)}
+                      type="button"
+                      aria-label="delete"
+                    >
                       supprimer
                     </button>
                   </td>
