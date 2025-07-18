@@ -30,6 +30,7 @@ router.get("/nurseries", nurseriesActions.browse);
 router.get("/nurseries/:id", nurseriesActions.read);
 router.post("/nurserie", nurseriesActions.add);
 router.get("/nurseries/by-user/:id", nurseriesActions.readByUserId);
+router.put("/nurseriesedit/:id", nurseriesActions.edit);
 router.delete("/nurseries/:id", parentsActions.destroy);
 
 router.get("/parents", parentsActions.browse);

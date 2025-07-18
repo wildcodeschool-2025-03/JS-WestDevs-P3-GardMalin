@@ -57,18 +57,14 @@ function SpaceAdmin() {
   const handleAcceptNursery = async (nurseryId: number) => {
     try {
       const res = await fetch(
-        `http://localhost:3310/api/nurseries/${nurseryId}/accept`,
+        `http://localhost:3310/api/nurseriesedit/${nurseryId}/accept`,
         {
           method: "PUT",
         },
       );
-      if (res.ok) {
+      if (res) {
         // soit tu refetch, soit tu mets à jour localement
-        setNurseries((prev) =>
-          prev.map((n) =>
-            n.id === nurseryId ? { ...n, is_accepted: true } : n,
-          ),
-        );
+        toast.info("Validation de la crèche");
       } else {
         toast.error("Erreur lors de l'acceptation de la crèche");
       }
@@ -78,16 +74,14 @@ function SpaceAdmin() {
   };
 
   // Supprimer une crèche
-  const handleDeleteNursery = async (nurseryId: number) => {
+  const handleDeleteNursery = async (userId: number) => {
     try {
-      const res = await fetch(
-        `http://localhost:3310/api/nurseries/${nurseryId}`,
-        {
-          method: "DELETE",
-        },
-      );
+      const res = await fetch(`http://localhost:3310/api/user/${userId}`, {
+        method: "DELETE",
+      });
       if (res.ok) {
-        setNurseries((prev) => prev.filter((n) => n.id !== nurseryId));
+        setNurseries((prev) => prev.filter((n) => n.id !== userId));
+        toast.info("Suppression de la crèche");
       } else {
         toast.error("Erreur lors de la suppression de la crèche");
       }

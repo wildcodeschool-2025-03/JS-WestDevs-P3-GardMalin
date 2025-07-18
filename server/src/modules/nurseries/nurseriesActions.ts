@@ -59,6 +59,20 @@ const readByUserId: RequestHandler = async (req, res) => {
   }
 };
 
+const edit: RequestHandler = async (req, res) => {
+  try {
+    const result = await nurseriesRepository.update(req.body, req.params.id);
+
+    if (result) {
+      res.status(201).json(`${req.body.name} has been updated successfully`);
+    } else {
+      res.status(404).json("This nursery doesn't exist");
+    }
+  } catch (err) {
+    res.status(500).json("Internal server error");
+  }
+};
+
 const destroy: RequestHandler = async (req, res) => {
   const deleteNursery = await nurseriesRepository.delete(req.params.id);
 
@@ -69,4 +83,4 @@ const destroy: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, readByUserId, destroy };
+export default { browse, read, add, readByUserId, edit, destroy };
