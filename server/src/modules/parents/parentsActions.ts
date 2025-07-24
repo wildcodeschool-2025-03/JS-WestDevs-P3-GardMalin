@@ -20,6 +20,39 @@ const read: RequestHandler = async (req, res) => {
   }
 };
 
+const edit: RequestHandler = async (req, res) => {
+  const id = Number.parseInt(req.params.id);
+
+  const { firstname, lastname, street, postal_code, city, phone_number } =
+    req.body;
+
+  if (!req.body) {
+    res.sendStatus(400);
+    return;
+  }
+
+  try {
+    const affectedRows = await parentsRepository.update({
+      id,
+      firstname,
+      lastname,
+      street,
+      postal_code,
+      city,
+      phone_number,
+      user_id: 0,
+    });
+
+    if (affectedRows === 0) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(204);
+    }
+  } catch (err) {
+    res.sendStatus(500);
+  }
+};
+
 const add: RequestHandler = async (req, res) => {
   try {
     const {
@@ -61,4 +94,4 @@ const destroy: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, destroy };
+export default { browse, read, edit, add, destroy };

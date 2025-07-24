@@ -36,6 +36,7 @@ router.delete("/nurseries/:id", parentsActions.destroy);
 router.get("/parents", parentsActions.browse);
 router.post("/parent", parentsActions.add);
 router.get("/parents/:id", parentsActions.read);
+router.put("/parents/:id", parentsActions.edit);
 router.delete("/parents/:id", parentsActions.destroy);
 
 router.get("/reservations/parent/:userId", reservationsActions.readByParentID);

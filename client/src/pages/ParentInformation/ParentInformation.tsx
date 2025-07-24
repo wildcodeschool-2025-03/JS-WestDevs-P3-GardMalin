@@ -39,7 +39,7 @@ const ParentInformation = () => {
       body: JSON.stringify(parent),
     }).then((response) => {
       if (response.ok) {
-        toast("Informations modifiée avec succès!");
+        toast("Informations modifiées avec succès!");
       } else {
         toast("Erreur lors de la modifications");
       }
@@ -80,8 +80,8 @@ const ParentInformation = () => {
         <form onSubmit={handleUpdate}>
           <label htmlFor="parent.firstname">Prénom</label>
           <input
-            id="parent.firstname"
-            name="parent.firstname"
+            id="firstname"
+            name="firstname"
             value={parent.firstname}
             onChange={handleChange}
             placeholder="Exemple: Jean"
@@ -89,8 +89,8 @@ const ParentInformation = () => {
 
           <label htmlFor="parent.lastname">Nom</label>
           <input
-            id="parent.lastname"
-            name="parent.lastname"
+            id="lastname"
+            name="lastname"
             value={parent.lastname}
             onChange={handleChange}
             placeholder="Exemple: Dupont"
@@ -98,8 +98,8 @@ const ParentInformation = () => {
 
           <label htmlFor="parent.street">Rue</label>
           <input
-            id="parent.street"
-            name="parent.street"
+            id="street"
+            name="street"
             value={parent.street}
             onChange={handleChange}
             placeholder="Exemple: 16 Rue des acacias"
@@ -107,8 +107,8 @@ const ParentInformation = () => {
 
           <label htmlFor="parent.city">Ville</label>
           <input
-            id="parent.city"
-            name="parent.city"
+            id="city"
+            name="city"
             value={parent.city}
             onChange={handleChange}
             placeholder="Exemple: La Rochelle"
@@ -116,8 +116,8 @@ const ParentInformation = () => {
 
           <label htmlFor="parent.postal_code">Code postal</label>
           <input
-            id="parent.postal_code"
-            name="parent.postal_code"
+            id="postal_code"
+            name="postal_code"
             value={parent.postal_code}
             onChange={handleChange}
             placeholder="Exemple: 17000"
@@ -125,8 +125,8 @@ const ParentInformation = () => {
 
           <label htmlFor="parent.phone_number">Numéro de téléphone</label>
           <input
-            id="parent.phone_number"
-            name="parent.phone_number"
+            id="phone_number"
+            name="phone_number"
             value={parent.phone_number}
             onChange={handleChange}
             placeholder="Exemple: 0836656565"
