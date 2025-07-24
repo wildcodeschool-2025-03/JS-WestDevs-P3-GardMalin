@@ -1,0 +1,24 @@
+.children-card-container {
+  background-color: transparent; /* ✅ ou retire complètement cette ligne */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 16px 16px 16px;
+}
+
+.children-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 3px 2px 0 rgb(236, 238, 240);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.children-card img {
+  max-width: 140px;
+  max-height: 100px;
+  object-fit: cover;
+}

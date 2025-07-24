@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./SpaceAdmin.css";
 import { toast } from "react-toastify";
+import BackButton from "../../components/BackButton/BackButton";
 
 interface Parent {
   id: number;
@@ -190,6 +191,7 @@ function SpaceAdmin() {
             </tbody>
           </table>
         </article>
+        <BackButton />
       </div>
     </>
   );

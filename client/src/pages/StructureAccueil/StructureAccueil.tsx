@@ -103,6 +103,7 @@ function StructureAccueil() {
       date: reservationDate,
       nursery_id: selectedNursery.id,
       kid_id: selectedKid.id,
+      is_validated: false,
     };
 
     try {
@@ -137,7 +138,7 @@ function StructureAccueil() {
 
   useEffect(() => {
     if (!user) return;
-    fetch(`http://localhost:3310/api/reservations/${user.id}`)
+    fetch(`http://localhost:3310/api/reservations/by-user/${user.id}`)
       .then((res) => res.json())
       .then((data) => setReservation(data));
   }, [user]);
