@@ -9,7 +9,7 @@ import { useAuth } from "../../services/AuthContext";
 const ParentInformation = () => {
   const [parent, setParent] = useState<ParentI | null>(null);
   const [kid, setKid] = useState<KidI[]>([]);
-  const { user } = useAuth();
+  const { user, setUser, setIsLogged } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const ParentInformation = () => {
     });
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (
       !window.confirm(
         "Attention cette action est irréversible ! Souhaitez vous vraiment supprimer votre compte ? ",
@@ -54,16 +54,27 @@ const ParentInformation = () => {
     )
       return;
     if (!user) return;
-    fetch(`http://localhost:3310/api/parents/${user.id}`, {
+
+    const response = await fetch(`http://localhost:3310/api/user/${user.id}`, {
       method: "DELETE",
-    }).then((response) => {
-      if (response.ok) {
-        toast("Compte supprimé !");
-        navigate("/");
-      } else {
-        toast("Erreur lors de la suppression.");
-      }
+      credentials: "include",
     });
+
+    if (response.ok) {
+      toast.success("Compte supprimé !");
+
+      await fetch("http://localhost:3310/api/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      setUser(null);
+      setIsLogged(false);
+
+      navigate("/");
+    } else {
+      toast.error("Erreur lors de la suppression.");
+    }
   };
 
   if (!user || !parent || !kid) {

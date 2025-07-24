@@ -85,12 +85,16 @@ const add: RequestHandler = async (req, res) => {
 };
 
 const destroy: RequestHandler = async (req, res) => {
-  const deleteParent = await parentsRepository.delete(req.params.id);
+  try {
+    const deleteParent = await parentsRepository.delete(req.params.id);
 
-  if (deleteParent) {
-    res.status(200).json("A profile parent has been successfully deleted !");
-  } else {
-    res.status(404).json("Impossible to delete a profile parent");
+    if (deleteParent) {
+      res.status(200).json("A profile parent has been successfully deleted !");
+    } else {
+      res.status(404).json("Impossible to delete a profile parent");
+    }
+  } catch (err) {
+    res.status(500);
   }
 };
 
