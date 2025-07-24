@@ -1,6 +1,8 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./ParentInformation.css";
+import type { ChangeEvent, FormEvent } from "react";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import ChildCard from "../../components/ChildCard/ChildCard";
 import { useAuth } from "../../services/AuthContext";
 
@@ -8,6 +10,7 @@ const ParentInformation = () => {
   const [parent, setParent] = useState<ParentI | null>(null);
   const [kid, setKid] = useState<KidI[]>([]);
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) return;
@@ -20,6 +23,49 @@ const ParentInformation = () => {
       .then((data) => setKid(data));
   }, [user]);
 
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    if (parent) {
+      setParent({ ...parent, [name]: value });
+    }
+  };
+
+  const handleUpdate = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!user) return;
+    fetch(`http://localhost:3310/api/parents/${user.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(parent),
+    }).then((response) => {
+      if (response.ok) {
+        toast("Informations modifiée avec succès!");
+      } else {
+        toast("Erreur lors de la modifications");
+      }
+    });
+  };
+
+  const handleDelete = () => {
+    if (
+      !window.confirm(
+        "Attention cette action est irréversible ! Souhaitez vous vraiment supprimer votre compte ? ",
+      )
+    )
+      return;
+    if (!user) return;
+    fetch(`http://localhost:3310/api/parents/${user.id}`, {
+      method: "DELETE",
+    }).then((response) => {
+      if (response.ok) {
+        toast("Compte supprimé !");
+        navigate("/");
+      } else {
+        toast("Erreur lors de la suppression.");
+      }
+    });
+  };
+
   if (!user || !parent || !kid) {
     return <p>Chargement en cours...</p>;
   }
@@ -31,14 +77,68 @@ const ParentInformation = () => {
           <img src="/images/family.png" alt="family avatar" />
           <h2>Profil parent</h2>
         </div>
-        <ul>
-          <li>Prénom : {parent.firstname}</li>
-          <li>Nom : {parent.lastname}</li>
-          <li>Adresse : {parent.street}</li>
-          <li>Ville : {parent.city}</li>
-          <li>Code postal : {parent.postal_code}</li>
-          <li>Téléphone : {parent.phone_number}</li>
-        </ul>
+        <form onSubmit={handleUpdate}>
+          <label htmlFor="parent.firstname">Prénom</label>
+          <input
+            id="parent.firstname"
+            name="parent.firstname"
+            value={parent.firstname}
+            onChange={handleChange}
+            placeholder="Exemple: Jean"
+          />
+
+          <label htmlFor="parent.lastname">Nom</label>
+          <input
+            id="parent.lastname"
+            name="parent.lastname"
+            value={parent.lastname}
+            onChange={handleChange}
+            placeholder="Exemple: Dupont"
+          />
+
+          <label htmlFor="parent.street">Rue</label>
+          <input
+            id="parent.street"
+            name="parent.street"
+            value={parent.street}
+            onChange={handleChange}
+            placeholder="Exemple: 16 Rue des acacias"
+          />
+
+          <label htmlFor="parent.city">Ville</label>
+          <input
+            id="parent.city"
+            name="parent.city"
+            value={parent.city}
+            onChange={handleChange}
+            placeholder="Exemple: La Rochelle"
+          />
+
+          <label htmlFor="parent.postal_code">Code postal</label>
+          <input
+            id="parent.postal_code"
+            name="parent.postal_code"
+            value={parent.postal_code}
+            onChange={handleChange}
+            placeholder="Exemple: 17000"
+          />
+
+          <label htmlFor="parent.phone_number">Numéro de téléphone</label>
+          <input
+            id="parent.phone_number"
+            name="parent.phone_number"
+            value={parent.phone_number}
+            onChange={handleChange}
+            placeholder="Exemple: 0836656565"
+          />
+
+          <div>
+            <button type="submit">Enregistrer vos modifications</button>
+            <button type="button" onClick={handleDelete}>
+              Supprimer mon compte
+            </button>
+          </div>
+        </form>
       </section>
       <section className="enfant-info-section">
         <h2>Profil(s) enfant(s)</h2>
