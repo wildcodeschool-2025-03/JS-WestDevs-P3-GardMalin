@@ -55,6 +55,15 @@ class kidsRepository {
     );
     return result.affectedRows;
   }
+
+  async delete(id: string) {
+    const [result] = await databaseClient.query<Result>(
+      "DELETE FROM kid WHERE id = ?",
+      [id],
+    );
+
+    return result.affectedRows;
+  }
 }
 
 export default new kidsRepository();

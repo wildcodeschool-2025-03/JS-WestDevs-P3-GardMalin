@@ -83,4 +83,18 @@ const edit: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, add, read, readByUserId, edit };
+const destroy: RequestHandler = async (req, res) => {
+  try {
+    const deleteKid = await kidsRepository.delete(req.params.id);
+
+    if (deleteKid) {
+      res.status(200).json("A profile kid has been successfully deleted !");
+    } else {
+      res.status(404).json("Impossible to delete a profile kid");
+    }
+  } catch (err) {
+    res.status(500);
+  }
+};
+
+export default { browse, add, read, readByUserId, edit, destroy };
