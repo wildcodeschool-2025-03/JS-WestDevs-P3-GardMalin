@@ -89,54 +89,54 @@ const ParentInformation = () => {
           <h2>Profil parent</h2>
         </div>
         <form onSubmit={handleUpdate}>
-          <label htmlFor="parent.firstname">Prénom</label>
+          <label htmlFor="firstname1">Prénom</label>
           <input
-            id="firstname"
+            id="firstname1"
             name="firstname"
             value={parent.firstname}
             onChange={handleChange}
             placeholder="Exemple: Jean"
           />
 
-          <label htmlFor="parent.lastname">Nom</label>
+          <label htmlFor="lastname1">Nom</label>
           <input
-            id="lastname"
+            id="lastname1"
             name="lastname"
             value={parent.lastname}
             onChange={handleChange}
             placeholder="Exemple: Dupont"
           />
 
-          <label htmlFor="parent.street">Rue</label>
+          <label htmlFor="street1">Rue</label>
           <input
-            id="street"
+            id="street1"
             name="street"
             value={parent.street}
             onChange={handleChange}
             placeholder="Exemple: 16 Rue des acacias"
           />
 
-          <label htmlFor="parent.city">Ville</label>
+          <label htmlFor="city1">Ville</label>
           <input
-            id="city"
+            id="city1"
             name="city"
             value={parent.city}
             onChange={handleChange}
             placeholder="Exemple: La Rochelle"
           />
 
-          <label htmlFor="parent.postal_code">Code postal</label>
+          <label htmlFor="postal_code1">Code postal</label>
           <input
-            id="postal_code"
+            id="postal_code1"
             name="postal_code"
             value={parent.postal_code}
             onChange={handleChange}
             placeholder="Exemple: 17000"
           />
 
-          <label htmlFor="parent.phone_number">Numéro de téléphone</label>
+          <label htmlFor="phone_number1">Numéro de téléphone</label>
           <input
-            id="phone_number"
+            id="phone_number1"
             name="phone_number"
             value={parent.phone_number}
             onChange={handleChange}
