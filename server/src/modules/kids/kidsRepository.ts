@@ -44,6 +44,17 @@ class kidsRepository {
     );
     return rows;
   }
+
+  async update(kid: Kid) {
+    const { id, gender, firstname, lastname, age, walker, allergy, handicap } =
+      kid;
+
+    const [result] = await databaseClient.query<Result>(
+      "UPDATE kid SET gender = ?, firstname = ?, lastname = ?, age = ?, walker = ?, allergy = ?, handicap = ? WHERE id = ?",
+      [gender, firstname, lastname, age, walker, allergy, handicap, id],
+    );
+    return result.affectedRows;
+  }
 }
 
 export default new kidsRepository();

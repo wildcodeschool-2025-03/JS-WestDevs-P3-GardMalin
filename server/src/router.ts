@@ -22,8 +22,9 @@ import auth from "./utils/auth";
 import validation from "./utils/validation";
 
 router.get("/kids", kidsActions.browse);
-router.post("/kids", kidsActions.add);
 router.get("/kids/:id", kidsActions.read);
+router.put("/kids/:id", kidsActions.edit);
+router.post("/kids", kidsActions.add);
 router.get("/kids/by-user/:userId", kidsActions.readByUserId);
 
 router.get("/nurseries", nurseriesActions.browse);

@@ -1,4 +1,5 @@
 interface Kid {
+  id: number;
   gender: string;
   firstname: string;
   lastname: string;
