@@ -35,6 +35,17 @@ class parentsRepository {
     return newParentarent.affectedRows;
   }
 
+  async update(parent: Parent) {
+    const { id, firstname, lastname, street, postal_code, city, phone_number } =
+      parent;
+
+    const [result] = await databaseClient.query<Result>(
+      "UPDATE parent SET firstname = ?, lastname = ?, street = ?, postal_code = ?, city = ?, phone_number= ? WHERE id = ?",
+      [firstname, lastname, street, postal_code, city, phone_number, id],
+    );
+    return result.affectedRows;
+  }
+
   async delete(id: string) {
     const [result] = await databaseClient.query<Result>(
       "DELETE FROM parent WHERE id = ?",

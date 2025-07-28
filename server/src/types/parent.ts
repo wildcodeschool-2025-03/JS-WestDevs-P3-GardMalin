@@ -1,4 +1,5 @@
 interface Parent {
+  id: number;
   firstname: string;
   lastname: string;
   street: string;
