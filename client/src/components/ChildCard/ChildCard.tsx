@@ -28,53 +28,52 @@ const ChildCard = ({
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
 
-    if (e.target instanceof HTMLInputElement && type === "checkbox") {
-      setKid({ ...kid, [name]: e.target.checked });
+    if (name === "handicap" || name === "walker") {
+      setKid({ ...kid, [name]: value === "true" });
     } else {
-      setKid({ ...kid, [name]: value });
+      setKid({
+        ...kid,
+        [name]: value,
+      });
     }
   };
 
   const handleUpdate = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!kid) return;
     fetch(`http://localhost:3310/api/kids/${kid.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(kid),
-    }).then((response) => {
-      if (response.ok) {
-        toast("Informations modifiées avec succès !");
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("Informations modifiées avec succès !");
       } else {
-        toast("Erreur lors de la modification");
+        toast.error("Erreur lors de la modification");
       }
     });
   };
 
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (
       !window.confirm(
-        "Attention cette action est irréversible ! Souhaitez vous vraiment supprimer le profil de cet enfant ? ",
+        "Cette action est irréversible. Souhaitez-vous vraiment supprimer ce profil ?",
       )
     )
       return;
-    if (!kid) return;
 
-    const response = await fetch(`http://localhost:3310/api/kids/${kid.id}`, {
+    fetch(`http://localhost:3310/api/kids/${kid.id}`, {
       method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        toast.success("Profil de l'enfant supprimé !");
+      } else {
+        toast.error("Erreur lors de la suppression.");
+      }
     });
-
-    if (response.ok) {
-      toast.success("Profil de l'enfant supprimé !");
-    } else {
-      toast.error("Erreur lors de la suppression.");
-    }
   };
-
-  if (!kid) <p>Chargement en cours</p>;
 
   return (
     <section className="child-card-container">
@@ -98,13 +97,14 @@ const ChildCard = ({
           placeholder="Exemple: Dupont"
         />
 
-        <label htmlFor="age2">Age (en mois)</label>
+        <label htmlFor="age2">Âge (en mois)</label>
         <input
           id="age2"
           name="age"
           value={kid.age}
           onChange={handleChange}
           placeholder="Exemple: 12"
+          type="number"
         />
 
         <label htmlFor="gender2">Genre</label>
@@ -119,17 +119,17 @@ const ChildCard = ({
           <option value="F">Fille</option>
         </select>
 
-        <label htmlFor="handicap2">
-          Handicap :
-          <input
-            type="checkbox"
-            id="handicap2"
-            name="handicap"
-            checked={kid.handicap}
-            onChange={handleChange}
-          />
-          {kid?.handicap ? "Oui" : "Non"}
-        </label>
+        <label htmlFor="handicap1">Handicap</label>
+        <select
+          id="handicap1"
+          name="handicap"
+          value={String(kid.handicap)}
+          onChange={handleChange}
+        >
+          <option value="">-- Sélectionner --</option>
+          <option value="true">Oui</option>
+          <option value="false">non</option>
+        </select>
 
         <label htmlFor="allergy1">Allergie</label>
         <input
@@ -140,19 +140,19 @@ const ChildCard = ({
           placeholder="Exemple: Arachides"
         />
 
-        <label htmlFor="walker1">
-          Marchant :
-          <input
-            type="checkbox"
-            id="walker1"
-            name="walker"
-            checked={kid.walker}
-            onChange={handleChange}
-          />
-          {kid?.walker ? "Oui" : "Non"}
-        </label>
+        <label htmlFor="walker1">Marchant</label>
+        <select
+          id="walker1"
+          name="walker"
+          value={String(kid.walker)}
+          onChange={handleChange}
+        >
+          <option value="">-- Sélectionner --</option>
+          <option value="true">Oui</option>
+          <option value="false">non</option>
+        </select>
 
-        <div>
+        <div className="child-card-buttons">
           <button type="submit">Enregistrer les modifications</button>
           <button type="button" onClick={handleDelete}>
             Supprimer le profil de l'enfant
