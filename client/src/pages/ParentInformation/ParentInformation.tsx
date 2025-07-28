@@ -39,7 +39,7 @@ const ParentInformation = () => {
       body: JSON.stringify(parent),
     }).then((response) => {
       if (response.ok) {
-        toast("Informations modifiées avec succès!");
+        toast("Informations modifiées avec succès !");
       } else {
         toast("Erreur lors de la modifications");
       }
@@ -162,9 +162,11 @@ const ParentInformation = () => {
                   ? "/images/little_girl.png"
                   : "/images/little_boy.png"
               }
+              id={kid.id}
               firstname={kid.firstname}
               lastname={kid.lastname}
               age={kid.age}
+              gender={kid.gender}
               handicap={kid.handicap}
               allergy={kid.allergy}
               walker={kid.walker}

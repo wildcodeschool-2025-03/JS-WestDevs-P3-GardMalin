@@ -9,7 +9,7 @@ interface ParentI {
 }
 
 interface KidI {
-  id: number;
+  id?: number;
   gender: string;
   firstname: string;
   lastname: string;
@@ -72,4 +72,16 @@ interface ReservationRecap {
   date: string;
   nursery: Nursery;
   kid: Kid;
+}
+
+interface ChildCardProps {
+  id?: number;
+  imgSrc: string;
+  firstname: string;
+  lastname: string;
+  age: number;
+  gender: string;
+  handicap: boolean;
+  allergy: string;
+  walker: boolean;
 }
