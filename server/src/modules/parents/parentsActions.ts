@@ -20,6 +20,20 @@ const read: RequestHandler = async (req, res) => {
   }
 };
 
+const readByUserId: RequestHandler = async (req, res) => {
+  try {
+    const result = await parentsRepository.readByUserId(req.params.userId);
+
+    if (result) {
+      res.json(result);
+    } else {
+      res.status(404).send("This ID doesn't exist !");
+    }
+  } catch {
+    res.sendStatus(500);
+  }
+};
+
 const edit: RequestHandler = async (req, res) => {
   const id = Number.parseInt(req.params.id);
 
@@ -98,4 +112,4 @@ const destroy: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, edit, add, destroy };
+export default { browse, read, readByUserId, edit, add, destroy };

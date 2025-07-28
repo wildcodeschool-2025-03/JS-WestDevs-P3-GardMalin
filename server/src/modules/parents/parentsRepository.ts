@@ -19,6 +19,14 @@ class parentsRepository {
     return rows[0];
   }
 
+  async readByUserId(user_id: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT * FROM parent WHERE user_id = ?",
+      [user_id],
+    );
+    return rows[0];
+  }
+
   async create(body: Parent) {
     const [newParentarent] = await databaseClient.query<Result>(
       "INSERT INTO parent ( firstname, lastname, street,  postal_code, city, phone_number, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
