@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import "./SpaceParent.css";
 import { useEffect, useState } from "react";
+import BackButton from "../../components/BackButton/BackButton";
 import ChildrenCard from "../../components/ChildrenCard/ChildrenCard";
 import ReservationCard from "../../components/ReservationCard/ReservationCard";
 import { useAuth } from "../../services/AuthContext";
@@ -92,6 +93,7 @@ function SpaceParent() {
           </article>
         </section>
       </div>
+      <BackButton />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import "./StructureAccueil.css";
 import { Popover } from "@base-ui-components/react/popover";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import BackButton from "../../components/BackButton/BackButton";
 import Carrousel from "../../components/Carrousel/Carrousel";
 import { useAuth } from "../../services/AuthContext";
 
@@ -306,6 +307,7 @@ function StructureAccueil() {
           </section>
         </section>
       )}
+      <BackButton />
     </section>
   );
 }
