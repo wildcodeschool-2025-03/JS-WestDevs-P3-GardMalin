@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import Card from "../../components/Card/Card";
 import "./ReservationManagementPro.css";
+import BackButton from "../../components/BackButton/BackButton";
 
 function ReservationManagementPro() {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -119,6 +120,7 @@ function ReservationManagementPro() {
           </article>
         </section>
       </div>
+      <BackButton />
     </>
   );
 }

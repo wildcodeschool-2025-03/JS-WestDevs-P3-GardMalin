@@ -3,6 +3,7 @@ import "./ParentInformation.css";
 import type { ChangeEvent, FormEvent } from "react";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import BackButton from "../../components/BackButton/BackButton";
 import ChildCard from "../../components/ChildCard/ChildCard";
 import { useAuth } from "../../services/AuthContext";
 
@@ -176,6 +177,7 @@ const ParentInformation = () => {
 
         <h2>Vous voulez inscrire un nouvel enfant ?</h2>
         <Link to="/registration-children">Fichier inscription</Link>
+        <BackButton />
       </section>
     </div>
   );
