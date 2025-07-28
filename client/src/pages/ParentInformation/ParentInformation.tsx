@@ -22,7 +22,16 @@ const ParentInformation = () => {
     fetch(`http://localhost:3310/api/kids/${user.id}`)
       .then((res) => res.json())
       .then((data) => setKid(data));
+
+    fetchKids();
   }, [user]);
+
+  const fetchKids = () => {
+    if (!user) return;
+    fetch(`http://localhost:3310/api/kids/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => setKid(data));
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -171,6 +180,7 @@ const ParentInformation = () => {
               handicap={kid.handicap}
               allergy={kid.allergy}
               walker={kid.walker}
+              onUpdate={fetchKids}
             />
           ))}
         </article>

@@ -13,6 +13,7 @@ const ChildCard = ({
   handicap,
   allergy,
   walker,
+  onUpdate,
 }: ChildCardProps) => {
   const [kid, setKid] = useState<KidI>({
     id,
@@ -69,6 +70,7 @@ const ChildCard = ({
     }).then((res) => {
       if (res.ok) {
         toast.success("Profil de l'enfant supprimé !");
+        if (onUpdate) onUpdate();
       } else {
         toast.error("Erreur lors de la suppression.");
       }
