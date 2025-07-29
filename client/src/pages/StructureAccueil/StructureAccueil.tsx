@@ -183,7 +183,7 @@ function StructureAccueil() {
       </section>
       {selectedNursery && (
         <section className="selected-nursery">
-          <h3>Crèche sélectionnée</h3>
+          <h3>Crèche sélectionnée : {selectedNursery.name}</h3>
           <section className="buttons-section-travel">
             <button
               className="nav-button precedent-button"
