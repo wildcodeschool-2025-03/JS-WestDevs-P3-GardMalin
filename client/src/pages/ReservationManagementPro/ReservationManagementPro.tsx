@@ -54,6 +54,30 @@ function ReservationManagementPro() {
         setRefused(refusedRequests);
       });
   }, [formattedSelectedDate, user?.id, user?.nurserieId]);
+
+  const handleAction = (kidId: number, action: "yes" | "no") => {
+    const reservation = pending.find((r) => r.kid_id === kidId);
+    if (!reservation) return;
+
+    setPending((prev) => prev.filter((r) => r.kid_id !== kidId));
+
+    if (action === "yes") {
+      setValidated((prev) => [...prev, { ...reservation, is_validated: 1 }]);
+    } else {
+      setRefused((prev) => [...prev, { ...reservation, is_validated: -1 }]);
+    }
+
+    fetch(`http://localhost:3310/api/reservations/${kidId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        is_validated: action === "yes" ? 1 : -1,
+        date: formattedSelectedDate,
+        nursery_id: user?.nurserieId,
+      }),
+    }).catch((err) => console.error("Erreur lors de la mise à jour :", err));
+  };
+
   return (
     <>
       <div className="page-reservation-pro-management">
@@ -90,6 +114,7 @@ function ReservationManagementPro() {
                 name={`${pending.kid_firstname} ${pending.kid_lastname}`}
                 age={pending.kid_age}
                 status="en attente"
+                onAction={handleAction}
               />
             ))}
           </article>

@@ -43,8 +43,7 @@ interface CardProps {
   name: string;
   age: number;
   status: "validées" | "en attente" | "refusées";
-  onValidate?: (id: number) => void;
-  onRefuse?: (id: number) => void;
+  onAction?: (id: number, action: "yes" | "no") => void;
 }
 
 type Nursery = {

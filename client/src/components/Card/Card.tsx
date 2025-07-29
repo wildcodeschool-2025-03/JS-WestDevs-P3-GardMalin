@@ -1,13 +1,13 @@
 import "./Card.css";
 import { useState } from "react";
 
-function Card({ id, image, name, age, status, onValidate }: CardProps) {
+function Card({ id, image, name, age, status, onAction }: CardProps) {
   const [selectedAction, setSelectedAction] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (selectedAction === "yes") {
-      onValidate?.(id);
+    if (selectedAction === "yes" || selectedAction === "no") {
+      onAction?.(id, selectedAction as "yes" | "no");
     }
   };
 
