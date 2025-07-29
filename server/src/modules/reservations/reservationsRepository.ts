@@ -28,7 +28,7 @@ class reservationsRepository {
       "SELECT u.*, nursery.id as nursery_id FROM `user` as u JOIN nursery ON u.id = nursery.user_id WHERE u.id = ?",
       [professionalId],
     );
-    return rows[0] as ReservationWithKidAndNursery[];
+    return rows;
   }
 
   async readById(id: string) {
