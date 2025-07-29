@@ -15,4 +15,5 @@ export interface UserPayload {
   id: number;
   email: string;
   nurserieId: number;
+  role?: string;
 }
