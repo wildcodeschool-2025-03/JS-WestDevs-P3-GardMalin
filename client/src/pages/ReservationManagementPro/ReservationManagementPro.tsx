@@ -49,11 +49,41 @@ function ReservationManagementPro() {
         setValidated(validatedRequests);
         const refusedRequests = data.filter(
           (r: Reservation) =>
-            r.date === formattedSelectedDate && r.is_validated === 0,
+            formatDate(r.date) === formattedSelectedDate &&
+            r.is_validated === -1,
         );
         setRefused(refusedRequests);
       });
   }, [formattedSelectedDate, user?.id, user?.nurserieId]);
+
+  const handleAction = (kidId: number, action: "yes" | "no") => {
+    if (kidId === undefined || kidId === null) {
+      console.error("handleAction appelé avec un kidId invalide :", kidId);
+      return;
+    }
+
+    const reservation = pending.find((r) => r.kid_id === kidId);
+    if (!reservation) return;
+
+    setPending((prev) => prev.filter((r) => r.kid_id !== kidId));
+
+    if (action === "yes") {
+      setValidated((prev) => [...prev, { ...reservation, is_validated: 1 }]);
+    } else {
+      setRefused((prev) => [...prev, { ...reservation, is_validated: -1 }]);
+    }
+
+    fetch(`http://localhost:3310/api/reservations/${kidId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        is_validated: action === "yes" ? 1 : -1,
+        date: formattedSelectedDate,
+        nursery_id: user?.nurserieId,
+      }),
+    }).catch((err) => console.error("Erreur lors de la mise à jour :", err));
+  };
+
   return (
     <>
       <div className="page-reservation-pro-management">
@@ -82,14 +112,15 @@ function ReservationManagementPro() {
               Demande de réservation : {pending.length}
             </h4>
 
-            {pending.map((res) => (
+            {pending.map((pending) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={pending.kid_id}
+                id={pending.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${pending.kid_firstname} ${pending.kid_lastname}`}
+                age={pending.kid_age}
                 status="en attente"
+                onAction={handleAction}
               />
             ))}
           </article>
@@ -100,13 +131,13 @@ function ReservationManagementPro() {
               Places disponibles: {validated.length}/{nurseryCapacity}
             </p>
             <h4 className="validated-c">validées : {validated.length}</h4>
-            {validated.map((res) => (
+            {validated.map((validated) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={validated.kid_id}
+                id={validated.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${validated.kid_firstname} ${validated.kid_lastname}`}
+                age={validated.kid_age}
                 status="validées"
               />
             ))}
@@ -116,13 +147,13 @@ function ReservationManagementPro() {
           <article className="bloc-refused">
             <p>Refus: {refused.length}</p>
             <h4 className="refused-c">refusées : {refused.length}</h4>
-            {refused.map((res) => (
+            {refused.map((refused) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={refused.kid_id}
+                id={refused.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${refused.kid_firstname} ${refused.kid_lastname}`}
+                age={refused.kid_age}
                 status="refusées"
               />
             ))}

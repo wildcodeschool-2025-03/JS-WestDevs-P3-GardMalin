@@ -88,10 +88,43 @@ const readByParentID: RequestHandler = async (req, res) => {
   }
 };
 
+const updateValidation: RequestHandler = async (req, res) => {
+  const kidId = Number(req.params.kidId);
+  const { is_validated, date, nursery_id } = req.body;
+
+  if (
+    typeof kidId !== "number" ||
+    typeof is_validated !== "number" ||
+    !date ||
+    typeof nursery_id !== "number"
+  ) {
+    res.status(400).json("Données invalides");
+  }
+
+  try {
+    const affectedRows = await reservationsRepository.updateValidation(
+      kidId,
+      date,
+      nursery_id,
+      is_validated,
+    );
+
+    if (affectedRows === 0) {
+      res.status(404).json("Réservation non trouvée");
+    }
+
+    res.status(200).json("Réservation mise à jour avec succès");
+  } catch (error) {
+    console.error("Erreur dans PATCH /reservations/:kidId", error);
+    res.sendStatus(500);
+  }
+};
+
 export default {
   browse,
   read,
   add,
   readByParentID,
   readByUserId,
+  updateValidation,
 };
