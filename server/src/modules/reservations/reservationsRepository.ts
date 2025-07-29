@@ -24,11 +24,11 @@ class reservationsRepository {
   }
 
   async getNurseryId(professionalId: number) {
-    const [rows] = await databaseClient.query<ReservationWithKidAndNursery[]>(
+    const [rows] = await databaseClient.query<Rows>(
       "SELECT u.*, nursery.id as nursery_id FROM `user` as u JOIN nursery ON u.id = nursery.user_id WHERE u.id = ?",
       [professionalId],
     );
-    return rows;
+    return rows[0] as ReservationWithKidAndNursery[];
   }
 
   async readById(id: string) {
