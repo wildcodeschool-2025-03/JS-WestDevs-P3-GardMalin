@@ -50,7 +50,7 @@ CREATE TABLE nursery (
 CREATE TABLE reservation (
   kid_id INT UNSIGNED,
   nursery_id INT UNSIGNED,
-  date DATE,
+  date VARCHAR(250),
   is_validated BOOLEAN NOT NULL DEFAULT FALSE,
   PRIMARY KEY (kid_id, nursery_id, date),
   FOREIGN KEY (nursery_id) REFERENCES nursery(id) ON DELETE CASCADE,

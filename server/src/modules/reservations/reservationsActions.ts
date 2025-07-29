@@ -2,7 +2,22 @@ import type { RequestHandler } from "express";
 import reservationsRepository from "./reservationsRepository";
 
 const browse: RequestHandler = async (req, res) => {
-  const result = await reservationsRepository.readAll();
+  const date = req.query.date as string;
+  const nurseryIdStr = req.query.nurserie_id as string;
+
+  if (!date || !nurseryIdStr) {
+    res.status(400).json({ error: "Paramètres manquants" });
+    return;
+  }
+
+  const nurseryId = Number.parseInt(nurseryIdStr, 10);
+
+  if (Number.isNaN(nurseryId)) {
+    res.status(400).json({ error: "Paramètre nurserie_id invalide" });
+    return;
+  }
+
+  const result = await reservationsRepository.readAll(date, nurseryId);
   res.json(result);
 };
 
@@ -73,4 +88,10 @@ const readByParentID: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, readByParentID, readByUserId };
+export default {
+  browse,
+  read,
+  add,
+  readByParentID,
+  readByUserId,
+};
