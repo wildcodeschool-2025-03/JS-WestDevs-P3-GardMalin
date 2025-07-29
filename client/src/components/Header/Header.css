@@ -24,6 +24,7 @@
 
   nav button {
     cursor: pointer;
+    font-size: 16px;
     background-color: var(--light-bg-bloc-color);
     border: none;
     margin: 8px;
