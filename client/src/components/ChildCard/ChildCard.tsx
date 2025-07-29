@@ -64,7 +64,6 @@ const ChildCard = ({
         ? getRandomImage(imgBoy)
         : imgElse;
 
-
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
