@@ -49,13 +49,19 @@ function ReservationManagementPro() {
         setValidated(validatedRequests);
         const refusedRequests = data.filter(
           (r: Reservation) =>
-            r.date === formattedSelectedDate && r.is_validated === 0,
+            formatDate(r.date) === formattedSelectedDate &&
+            r.is_validated === -1,
         );
         setRefused(refusedRequests);
       });
   }, [formattedSelectedDate, user?.id, user?.nurserieId]);
 
   const handleAction = (kidId: number, action: "yes" | "no") => {
+    if (kidId === undefined || kidId === null) {
+      console.error("handleAction appelé avec un kidId invalide :", kidId);
+      return;
+    }
+
     const reservation = pending.find((r) => r.kid_id === kidId);
     if (!reservation) return;
 
