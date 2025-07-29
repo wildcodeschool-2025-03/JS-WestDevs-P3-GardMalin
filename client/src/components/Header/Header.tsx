@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <Link to="/">
-        <img src="/images/gardmalin-logo.png" alt="logo" />
+        <img src="./images/gardmalin-logo.png" alt="logo" />
       </Link>
       <nav>
         {!isLogged || !user ? (
@@ -57,11 +57,9 @@ const Header = () => {
             </button>
           </>
         ) : (
-          <>
-            <Link to="/login-parent">Connexion parents</Link>
-            <Link to="/login-pro">Connexion pros</Link>
-            <Link to="/login-admin">Connexion admin</Link>
-          </>
+          <button type="button" onClick={handleLogout}>
+            Se déconnecter
+          </button>
         )}
       </nav>
     </header>
