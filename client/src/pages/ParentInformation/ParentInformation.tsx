@@ -15,14 +15,23 @@ const ParentInformation = () => {
 
   useEffect(() => {
     if (!user) return;
-    fetch(`http://localhost:3310/api/parents/${user.id}`)
+    fetch(`http://localhost:3310/api/parents/user/${user.id}`)
       .then((res) => res.json())
       .then((data) => setParent(data));
 
     fetch(`http://localhost:3310/api/kids/${user.id}`)
       .then((res) => res.json())
       .then((data) => setKid(data));
+
+    fetchKids();
   }, [user]);
+
+  const fetchKids = () => {
+    if (!user) return;
+    fetch(`http://localhost:3310/api/kids/${user.id}`)
+      .then((res) => res.json())
+      .then((data) => setKid(data));
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -97,6 +106,7 @@ const ParentInformation = () => {
             value={parent.firstname}
             onChange={handleChange}
             placeholder="Exemple: Jean"
+            required
           />
 
           <label htmlFor="lastname1">Nom</label>
@@ -106,6 +116,7 @@ const ParentInformation = () => {
             value={parent.lastname}
             onChange={handleChange}
             placeholder="Exemple: Dupont"
+            required
           />
 
           <label htmlFor="street1">Rue</label>
@@ -115,6 +126,7 @@ const ParentInformation = () => {
             value={parent.street}
             onChange={handleChange}
             placeholder="Exemple: 16 Rue des acacias"
+            required
           />
 
           <label htmlFor="city1">Ville</label>
@@ -124,6 +136,7 @@ const ParentInformation = () => {
             value={parent.city}
             onChange={handleChange}
             placeholder="Exemple: La Rochelle"
+            required
           />
 
           <label htmlFor="postal_code1">Code postal</label>
@@ -133,6 +146,7 @@ const ParentInformation = () => {
             value={parent.postal_code}
             onChange={handleChange}
             placeholder="Exemple: 17000"
+            required
           />
 
           <label htmlFor="phone_number1">Numéro de téléphone</label>
@@ -142,6 +156,7 @@ const ParentInformation = () => {
             value={parent.phone_number}
             onChange={handleChange}
             placeholder="Exemple: 0836656565"
+            required
           />
 
           <div>
@@ -171,6 +186,7 @@ const ParentInformation = () => {
               handicap={kid.handicap}
               allergy={kid.allergy}
               walker={kid.walker}
+              onUpdate={fetchKids}
             />
           ))}
         </article>

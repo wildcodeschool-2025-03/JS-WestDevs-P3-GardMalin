@@ -74,4 +74,5 @@ interface ChildCardProps {
   handicap: boolean;
   allergy: string;
   walker: boolean;
+  onUpdate?: () => void;
 }

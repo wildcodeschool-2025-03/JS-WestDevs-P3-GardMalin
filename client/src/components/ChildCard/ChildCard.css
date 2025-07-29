@@ -21,18 +21,6 @@
       margin: auto;
     }
 
-    label[for="handicap2"] {
-      border: 1px solid black;
-      width: 180px;
-      margin: auto;
-    }
-
-    label[for="walker1"] {
-      border: 1px solid black;
-      width: 180px;
-      margin: auto;
-    }
-
     button {
       background-color: var(--light-bg-bloc-color-button);
       font-family: var(--font-family-body);
