@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 function Page404() {
   const [seconds, setSeconds] = useState(8);
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,6 +21,10 @@ function Page404() {
     return () => clearInterval(interval);
   }, [seconds, navigate]);
 
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
   const displaySeconds = seconds < 10 ? `0${seconds}` : seconds;
 
   return (
@@ -28,6 +33,7 @@ function Page404() {
         <img
           src="/public/images/404.png"
           alt="représentation de la page d'erreur"
+          className={show ? "fade-in-once" : ""}
         />
         <figcaption id="sr-only">
           "Représentation de la page d'erreur 404 illustrée par un avatar
