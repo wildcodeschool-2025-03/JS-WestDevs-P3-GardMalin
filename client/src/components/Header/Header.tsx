@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <Link to="/">
-        <img src="./images/gardmalin-logo.png" alt="logo" />
+        <img src="/images/gardmalin-logo.png" alt="logo" />
       </Link>
       <nav>
         {!isLogged || !user ? (
@@ -37,26 +37,32 @@ const Header = () => {
           </>
         ) : user.role === "parent" ? (
           <>
-            <Link to="/space-parent">Tableau de bord parent</Link>
+            <Link to="/space-parent">Espace parent</Link>
             <button type="button" onClick={handleLogout}>
               Se déconnecter
             </button>
           </>
         ) : user.role === "professional" ? (
           <>
-            <Link to="/space-pro">Tableau de bord pro</Link>
+            <Link to="/space-pro">Espace pro</Link>
             <button type="button" onClick={handleLogout}>
               Se déconnecter
             </button>
           </>
         ) : user.role === "admin" ? (
           <>
-            <Link to="/space-admin">Tableau de bord admin</Link>
+            <Link to="/space-admin">Espace admin</Link>
             <button type="button" onClick={handleLogout}>
               Se déconnecter
             </button>
           </>
-        ) : null}
+        ) : (
+          <>
+            <Link to="/login-parent">Connexion parents</Link>
+            <Link to="/login-pro">Connexion pros</Link>
+            <Link to="/login-admin">Connexion admin</Link>
+          </>
+        )}
       </nav>
     </header>
   );

@@ -12,6 +12,7 @@
   nav a {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     color: black;
     background-color: var(--light-bg-bloc-color);
@@ -24,6 +25,7 @@
 
   nav button {
     cursor: pointer;
+    font-size: 16px;
     background-color: var(--light-bg-bloc-color);
     border: none;
     margin: 8px;
