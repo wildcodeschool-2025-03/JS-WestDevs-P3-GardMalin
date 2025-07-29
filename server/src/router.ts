@@ -42,7 +42,15 @@ router.get("/reservations/parent/:userId", reservationsActions.readByParentID);
 
 router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
-router.get("/reservations/:id", reservationsActions.read);
+router.get(
+  "/reservations/by-nursery/:nurseryId",
+  reservationsActions.readByNurseryId,
+);
+router.get(
+  "/reservations/by-nursery/:nurseryId/at-date",
+  reservationsActions.readReservationsByNurseryAndDate,
+);
+router.get("/reservations/:id", reservationsActions.readByParentID);
 router.get("/reservations/by-user/:userId", reservationsActions.readByUserId);
 router.post("/reservationstwo", reservationsActions.add);
 

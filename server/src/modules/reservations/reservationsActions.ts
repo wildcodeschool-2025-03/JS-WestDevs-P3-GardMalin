@@ -2,7 +2,22 @@ import type { RequestHandler } from "express";
 import reservationsRepository from "./reservationsRepository";
 
 const browse: RequestHandler = async (req, res) => {
-  const result = await reservationsRepository.readAll();
+  const date = req.query.date as string;
+  const nurseryIdStr = req.query.nurserie_id as string;
+
+  if (!date || !nurseryIdStr) {
+    res.status(400).json({ error: "Paramètres manquants" });
+    return;
+  }
+
+  const nurseryId = Number.parseInt(nurseryIdStr, 10);
+
+  if (Number.isNaN(nurseryId)) {
+    res.status(400).json({ error: "Paramètre nurserie_id invalide" });
+    return;
+  }
+
+  const result = await reservationsRepository.readAll(date, nurseryId);
   res.json(result);
 };
 
@@ -73,4 +88,49 @@ const readByParentID: RequestHandler = async (req, res) => {
   }
 };
 
-export default { browse, read, add, readByParentID, readByUserId };
+const readByNurseryId: RequestHandler = async (req, res) => {
+  try {
+    const nurseryId = Number.parseInt(req.params.nurseryId, 10);
+    const result = await reservationsRepository.readByNurseryId(nurseryId);
+    res.json(result);
+  } catch (err) {
+    console.error("Erreur lors de la récupération des réservations :", err);
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la récupération des réservations" });
+  }
+};
+
+const readReservationsByNurseryAndDate: RequestHandler = async (req, res) => {
+  try {
+    const nurseryId = Number.parseInt(req.params.nurseryId, 10);
+    const { date } = req.query;
+
+    if (!date || typeof date !== "string") {
+      res.status(400).json({ error: "Date manquante ou invalide" });
+      return;
+    }
+
+    const result =
+      await reservationsRepository.readReservationsByNurseryAndDate(
+        nurseryId,
+        date,
+      );
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la récupération des réservations" });
+  }
+};
+
+export default {
+  browse,
+  read,
+  add,
+  readByParentID,
+  readByUserId,
+  readByNurseryId,
+  readReservationsByNurseryAndDate,
+};

@@ -58,16 +58,6 @@ type Nursery = {
   city: ReactNode;
   name: string;
 };
-
-type Reservation = {
-  id: number;
-  kid_id: number;
-  nursery_id: number;
-  date: string;
-  is_validated: boolean;
-  is_refused: boolean;
-  kid: Kid;
-};
 interface ReservationRecap {
   date: string;
   nursery: Nursery;
