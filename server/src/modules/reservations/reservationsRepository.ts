@@ -1,8 +1,9 @@
 import databaseClient, { type Rows } from "../../../database/client";
 
 class reservationsRepository {
-  async readAll() {
-    const [rows] = await databaseClient.query(`SELECT 
+  async readAll(date: string, nurseryId: number) {
+    const [rows] = await databaseClient.query(
+      `SELECT 
       reservation.kid_id,
       reservation.nursery_id,
       reservation.date,
@@ -10,13 +11,24 @@ class reservationsRepository {
       kid.firstname AS kid_firstname,
       kid.lastname AS kid_lastname,
       kid.age AS kid_age,
-      nursery.name AS nursery_name
-      
+      nursery.name AS nursery_name,
+      nursery.capacity AS nursery_capacity
     FROM reservation
     INNER JOIN kid ON reservation.kid_id = kid.id
-    INNER JOIN nursery ON reservation.nursery_id = nursery.id`);
-
+    INNER JOIN nursery ON reservation.nursery_id = nursery.id
+    WHERE reservation.nursery_id = ?
+    AND reservation.date = ? `,
+      [nurseryId, date],
+    );
     return rows;
+  }
+
+  async getNurseryId(professionalId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT u.*, nursery.id as nursery_id FROM `user` as u JOIN nursery ON u.id = nursery.user_id WHERE u.id = ?",
+      [professionalId],
+    );
+    return rows[0] as ReservationWithKidAndNursery[];
   }
 
   async readById(id: string) {
@@ -58,6 +70,7 @@ class reservationsRepository {
       [userId],
     );
   }
+
   async readByParentUserId(userId: string) {
     const [rows] = await databaseClient.query(
       `

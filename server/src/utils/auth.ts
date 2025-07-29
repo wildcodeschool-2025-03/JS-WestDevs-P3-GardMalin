@@ -1,6 +1,7 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import jwt, { type JwtPayload } from "jsonwebtoken";
+import reservationsRepository from "../modules/reservations/reservationsRepository";
 import usersRepository from "../modules/users/usersRepository";
 
 const hashPassword: RequestHandler = async (req, res, next) => {
@@ -36,12 +37,22 @@ const login: RequestHandler = async (req, res) => {
     if (!isPasswordValid) {
       throw new Error("Invalid password");
     }
-
-    const payload = {
-      id: user.id,
-      email: user.email,
-      role: user.role,
-    };
+    let payload = {};
+    if (user.role === "professional") {
+      const [result] = await reservationsRepository.getNurseryId(user.id);
+      payload = {
+        id: result.id,
+        email: user.email,
+        role: user.role,
+        nurserieId: result.nursery_id,
+      };
+    } else {
+      payload = {
+        id: user.id,
+        email: user.email,
+        role: user.role,
+      };
+    }
 
     const secretKey = process.env.APP_SECRET;
 
@@ -50,7 +61,6 @@ const login: RequestHandler = async (req, res) => {
     }
 
     const token = jwt.sign(payload, secretKey, { expiresIn: "1d" });
-
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
@@ -88,11 +98,12 @@ const refreshToken: RequestHandler = (req, res) => {
     const verifyToken = jwt.verify(token, secretKey);
 
     if (verifyToken) {
-      const { id, email } = verifyToken as JwtPayload;
-
-      const newToken = jwt.sign({ id, email }, secretKey, { expiresIn: "1d" });
+      const { id, email, nurserieId } = verifyToken as JwtPayload;
+      const newToken = jwt.sign({ id, email, nurserieId }, secretKey, {
+        expiresIn: "1d",
+      });
       res.cookie("token", newToken);
-      res.status(200).json({ id, email });
+      res.status(200).json({ id, email, nurserieId });
     }
   } catch (err) {
     res.sendStatus(500);

@@ -14,4 +14,5 @@ export interface Auth {
 export interface UserPayload {
   id: number;
   email: string;
+  nurserieId: number;
 }
