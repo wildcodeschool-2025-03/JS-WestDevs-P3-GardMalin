@@ -82,13 +82,13 @@ function ReservationManagementPro() {
               Demande de réservation : {pending.length}
             </h4>
 
-            {pending.map((res) => (
+            {pending.map((pending) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={pending.kid_id}
+                id={pending.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${pending.kid_firstname} ${pending.kid_lastname}`}
+                age={pending.kid_age}
                 status="en attente"
               />
             ))}
@@ -100,13 +100,13 @@ function ReservationManagementPro() {
               Places disponibles: {validated.length}/{nurseryCapacity}
             </p>
             <h4 className="validated-c">validées : {validated.length}</h4>
-            {validated.map((res) => (
+            {validated.map((validated) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={validated.kid_id}
+                id={validated.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${validated.kid_firstname} ${validated.kid_lastname}`}
+                age={validated.kid_age}
                 status="validées"
               />
             ))}
@@ -116,13 +116,13 @@ function ReservationManagementPro() {
           <article className="bloc-refused">
             <p>Refus: {refused.length}</p>
             <h4 className="refused-c">refusées : {refused.length}</h4>
-            {refused.map((res) => (
+            {refused.map((refused) => (
               <Card
-                key={res.kid_id}
-                id={res.kid_id}
+                key={refused.kid_id}
+                id={refused.kid_id}
                 image="/images/little_girl.png"
-                name={`${res.kid_firstname} ${res.kid_lastname}`}
-                age={res.kid_age}
+                name={`${refused.kid_firstname} ${refused.kid_lastname}`}
+                age={refused.kid_age}
                 status="refusées"
               />
             ))}
