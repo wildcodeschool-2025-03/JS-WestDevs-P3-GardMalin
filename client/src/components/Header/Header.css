@@ -12,6 +12,7 @@
   nav a {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     color: black;
     background-color: var(--light-bg-bloc-color);
