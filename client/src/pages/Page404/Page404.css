@@ -6,9 +6,9 @@
   padding: 1rem;
 }
 
-.page404 figure img {
+.fade-in-once {
   justify-content: center;
-  width: 250px;
+  width: 200px;
   margin: 16px 32px 16px 32px;
 }
 
@@ -58,7 +58,7 @@
   .page404 figure {
     grid-area: 1 / 1 / 6 / 2;
     background-color: var(--light-bg-bloc-color);
-    height: 100vh;
+    height: 99.9vh;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -66,14 +66,25 @@
     padding: 0;
   }
 
-  .page404 figure img {
-    width: 400px;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in-once {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    width: 800px;
     margin: 0;
   }
 
   .page404 article {
     grid-area: 1 / 2 / 6 / 3;
-    height: 100%;
+    height: 80vh;
     margin: 0;
     padding: 0;
     display: flex;
