@@ -51,6 +51,7 @@ const ChildCard = ({
     }).then((res) => {
       if (res.ok) {
         toast.success("Informations modifiées avec succès !");
+        if (onUpdate) onUpdate();
       } else {
         toast.error("Erreur lors de la modification");
       }
@@ -88,6 +89,7 @@ const ChildCard = ({
           value={kid.firstname}
           onChange={handleChange}
           placeholder="Exemple: Jean"
+          required
         />
 
         <label htmlFor="lastname2">Nom</label>
@@ -97,6 +99,7 @@ const ChildCard = ({
           value={kid.lastname}
           onChange={handleChange}
           placeholder="Exemple: Dupont"
+          required
         />
 
         <label htmlFor="age2">Âge (en mois)</label>
@@ -107,6 +110,7 @@ const ChildCard = ({
           onChange={handleChange}
           placeholder="Exemple: 12"
           type="number"
+          required
         />
 
         <label htmlFor="gender2">Genre</label>
@@ -115,6 +119,7 @@ const ChildCard = ({
           name="gender"
           value={kid.gender}
           onChange={handleChange}
+          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="M">Garçon</option>
@@ -127,6 +132,7 @@ const ChildCard = ({
           name="handicap"
           value={String(kid.handicap)}
           onChange={handleChange}
+          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="true">Oui</option>
@@ -148,6 +154,7 @@ const ChildCard = ({
           name="walker"
           value={String(kid.walker)}
           onChange={handleChange}
+          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="true">Oui</option>

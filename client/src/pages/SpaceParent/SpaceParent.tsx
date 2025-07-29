@@ -15,7 +15,7 @@ function SpaceParent() {
 
   useEffect(() => {
     if (!user) return;
-    fetch(`http://localhost:3310/api/parents/${user.id}`)
+    fetch(`http://localhost:3310/api/parents/user/${user.id}`)
       .then((res) => res.json())
       .then((data) => setParent(data));
 
