@@ -1,6 +1,8 @@
+import "./ReservationCard.css";
+
 interface ReservationProps {
   date: string;
-  kid_firstname: string;
+  kid_firstname?: string;
   nursery_name: string;
 }
 
@@ -11,9 +13,11 @@ function ReservationCard({
 }: ReservationProps) {
   const formattedDate = new Date(date).toLocaleDateString("fr-FR");
   return (
-    <section className="child-card-container">
+    <section className="child-reservation-card-container">
       <article className="reservation-bloc">
-        <p>{kid_firstname}</p>
+        <p>
+          <strong>{kid_firstname}</strong>
+        </p>
         <p>{nursery_name}</p>
         <p>{formattedDate}</p>
       </article>
