@@ -61,7 +61,6 @@ const login: RequestHandler = async (req, res) => {
     }
 
     const token = jwt.sign(payload, secretKey, { expiresIn: "1d" });
-    console.log("patate", payload);
     res.cookie("token", token, {
       httpOnly: true,
       secure: false,
@@ -100,7 +99,6 @@ const refreshToken: RequestHandler = (req, res) => {
 
     if (verifyToken) {
       const { id, email, nurserieId } = verifyToken as JwtPayload;
-      console.log(verifyToken);
       const newToken = jwt.sign({ id, email, nurserieId }, secretKey, {
         expiresIn: "1d",
       });

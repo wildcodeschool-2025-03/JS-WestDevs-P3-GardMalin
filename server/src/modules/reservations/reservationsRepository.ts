@@ -96,59 +96,6 @@ class reservationsRepository {
 
     return rows;
   }
-
-  async readByNurseryId(nurseryId: number) {
-    const [rows] = await databaseClient.query(
-      `
-    SELECT 
-      reservation.id,
-      reservation.kid_id,
-      reservation.nursery_id,
-      reservation.date,
-      reservation.is_validated,
-      kid.firstname AS kid_firstname,
-      kid.lastname AS kid_lastname,
-      kid.age AS kid_age,
-      nursery.name AS nursery_name
-    FROM reservation
-    INNER JOIN kid ON reservation.kid_id = kid.id
-    INNER JOIN nursery ON reservation.nursery_id = nursery.id
-    WHERE reservation.nursery_id = ?
-    ORDER BY reservation.date ASC
-    `,
-      [nurseryId],
-    );
-
-    return rows;
-  }
-
-  async readReservationsByNurseryAndDate(nurseryId: number, date: string) {
-    const [rows] = await databaseClient.query(
-      `
-      SELECT 
-        r.kid_id,
-        r.nursery_id,
-        r.date,
-        r.is_validated,
-        k.firstname AS kid_firstname,
-        k.lastname AS kid_lastname,
-        k.age AS kid_age,
-        n.name AS nursery_name,
-        CASE 
-          WHEN r.is_validated = TRUE THEN 'confirmée'
-          ELSE 'demande'
-        END AS statut
-      FROM reservation r
-      INNER JOIN kid k ON r.kid_id = k.id
-      INNER JOIN nursery n ON r.nursery_id = n.id
-      WHERE r.nursery_id = ?
-        AND r.date = ?
-      ORDER BY r.is_validated DESC, k.lastname ASC
-    `,
-      [nurseryId, date],
-    );
-    return rows;
-  }
 }
 
 export default new reservationsRepository();
