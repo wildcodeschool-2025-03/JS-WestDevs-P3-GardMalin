@@ -3,38 +3,57 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  margin: 0;
 
   .title-page {
     justify-content: center;
     padding: 0 8px 4px 26px;
+    margin: 24px 0 24px;
   }
+}
 
-  .strong {
-    margin: 16px 0 16px;
+.reservation {
+  background-color: white;
+  box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+
+  p {
+    padding: 8px;
   }
+}
+
+.info-p {
+  margin: 1rem 1rem;
 }
 
 .information {
   display: grid;
   align-items: start;
+
   grid-template-rows: repeat(1, 1fr);
   background-color: var(--light-bg-bloc-color);
   padding: 24px;
   margin-bottom: 24px;
-  border-radius: 10px;
+  overflow-y: scroll;
+  height: 470px;
 
-  h4 {
-    margin: 0;
+  .btn-submit {
+    box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
   }
 
   .pending-c,
   .validated-c,
   .refused-c {
     display: flex;
+    align-items: center;
     padding: 18px 0 18px 0;
-    margin: 0;
+    margin: 0 8px 0 8px;
+    height: 80px;
     justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+
+    h4 {
+      padding: 8px;
+    }
   }
 
   .pending-c {
@@ -54,7 +73,7 @@
   .page-reservation-pro-management {
     display: grid;
     grid-template-columns: 1fr, 1fr;
-    grid-template-rows: repeat(1, 0.8fr);
+    grid-template-rows: repeat(1, 1fr);
 
     .title-page {
       grid-column: 1 / 3;
@@ -79,6 +98,9 @@
   .page-reservation-pro-management .information {
     display: flex;
     flex-direction: row;
+    border-radius: 10px;
+    overflow-y: scroll;
+    height: 470px;
   }
 
   .bloc-validated,
@@ -86,9 +108,10 @@
   .bloc-refused {
     display: flex;
     flex-direction: column;
+    gap: 4px;
+    width: 270px;
 
     p {
-      padding-left: 16px;
       font-size: 12px;
     }
 
@@ -98,7 +121,7 @@
   }
 
   .pending-c {
-    border-radius: 10px 0 0 10px;
+    border-radius: 6px 0 0 6px;
   }
 
   .validated-c {

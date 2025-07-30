@@ -109,16 +109,16 @@ function ReservationManagementPro() {
           <article className="bloc-reservation">
             <p className="date">Date : {format(selectedDate, "dd-MM-yyyy")}</p>
             <h4 className="pending-c">
-              Demande de réservation : {pending.length}
+              Demande de <br /> réservation : {pending.length}
             </h4>
 
-            {pending.map((pending) => (
+            {pending.map((pen) => (
               <Card
-                key={pending.kid_id}
-                id={pending.kid_id}
-                image="/images/little_girl.png"
-                name={`${pending.kid_firstname} ${pending.kid_lastname}`}
-                age={pending.kid_age}
+                key={pen.kid_id}
+                id={pen.kid_id}
+                gender={pen.kid_gender}
+                name={`${pen.kid_firstname} ${pen.kid_lastname}`}
+                age={pen.kid_age}
                 status="en attente"
                 onAction={handleAction}
               />
@@ -131,13 +131,13 @@ function ReservationManagementPro() {
               Places disponibles: {validated.length}/{nurseryCapacity}
             </p>
             <h4 className="validated-c">validées : {validated.length}</h4>
-            {validated.map((validated) => (
+            {validated.map((val) => (
               <Card
-                key={validated.kid_id}
-                id={validated.kid_id}
-                image="/images/little_girl.png"
-                name={`${validated.kid_firstname} ${validated.kid_lastname}`}
-                age={validated.kid_age}
+                key={val.kid_id}
+                id={val.kid_id}
+                gender={val.kid_gender}
+                name={`${val.kid_firstname} ${val.kid_lastname}`}
+                age={val.kid_age}
                 status="validées"
               />
             ))}
@@ -147,13 +147,13 @@ function ReservationManagementPro() {
           <article className="bloc-refused">
             <p>Refus: {refused.length}</p>
             <h4 className="refused-c">refusées : {refused.length}</h4>
-            {refused.map((refused) => (
+            {refused.map((ref) => (
               <Card
-                key={refused.kid_id}
-                id={refused.kid_id}
-                image="/images/little_girl.png"
-                name={`${refused.kid_firstname} ${refused.kid_lastname}`}
-                age={refused.kid_age}
+                key={ref.kid_id}
+                id={ref.kid_id}
+                gender={ref.kid_gender}
+                name={`${ref.kid_firstname} ${ref.kid_lastname}`}
+                age={ref.kid_age}
                 status="refusées"
               />
             ))}
