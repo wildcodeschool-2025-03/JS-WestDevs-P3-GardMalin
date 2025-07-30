@@ -53,7 +53,7 @@ function Home() {
               src="/images/advice1.png"
               alt="illustration de l'article : Le développement au fil des âges de votre petit"
             />
-            <Link to="/maintenance">
+            <Link to="/articles/development-ages">
               Le développement au fil des âges de votre petit
             </Link>
           </li>
@@ -62,14 +62,16 @@ function Home() {
               src="/images/advice2.png"
               alt="illustration de l'article : Activitées pour les vacances"
             />
-            <Link to="/maintenance">Activitées pour les vacances</Link>
+            <Link to="/articles/holiday-activities">
+              Activitées pour les vacances
+            </Link>
           </li>
           <li>
             <img
               src="/images/advice3.png"
               alt="illustration de l'article : Voyager avec bébé"
             />
-            <Link to="/maintenance">Voyager avec bébé</Link>
+            <Link to="/articles/travel-with-baby">Voyager avec bébé</Link>
           </li>
         </ul>
       </article>
