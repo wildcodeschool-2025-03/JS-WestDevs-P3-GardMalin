@@ -1,166 +1,61 @@
-.description-nursery-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 19px;
-
-  section {
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-  }
-
-  img {
-    width: 200px;
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin: 32px 0;
-  }
-}
-
-.form-description {
+.nursery-info-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
+  text-align: center;
+  border-radius: 8px;
 
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  h1 {
+    margin: 16px auto;
   }
 
-  p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-  }
-
-  [hidden] {
-    display: none !important;
-  }
-
-  input {
-    font-family: var(--font-family-body);
-    padding: 10px 12px;
-    border: 1px solid #ccc;
+  .nursery-info-section {
+    border: 16px solid var(--light-bg-bloc-color);
+    margin: 0 16px;
     border-radius: 8px;
-    font-size: 14px;
-    background-color: #d9eef4;
-    color: #333;
-    width: 100%;
-  }
+    background-color: white;
+    box-shadow: 3px 2px 0 rgb(170, 176, 179);
+    margin-bottom: 16px;
 
-  input[type="checkbox"] {
-    background-color: #d9eef4;
-    border: 2px solid #888;
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
+    img {
+      height: 100px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-  #description,
-  #tasks {
-    padding: 32px;
-  }
+      button {
+        background-color: var(--light-bg-bloc-color-button);
+        font-family: var(--font-family-body);
+        border: none;
+        padding: 8px;
+        border-radius: 24px;
+        width: 250px;
+        margin: 16px;
+        cursor: pointer;
+        box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
+      }
 
-  .custom-file-nursery {
-    background-color: #d9eef4;
-    color: #333;
-    border: none;
-    padding: 12px 24px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
-
-  #description-nursery-file {
-    font-size: 14px;
-    color: #333;
-  }
-
-  input::placeholder {
-    color: #888;
-  }
-
-  button[type="submit"] {
-    font-family: var(--font-family-body);
-    margin: 32px;
-    background-color: #e3def6;
-    color: #000;
-    font-weight: bold;
-    border: none;
-    padding: 24px;
-    border-radius: 48px;
-    cursor: pointer;
-    width: fit-content;
-    align-self: center;
-    transition: background-color 0.3s ease;
-  }
-
-  button[type="submit"]:hover {
-    background-color: #a285be;
+      label {
+        margin-bottom: 4px;
+      }
+      input {
+        width: 250px;
+        height: 32px;
+        padding: 0 8px;
+        border: 0.5px solid rgb(170, 176, 179);
+        margin-bottom: 8px;
+        box-shadow: 0 2px 1px 0 rgb(170, 176, 179);
+        font-size: 1rem;
+      }
+    }
   }
 }
 
-@media screen and (min-width: 850px) {
-  .description-nursery-page {
-    background-image: url("/images/background.png");
-    background-size: cover;
-    background-position: center;
-
-    section {
-      max-width: 1000px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    h1 {
-      margin: 48px;
-    }
-
-    img {
-      display: none;
-    }
-  }
-
-  .form-description {
+@media screen and (min-width: 768px) {
+  .nursery-info-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 16px;
-
-    button[type="submit"] {
-      grid-column: -3 / -1;
-      justify-self: center;
-    }
-
-    .reception-nursery-checkbox {
-      grid-column: 1 / 2;
-    }
-
-    .nursery-checkbox-two {
-      grid-column: 2 / 2;
-    }
-
-    input {
-      width: auto;
-    }
+    justify-content: center;
   }
 }
