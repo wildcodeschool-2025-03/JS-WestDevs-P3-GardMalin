@@ -107,12 +107,17 @@ const refreshToken: RequestHandler = (req, res) => {
     const verifyToken = jwt.verify(token, secretKey);
 
     if (verifyToken) {
-      const { id, email, nurserieId } = verifyToken as JwtPayload;
-      const newToken = jwt.sign({ id, email, nurserieId }, secretKey, {
-        expiresIn: "1d",
-      });
+      const { id, email, nurserieId, parentId, role } =
+        verifyToken as JwtPayload;
+      const newToken = jwt.sign(
+        { id, email, nurserieId, parentId, role },
+        secretKey,
+        {
+          expiresIn: "1d",
+        },
+      );
       res.cookie("token", newToken);
-      res.status(200).json({ id, email, nurserieId });
+      res.status(200).json({ id, email, nurserieId, parentId, role });
     }
   } catch (err) {
     res.sendStatus(500);
