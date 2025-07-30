@@ -1,4 +1,5 @@
 export interface Reservation {
+  kid_gender: string;
   kid_id: number;
   nursery_id: number;
   date: string;

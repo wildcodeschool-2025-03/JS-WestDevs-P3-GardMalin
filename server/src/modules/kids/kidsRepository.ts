@@ -27,6 +27,14 @@ class kidsRepository {
     return kid.affectedRows;
   }
 
+  async getParentId(parentId: number) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT u.*, parent.id as parent_id FROM `user` as u JOIN parent ON u.id = parent.user_id WHERE u.id = ?",
+      [parentId],
+    );
+    return rows;
+  }
+
   async readById(id: string) {
     const [rows] = await databaseClient.query<Rows>(
       "SELECT * FROM kid WHERE parent_id = ?",

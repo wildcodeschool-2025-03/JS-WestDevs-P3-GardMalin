@@ -13,6 +13,7 @@ class reservationsRepository {
       reservation.is_validated,
       kid.firstname AS kid_firstname,
       kid.lastname AS kid_lastname,
+      kid.gender AS kid_gender,
       kid.age AS kid_age,
       nursery.name AS nursery_name,
       nursery.capacity AS nursery_capacity
