@@ -1,13 +1,15 @@
-/* .bloc-one {
+.child-reservation-card-container {
+  height: 150px;
+  margin: 16px;
+}
+
+.reservation-bloc {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   background-color: white;
-  padding: 8px;
-  margin: 16px 28px;
+  width: 250px;
+  border-radius: 18px;
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
-
-  p {
-    display: flex;
-    justify-content: center;
-  }
-} */
+}

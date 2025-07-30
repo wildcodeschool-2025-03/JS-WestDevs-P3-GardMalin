@@ -25,7 +25,7 @@ interface Kid {
   lastname?: string;
   name?: string;
   gender?: string;
-  age: number;
+  age?: number;
 }
 
 interface kids {
@@ -43,19 +43,18 @@ interface CardProps {
   name: string;
   age: number;
   status: "validées" | "en attente" | "refusées";
-  onValidate?: (id: number) => void;
-  onRefuse?: (id: number) => void;
+  onAction?: (id: number, action: "yes" | "no") => void;
 }
 
 type Nursery = {
-  mail: ReactNode;
-  phone_number: ReactNode;
-  street: ReactNode;
+  mail: string;
+  phone_number: string;
+  street: string;
   id: number;
   description?: string;
-  phone?: ReactNode;
-  postal_code: ReactNode;
-  city: ReactNode;
+  phone?: string;
+  postal_code: string;
+  city: string;
   name: string;
 };
 interface ReservationRecap {

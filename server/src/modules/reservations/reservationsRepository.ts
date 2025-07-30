@@ -1,4 +1,7 @@
-import databaseClient, { type Rows } from "../../../database/client";
+import databaseClient, {
+  type Result,
+  type Rows,
+} from "../../../database/client";
 
 class reservationsRepository {
   async readAll(date: string, nurseryId: number) {
@@ -95,6 +98,22 @@ class reservationsRepository {
     );
 
     return rows;
+  }
+
+  async updateValidation(
+    kidId: number,
+    date: string,
+    nurseryId: number,
+    is_validated: number,
+  ) {
+    const [result] = await databaseClient.query<Result>(
+      `UPDATE reservation
+       SET is_validated = ?
+       WHERE kid_id = ? AND date = ? AND nursery_id = ?`,
+      [is_validated, kidId, date, nurseryId],
+    );
+
+    return result.affectedRows;
   }
 }
 

@@ -47,6 +47,7 @@ router.get("/reservations", reservationsActions.browse);
 router.get("/reservationsone", reservationsActions.read);
 router.get("/reservations/:id", reservationsActions.readByParentID);
 router.get("/reservations/by-user/:userId", reservationsActions.readByUserId);
+router.patch("/reservations/:kidId", reservationsActions.updateValidation);
 router.post("/reservationstwo", reservationsActions.add);
 
 router.get("/users", usersActions.browse);
