@@ -12,6 +12,10 @@ import LoginPro from "./pages/LoginPro/LoginPro";
 import Page404 from "./pages/Page404/Page404";
 import PageUnderConstruction from "./pages/PageUnderConstruction/PageUnderConstruction";
 
+import ActivitiesArticle from "./pages/Articles/ActivitiesArticle";
+import ArticlesPage from "./pages/Articles/Articles";
+import DevelopmentArticle from "./pages/Articles/DevelopmentArticle";
+import TravelArticle from "./pages/Articles/TravelArticle";
 import ConfirmationReservation from "./pages/ConfirmationReservation/ConfirmationReservation";
 import DescriptionNursery from "./pages/DescriptionNursery/DescriptionNursery";
 import ParentInformation from "./pages/ParentInformation/ParentInformation";
@@ -101,6 +105,22 @@ const router = createBrowserRouter([
       {
         path: "/space-admin",
         element: <SpaceAdmin />,
+      },
+      {
+        path: "/articles",
+        element: <ArticlesPage />,
+      },
+      {
+        path: "/articles/development-ages",
+        element: <DevelopmentArticle />,
+      },
+      {
+        path: "/articles/holiday-activities",
+        element: <ActivitiesArticle />,
+      },
+      {
+        path: "/articles/travel-with-baby",
+        element: <TravelArticle />,
       },
     ],
   },
