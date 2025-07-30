@@ -17,15 +17,11 @@
   grid-column-gap: 16px;
   grid-row-gap: 16px;
   margin: 16px;
-  .space-reservation {
-    box-shadow: 8px;
-  }
 
   .space-reservation {
-    display: flex;
-    flex-direction: column;
+    box-shadow: 8px;
     align-items: center;
-    width: 360px;
+    width: 340px;
   }
 
   h3 {
@@ -35,7 +31,6 @@
     margin: 16px 0;
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
     text-align: center;
   }
 }
@@ -50,6 +45,11 @@
   margin: auto;
   width: 340px;
   cursor: pointer;
+}
+
+.container-btn {
+  justify-content: center;
+  align-items: center;
 }
 
 .page-parent section {
@@ -91,10 +91,7 @@
 }
 
 .space-children {
-  display: flex;
-  flex-direction: column;
   background-color: white;
-  width: 360px;
   height: auto;
   border-radius: 8px;
   padding: 16px;
@@ -113,10 +110,10 @@
 }
 
 .old-resevation {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
 }
 
@@ -148,10 +145,19 @@
     grid-column-gap: 16px;
     margin: 16px;
     text-align: center;
+    justify-items: center;
 
     h3 {
       width: 400px;
       margin-bottom: 28px;
+    }
+
+    .container-btn {
+      grid-column: 2 / 3;
+      grid-row: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .my-news {
@@ -159,60 +165,64 @@
       width: 200px;
       height: 100px;
       border-radius: 48px;
+
+      a {
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .space-reservation {
       grid-column: 1 / 2;
       grid-row: 2 / -2;
       align-items: center;
-      width: 800px;
+      justify-content: center;
+      width: max-content;
       height: 600px;
 
       h3 {
         margin: 24px 0 8px;
       }
+    }
 
-      .scroller {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        overflow-y: hidden;
-        width: 800px;
-      }
+    .scroller {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      overflow-y: scroll;
+      width: max-content;
+    }
 
-      .new-reservation {
-        margin-top: auto;
-      }
+    .new-reservation {
+      margin-top: auto;
     }
 
     .space-children {
-      width: 800px;
+      align-items: center;
+      width: 600px;
       height: 600px;
-      display: flex;
-      flex-direction: column;
       grid-column: 3 / 4;
     }
-  }
 
-  .scroller-children {
-    display: flex;
-    flex-direction: row;
-    padding: 0;
-  }
-  .cards-children {
-    display: flex;
-  }
+    .scroller-children {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      overflow-y: scroll;
+      padding: 0;
+    }
 
-  .old-resevation {
-    display: flex;
-    flex-direction: column;
-  }
-  .box-one {
-    height: 200px;
-    padding: 18px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    .old-reservation {
+      display: grid;
+      justify-content: center;
+    }
+
+    .box-one {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      overflow-y: scroll;
+      height: 230px;
+      width: 470px;
+    }
   }
 }
