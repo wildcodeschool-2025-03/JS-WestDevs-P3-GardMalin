@@ -22,7 +22,9 @@ function PresentationEstablishment() {
       ? "/images/establishments/les_petits_explorateurs.png"
       : nursery.id === 2
         ? "/images/establishments/les_coccinelles_joyeuses.png"
-        : "/images/establishments/puzzle_et_petits_pas.png";
+        : nursery.id === 3
+          ? "/images/establishments/puzzle_et_petits_pas.png"
+          : "/images/establishments/creche-random.png";
 
   return (
     <section className="presentation-establishment">
