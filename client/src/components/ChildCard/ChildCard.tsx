@@ -83,7 +83,7 @@ const ChildCard = ({
     e.preventDefault();
 
     fetch(`http://localhost:3310/api/kids/${kid.id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(kid),
     }).then((res) => {
@@ -127,7 +127,6 @@ const ChildCard = ({
           value={kid.firstname}
           onChange={handleChange}
           placeholder="Exemple: Jean"
-          required
         />
 
         <label htmlFor="lastname2">Nom</label>
@@ -137,7 +136,6 @@ const ChildCard = ({
           value={kid.lastname}
           onChange={handleChange}
           placeholder="Exemple: Dupont"
-          required
         />
 
         <label htmlFor="age2">Âge (en mois)</label>
@@ -148,7 +146,6 @@ const ChildCard = ({
           onChange={handleChange}
           placeholder="Exemple: 12"
           type="number"
-          required
         />
 
         <label htmlFor="gender2">Genre</label>
@@ -157,7 +154,6 @@ const ChildCard = ({
           name="gender"
           value={kid.gender}
           onChange={handleChange}
-          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="M">Garçon</option>
@@ -170,7 +166,6 @@ const ChildCard = ({
           name="handicap"
           value={String(kid.handicap)}
           onChange={handleChange}
-          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="true">Oui</option>
@@ -185,20 +180,17 @@ const ChildCard = ({
           onChange={handleChange}
           placeholder="Exemple: Arachides"
         />
-
         <label htmlFor="walker1">Marchant</label>
         <select
           id="walker1"
           name="walker"
           value={String(kid.walker)}
           onChange={handleChange}
-          required
         >
           <option value="">-- Sélectionner --</option>
           <option value="true">Oui</option>
           <option value="false">non</option>
         </select>
-
         <div className="child-card-buttons">
           <button type="submit">Enregistrer les modifications</button>
           <button type="button" onClick={handleDelete}>

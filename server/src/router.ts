@@ -23,7 +23,7 @@ import validation from "./utils/validation";
 
 router.get("/kids", kidsActions.browse);
 router.get("/kids/:id", kidsActions.read);
-router.put("/kids/:id", kidsActions.edit);
+router.patch("/kids/:id", kidsActions.edit);
 router.post("/kids", kidsActions.add);
 router.delete("/kids/:id", kidsActions.destroy);
 router.get("/kids/by-user/:userId", kidsActions.readByUserId);

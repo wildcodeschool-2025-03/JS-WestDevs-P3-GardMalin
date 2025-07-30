@@ -200,9 +200,9 @@ function RegistrationParentsPage() {
             </button>
           </form>
 
-          <Link to="/space-parent">
+          <Link to="/login-parent">
             <button className="parents-button" type="button">
-              Espace parents
+              Connectez-vous
             </button>
           </Link>
         </section>

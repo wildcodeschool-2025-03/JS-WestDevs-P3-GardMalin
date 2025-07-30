@@ -122,6 +122,8 @@
 .home-articles li a {
   width: 300px;
   height: auto;
+  color: black;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
