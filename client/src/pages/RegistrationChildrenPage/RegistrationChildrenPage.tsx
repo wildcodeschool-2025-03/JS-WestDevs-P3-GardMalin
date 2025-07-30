@@ -7,6 +7,7 @@ import { useAuth } from "../../services/AuthContext";
 
 function RegistrationChildrenPage() {
   const { user } = useAuth();
+  console.log(user);
 
   const [formData, setFormData] = useState({
     gender: "",
@@ -16,7 +17,7 @@ function RegistrationChildrenPage() {
     walker: false,
     allergies: "",
     handicap: false,
-    parent_id: user?.id,
+    parent_id: user?.parentId,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,18 +41,21 @@ function RegistrationChildrenPage() {
 
     const payload = {
       ...formData,
-      parent_id: Number(user?.id),
+      parent_id: Number(user?.parentId),
     };
 
     console.log("Payload envoyé :", payload);
 
-    const res = await fetch("http://localhost:3310/api/kids", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `http://localhost:3310/api/kids?parent_id=${user?.parentId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       },
-      body: JSON.stringify(payload),
-    });
+    );
 
     if (res.ok) {
       toast.success("Enfant inscrit avec succès !");
