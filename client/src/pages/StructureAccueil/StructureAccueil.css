@@ -60,10 +60,9 @@
   align-items: center;
   flex-direction: column;
   border-radius: 16px;
-  width: auto;
+  width: 360px;
   height: auto;
   padding: 16px;
-  margin: 0 16px 16px;
   box-shadow: 0 3px 2px 0 rgb(170, 176, 179);
   text-align: center;
 }
@@ -282,6 +281,8 @@
 
   .section-on-the-top {
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
   .type-of-reception {
     background-color: white;

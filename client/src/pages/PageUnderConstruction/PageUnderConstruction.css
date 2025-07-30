@@ -4,6 +4,7 @@
   align-items: center;
   background-color: var(--light-bg-bloc-color);
   padding: 1rem;
+  height: 100vh;
 }
 
 .page-under-construction figure img {
@@ -50,12 +51,13 @@
     background-color: white;
     margin: 0;
     padding: 0;
+    height: auto;
   }
 
   .page-under-construction figure {
     grid-area: 1 / 1 / 6 / 2;
     background-color: var(--light-bg-bloc-color);
-    height: 100vh;
+    height: 81vh;
     margin: 0;
     display: flex;
     justify-content: center;

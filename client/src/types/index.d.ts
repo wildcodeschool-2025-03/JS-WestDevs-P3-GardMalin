@@ -25,7 +25,7 @@ interface Kid {
   lastname?: string;
   name?: string;
   gender?: string;
-  age: number;
+  age?: number;
 }
 
 interface kids {
@@ -47,14 +47,14 @@ interface CardProps {
 }
 
 type Nursery = {
-  mail: ReactNode;
-  phone_number: ReactNode;
-  street: ReactNode;
+  mail: string;
+  phone_number: string;
+  street: string;
   id: number;
   description?: string;
-  phone?: ReactNode;
-  postal_code: ReactNode;
-  city: ReactNode;
+  phone?: string;
+  postal_code: string;
+  city: string;
   name: string;
 };
 interface ReservationRecap {

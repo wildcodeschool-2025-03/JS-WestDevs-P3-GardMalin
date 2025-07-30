@@ -91,7 +91,7 @@ const ParentInformation = () => {
       <h1>Espace parents informations</h1>
       <section className="parent-info-section">
         <div>
-          <img src="/images/family.png" alt="family avatar" />
+          <img src="/images/family-2.png" alt="family avatar" />
           <h2>Profil parent</h2>
         </div>
         <form onSubmit={handleUpdate}>
@@ -169,11 +169,7 @@ const ParentInformation = () => {
           {kid.map((kid) => (
             <ChildCard
               key={kid.id}
-              imgSrc={
-                kid.gender === "F"
-                  ? "/images/little_girl.png"
-                  : "/images/little_boy.png"
-              }
+              imgSrc={kid.gender}
               id={kid.id}
               firstname={kid.firstname}
               lastname={kid.lastname}

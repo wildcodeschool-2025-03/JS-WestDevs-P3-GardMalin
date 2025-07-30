@@ -27,6 +27,28 @@ function SpaceParent() {
       .then((res) => res.json())
       .then((data) => setReservation(data));
   }, [user]);
+
+  const now = new Date();
+  const currentMonth = now.getMonth();
+  const currentYear = now.getFullYear();
+
+  const previousMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+  const previousYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+
+  const currentMonthReservations = reservation.filter((resa) => {
+    const date = new Date(resa.date);
+    return (
+      date.getMonth() === currentMonth && date.getFullYear() === currentYear
+    );
+  });
+
+  const previousMonthReservations = reservation.filter((resa) => {
+    const date = new Date(resa.date);
+    return (
+      date.getMonth() === previousMonth && date.getFullYear() === previousYear
+    );
+  });
+
   if (!user || !parent || !kid) {
     return <p>Chargement en cours...</p>;
   }
@@ -46,14 +68,18 @@ function SpaceParent() {
         <section className="space-reservation">
           <h3>Mes réservations</h3>
           <div className="scroller">
-            {reservation?.map((res) => (
-              <ReservationCard
-                key={`${res.kid_id}-${res.date}`}
-                kid_firstname={res.kid_firstname}
-                nursery_name={res.nursery_name}
-                date={res.date}
-              />
-            ))}
+            {currentMonthReservations.length > 0 ? (
+              currentMonthReservations.map((resa) => (
+                <ReservationCard
+                  key={`${resa.kid_id}-${resa.date}`}
+                  kid_firstname={resa.kid_firstname}
+                  nursery_name={resa.nursery_name}
+                  date={resa.date}
+                />
+              ))
+            ) : (
+              <p>Aucune réservation ce mois-ci.</p>
+            )}
           </div>
           <Link to="/childcare-facility">
             <button type="button" className="new-reservation">
@@ -68,28 +94,27 @@ function SpaceParent() {
             {kid.map((kid) => (
               <ChildrenCard
                 key={kid.id}
-                imgSrc={
-                  kid.gender === "F"
-                    ? "/images/little_girl.png"
-                    : "/images/little_boy.png"
-                }
+                gender={kid.gender}
                 firstname={kid.firstname}
               />
             ))}
           </div>
-          <h3>Mes anciennes réservations</h3>
           <article className="old-reservation">
-            <ul className="old-block">
-              <li className="box-one">
-                <p>Établissement d'accueil 1</p>
-              </li>
-              <li className="box-two">
-                <p>Établissement d'accueil 2</p>
-              </li>
-              <li className="box-three">
-                <p>Établissement d'accueil 3</p>
-              </li>
-            </ul>
+            <h3>Mes anciennes réservations</h3>
+            <div className="box-one">
+              {previousMonthReservations.length > 0 ? (
+                previousMonthReservations.map((resa) => (
+                  <ReservationCard
+                    key={`${resa.kid_id}-${resa.date}`}
+                    nursery_name={resa.nursery_name}
+                    date={resa.date}
+                    kid_firstname={resa.kid_firstname}
+                  />
+                ))
+              ) : (
+                <p>Aucune réservation le mois dernier.</p>
+              )}
+            </div>
           </article>
         </section>
       </div>
