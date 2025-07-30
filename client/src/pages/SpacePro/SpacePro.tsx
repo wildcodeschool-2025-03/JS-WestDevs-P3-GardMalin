@@ -34,10 +34,10 @@ const SpacePro = () => {
         <h2>Mes coordonnées</h2>
         <article>
           <p>
-            📍 {nursery.street}, {nursery.postal_code} {nursery.city}
+            📍 {nursery.street}, {nursery.postal_code} {nursery.city} <br />📞{" "}
+            {nursery.phone_number} <br />
+            ✉️ {user.email}
           </p>
-          <p>📞 {nursery.phone_number}</p>
-          <p>✉️ {user.email}</p>
         </article>
       </section>
       <section>
