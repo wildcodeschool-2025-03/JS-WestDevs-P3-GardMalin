@@ -71,6 +71,7 @@
   scrollbar-width: thin;
   scrollbar-color: var(--light-bg-bloc-color-button) white;
   margin: 16px;
+  padding-bottom: 16px;
 }
 
 .new-reservation {
@@ -100,10 +101,8 @@
 .scroller-children {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 400px;
-  padding: 180px 0 0;
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: var(--light-bg-bloc-color-button) white;
@@ -128,6 +127,7 @@
   overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: var(--light-bg-bloc-color-button) white;
+  padding-bottom: 16px;
 }
 
 @media screen and (min-width: 768px) {
@@ -219,10 +219,10 @@
 
     .box-one {
       grid-template-columns: repeat(2, 1fr);
-      justify-content: center;
       overflow-y: scroll;
       height: 230px;
       width: 470px;
+      gap: 16px;
     }
   }
 }
