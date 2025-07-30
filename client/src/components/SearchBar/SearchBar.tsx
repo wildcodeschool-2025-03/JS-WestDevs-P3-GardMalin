@@ -74,7 +74,12 @@ function SearchBar(props: SearchBarProps | undefined) {
           {value &&
             filteredNurseries.map((element: Nursery) => (
               <li key={element.id}>
-                <Link to={`/establishment/${element.id}`}>{element.name}</Link>
+                <Link
+                  to={`/establishment/${element.id}`}
+                  className="link-surchbar"
+                >
+                  {element.name}
+                </Link>
               </li>
             ))}
         </ul>

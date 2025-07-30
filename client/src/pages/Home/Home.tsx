@@ -9,9 +9,15 @@ function Home() {
       <section className="home-page-presentation">
         <article>
           <section>
-            <Link to="/login-parent">Je cherche une garde d'enfant </Link>
-            <Link to="/login-pro">Je veux garder des enfants </Link>
-            <Link to="/about">Nous contacter </Link>
+            <Link to="/login-parent" className="link-login-parent">
+              Je cherche une garde d'enfant{" "}
+            </Link>
+            <Link to="/login-pro" className="link-login-pro">
+              Je veux garder des enfants{" "}
+            </Link>
+            <Link to="/about" className="link-about">
+              Nous contacter{" "}
+            </Link>
           </section>
           <section>
             <p>
