@@ -16,6 +16,10 @@ footer {
   padding: 12px;
   gap: 12px;
 
+  img {
+    width: 42px;
+  }
+
   img:hover {
     transform: translateY(-5px);
   }
