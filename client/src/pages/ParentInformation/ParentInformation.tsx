@@ -19,16 +19,12 @@ const ParentInformation = () => {
       .then((res) => res.json())
       .then((data) => setParent(data));
 
-    fetch(`http://localhost:3310/api/kids/${user.id}`)
-      .then((res) => res.json())
-      .then((data) => setKid(data));
-
     fetchKids();
   }, [user]);
 
   const fetchKids = () => {
     if (!user) return;
-    fetch(`http://localhost:3310/api/kids/${user.id}`)
+    fetch(`http://localhost:3310/api/kids/${user.parentId}`)
       .then((res) => res.json())
       .then((data) => setKid(data));
   };
@@ -43,7 +39,7 @@ const ParentInformation = () => {
   const handleUpdate = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!user) return;
-    fetch(`http://localhost:3310/api/parents/${user.id}`, {
+    fetch(`http://localhost:3310/api/parents/${user.parentId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(parent),

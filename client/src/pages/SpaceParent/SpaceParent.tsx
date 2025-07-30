@@ -19,7 +19,7 @@ function SpaceParent() {
       .then((res) => res.json())
       .then((data) => setParent(data));
 
-    fetch(`http://localhost:3310/api/kids/${user.id}`)
+    fetch(`http://localhost:3310/api/kids/${user.parentId}`)
       .then((res) => res.json())
       .then((data) => setKid(data));
 

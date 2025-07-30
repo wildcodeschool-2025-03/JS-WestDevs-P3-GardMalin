@@ -1,6 +1,7 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import jwt, { type JwtPayload } from "jsonwebtoken";
+import kidsRepository from "../modules/kids/kidsRepository";
 import reservationsRepository from "../modules/reservations/reservationsRepository";
 import usersRepository from "../modules/users/usersRepository";
 
@@ -45,6 +46,14 @@ const login: RequestHandler = async (req, res) => {
         email: user.email,
         role: user.role,
         nurserieId: result.nursery_id,
+      };
+    } else if (user.role === "parent") {
+      const [result] = await kidsRepository.getParentId(user.id);
+      payload = {
+        id: result.id,
+        email: user.email,
+        role: user.role,
+        parentId: result.parent_id,
       };
     } else {
       payload = {
