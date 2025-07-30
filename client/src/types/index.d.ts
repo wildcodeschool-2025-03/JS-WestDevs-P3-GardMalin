@@ -38,8 +38,9 @@ interface kids {
 }
 
 interface CardProps {
+  gender: string;
   id: number;
-  image: string;
+  image?: string;
   name: string;
   age: number;
   status: "validées" | "en attente" | "refusées";
