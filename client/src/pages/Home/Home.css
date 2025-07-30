@@ -40,7 +40,7 @@
   align-items: center;
 }
 
-.home-page-presentation article section a:nth-child(1) {
+.link-login-parent {
   background-color: rgb(244, 204, 194);
   width: 100%;
   border: none;
@@ -52,7 +52,7 @@
   color: black;
 }
 
-.home-page-presentation article section a:nth-child(2) {
+.link-login-pro {
   background-color: rgb(244, 228, 194);
   width: 100%;
   border: none;
@@ -64,7 +64,7 @@
   color: black;
 }
 
-.home-page-presentation article section a:nth-child(3) {
+.link-about {
   background-color: rgb(232, 244, 194);
   width: 100%;
   border: none;
