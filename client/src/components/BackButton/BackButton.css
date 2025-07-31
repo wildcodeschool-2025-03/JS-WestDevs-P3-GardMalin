@@ -5,7 +5,7 @@
 
 .back-button button {
   background-color: var(--light-bg-bloc-color-button);
-  font-style: var(--font-family-body);
+  font-family: var(--font-family-body);
   -webkit-border-radius: 100px / 160px;
   -moz-border-radius: 100px / 160px;
   border-radius: 100px / 160px;
