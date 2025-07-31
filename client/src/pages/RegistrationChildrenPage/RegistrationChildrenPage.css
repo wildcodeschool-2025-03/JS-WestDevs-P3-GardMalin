@@ -97,8 +97,8 @@ input#age {
     margin: 16px;
     cursor: pointer;
     padding: 0;
-    color: rgb(159, 159, 253);
-    background: none;
+    /* color: rgb(159, 159, 253);
+    background: none; */
   }
 }
 
