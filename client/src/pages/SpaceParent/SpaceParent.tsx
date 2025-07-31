@@ -60,13 +60,15 @@ function SpaceParent() {
       </header>
 
       <div className="page-parent">
-        <Link to="/parent-information">
-          <button className="my-news" type="button">
-            Mes informations
-          </button>
-        </Link>
+        <div className="container-btn">
+          <Link to="/parent-information">
+            <button className="my-news" type="button">
+              Mes informations
+            </button>
+          </Link>
+        </div>
         <section className="space-reservation">
-          <h3>Mes réservations</h3>
+          <h3>Les réservations du mois</h3>
           <div className="scroller">
             {currentMonthReservations.length > 0 ? (
               currentMonthReservations.map((resa) => (
