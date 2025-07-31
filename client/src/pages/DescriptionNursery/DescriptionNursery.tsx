@@ -84,7 +84,10 @@ const DescriptionNursery = () => {
       <h1>Espace crèches informations</h1>
       <section className="nursery-info-section">
         <div>
-          <img src="/images/family-2.png" alt="family avatar" />
+          <img
+            src="/images/enfants-dessinant-maison-crayons.png"
+            alt="family avatar"
+          />
           <h2>Profil crèche</h2>
         </div>
         <form onSubmit={handleUpdate}>
