@@ -19,7 +19,9 @@ const DescriptionNursery = () => {
       .then((data) => setnursery(data));
   }, [user]);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     if (nursery) {
       setnursery({ ...nursery, [name]: value });
@@ -34,6 +36,7 @@ const DescriptionNursery = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nursery),
     }).then((response) => {
+      console.log(nursery);
       if (response.ok) {
         toast("Informations modifiées avec succès !");
       } else {
@@ -146,7 +149,7 @@ const DescriptionNursery = () => {
           />
 
           <label htmlFor="description">Description</label>
-          <input
+          <textarea
             id="description"
             name="description"
             value={nursery.description}

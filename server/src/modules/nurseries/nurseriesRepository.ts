@@ -53,9 +53,9 @@ class nurseriesRepository {
     return nursery.affectedRows;
   }
 
-  async update(body: Nursery, id: string) {
+  async update(body: Nursery, user_id: string) {
     const [rows] = await databaseClient.query<Result>(
-      "UPDATE nursery SET name = ?, siret = ?, street = ?, postal_code = ?, city = ?, phone_number = ?, description = ? WHERE id = ?",
+      "UPDATE nursery SET name = ?, siret = ?, street = ?, postal_code = ?, city = ?, phone_number = ?, description = ? WHERE user_id = ?",
       [
         body.name,
         body.siret,
@@ -64,6 +64,7 @@ class nurseriesRepository {
         body.city,
         body.phone_number,
         body.description,
+        user_id,
       ],
     );
 

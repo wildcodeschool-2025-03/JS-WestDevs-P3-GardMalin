@@ -49,6 +49,9 @@
         box-shadow: 0 2px 1px 0 rgb(170, 176, 179);
         font-size: 1rem;
       }
+      textarea {
+        width: 250px;
+      }
     }
   }
 }
