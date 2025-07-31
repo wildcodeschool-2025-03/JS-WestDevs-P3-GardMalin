@@ -1,154 +1,177 @@
-import { type ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router";
 import "./DescriptionNursery.css";
+import type { ChangeEvent, FormEvent } from "react";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import BackButton from "../../components/BackButton/BackButton";
+import { useAuth } from "../../services/AuthContext";
 
-function DescriptionNursery() {
-  const [filePicture, setFilePicture] = useState("Aucun fichier sélectionné");
+const DescriptionNursery = () => {
+  const [nursery, setnursery] = useState<Nursery | null>(null);
+  const { user, setUser, setIsLogged } = useAuth();
+  const navigate = useNavigate();
+  console.log(user);
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFilePicture(e.target.files[0].name);
-    } else {
-      setFilePicture("Aucun fichier sélectionné");
+  useEffect(() => {
+    if (!user) return;
+    fetch(`http://localhost:3310/api/nurseries/${user.nurserieId}`)
+      .then((res) => res.json())
+      .then((data) => setnursery(data));
+  }, [user]);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    if (nursery) {
+      setnursery({ ...nursery, [name]: value });
     }
   };
 
+  const handleUpdate = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!user) return;
+    fetch(`http://localhost:3310/api/nurseriesedit/${user.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nursery),
+    }).then((response) => {
+      console.log(nursery);
+      if (response.ok) {
+        toast("Informations modifiées avec succès !");
+      } else {
+        toast("Erreur lors de la modifications");
+      }
+    });
+  };
+
+  const handleDelete = async () => {
+    if (
+      !window.confirm(
+        "Attention cette action est irréversible ! Souhaitez vous vraiment supprimer votre compte ? ",
+      )
+    )
+      return;
+    if (!user) return;
+
+    const response = await fetch(`http://localhost:3310/api/user/${user.id}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      toast.success("Compte supprimé !");
+
+      await fetch("http://localhost:3310/api/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      setUser(null);
+      setIsLogged(false);
+
+      navigate("/");
+    } else {
+      toast.error("Erreur lors de la suppression.");
+    }
+  };
+
+  if (!user || !nursery) {
+    return <p>Chargement en cours...</p>;
+  }
   return (
-    <main className="description-nursery-page">
-      <section>
-        <article className="logo-registration-parents">
-          <img src="/images/gardmalin-logo.png" alt="logo Gardmalin" />
-        </article>
-        <article>
-          <h1>Description de votre établissement</h1>
-        </article>
+    <div className="nursery-info-container">
+      <h1>Espace crèches informations</h1>
+      <section className="nursery-info-section">
+        <div>
+          <img
+            src="/images/enfants-dessinant-maison-crayons.png"
+            alt="family avatar"
+          />
+          <h2>Profil crèche</h2>
+        </div>
+        <form onSubmit={handleUpdate}>
+          <label htmlFor="name1">Nom de la crèche</label>
+          <input
+            id="name1"
+            name="name"
+            value={nursery.name}
+            onChange={handleChange}
+            placeholder="Nom de la crèche"
+            required
+          />
 
-        <form className="form-description">
-          <article className="reception-nursery-checkbox">
-            <label htmlFor="description" hidden>
-              Description
-            </label>
-            <input
-              id="description"
-              type="text"
-              placeholder="Décrivez votre établisessement"
-            />
-            <label htmlFor="tasks" hidden>
-              Missions
-            </label>
-            <input
-              id="tasks"
-              type="text"
-              placeholder="Présentez la ou les missions de votre établissement"
-            />
+          <label htmlFor="siret">Siret</label>
+          <input
+            id="siret"
+            name="siret"
+            value={nursery.siret}
+            onChange={handleChange}
+            placeholder="Exemple: 12457898653216"
+            required
+          />
 
-            <p>Accueil </p>
-            <label htmlFor="reception-one">
-              <input id="reception-one" type="checkbox" />
-              Espace extérieur / jardin
-            </label>
-            <label htmlFor="reception-two">
-              <input id="reception-two" type="checkbox" />
-              Sortie extérieures
-            </label>
+          <label htmlFor="street2">Rue</label>
+          <input
+            id="street2"
+            name="street"
+            value={nursery.street}
+            onChange={handleChange}
+            placeholder="Exemple: 16 Rue des acacias"
+            required
+          />
 
-            <p>Activités </p>
-            <label htmlFor="activity-one">
-              <input id="activity-one" type="checkbox" />
-              Promenades
-            </label>
-            <label htmlFor="activity-two">
-              <input id="activity-two" type="checkbox" />
-              Activités d"éveil
-            </label>
-            <label htmlFor="activity-three">
-              <input id="activity-three" type="checkbox" />
-              Atelier musique
-            </label>
-            <label htmlFor="activity-four">
-              <input id="activity-four" type="checkbox" />
-              Activité artistique
-            </label>
-            <label htmlFor="activity-five">
-              <input id="activity-five" type="checkbox" />
-              Bibliothèque / Ludothèque
-            </label>
-          </article>
-          <article className="nursery-checkbox-two">
-            <p>Les horaires et les jours d'ouverture</p>
-            <label htmlFor="day-one">
-              <input id="day-one" type="checkbox" />
-              Lundi
-            </label>
-            <label htmlFor="day-two">
-              <input id="day-two" type="checkbox" />
-              Mardi
-            </label>
-            <label htmlFor="day-three">
-              <input id="day-three" type="checkbox" />
-              Mercredi
-            </label>
-            <label htmlFor="day-four">
-              <input id="day-four" type="checkbox" />
-              Jeudi
-            </label>
-            <label htmlFor="day-five">
-              <input id="day-five" type="checkbox" />
-              Vendredi
-            </label>
-            <p>Choissisez votre horaire d'ouverture</p>
-            <label htmlFor="hour-morning" hidden>
-              Choissisez votre horaire d'ouverture
-            </label>
+          <label htmlFor="city2">Ville</label>
+          <input
+            id="city2"
+            name="city"
+            value={nursery.city}
+            onChange={handleChange}
+            placeholder="Exemple: La Rochelle"
+            required
+          />
 
-            <input
-              id="hour-morning"
-              type="time"
-              name="appt"
-              min="07:00"
-              max="19:00"
-              required
-            />
-            <p>Choissisez votre horaire de fermeture</p>
-            <label htmlFor="hour-morning" hidden>
-              Choissisez votre horaire de fermeture
-            </label>
+          <label htmlFor="postal_code2">Code postal</label>
+          <input
+            id="postal_code2"
+            name="postal_code"
+            value={nursery.postal_code}
+            onChange={handleChange}
+            placeholder="Exemple: 17000"
+            required
+          />
 
-            <input
-              id="hour-morning"
-              type="time"
-              name="appt"
-              min="07:00"
-              max="19:00"
-              required
-            />
+          <label htmlFor="phone_number2">Numéro de téléphone</label>
+          <input
+            id="phone_number2"
+            name="phone_number"
+            value={nursery.phone_number}
+            onChange={handleChange}
+            placeholder="Exemple: 0836656565"
+            required
+          />
 
-            <label
-              htmlFor="description-nursery-file"
-              className="custom-file-nursery"
-            >
-              Mettez une photos de votre établisemment en format PNG/JPEG
-            </label>
-            <span className="file-picture">{filePicture}</span>
-            <input
-              id="description-nursery-file"
-              type="file"
-              name="livretPdf"
-              accept="application/pdf"
-              onChange={handleFileChange}
-              hidden
-            />
-          </article>
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            value={nursery.description}
+            onChange={handleChange}
+            placeholder="Décrivez votre crèche"
+            required
+          />
 
-          <button type="submit">Validez</button>
+          <div>
+            <button type="submit">Enregistrer vos modifications</button>
+            <button type="button" onClick={handleDelete}>
+              Supprimer mon compte
+            </button>
+            <BackButton />
+          </div>
         </form>
-        <h5>
-          * Les champs non renseignés pourront être remplis ultérieurement.😉
-        </h5>
-        <BackButton />
       </section>
-    </main>
+    </div>
   );
-}
+};
 
 export default DescriptionNursery;

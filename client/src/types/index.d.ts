@@ -57,6 +57,7 @@ type Nursery = {
   postal_code: string;
   city: string;
   name: string;
+  siret?: string;
 };
 interface ReservationRecap {
   date: string;
